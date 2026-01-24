@@ -1,0 +1,983 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{xeCJK} % For Chinese characters - must be loaded before babel
+\usepackage[english,german]{babel}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,decorations.pathmorphing,decorations.markings}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{amssymb}
+
+% Set fonts for Chinese
+% xeCJK will automatically use a suitable Chinese font from your system
+% If compilation fails with font errors, uncomment and modify one of the following:
+% \setCJKmainfont{SimSun}              % Windows
+% \setCJKmainfont{Microsoft YaHei}     % Windows  
+% \setCJKmainfont{STSong}               % Mac
+% \setCJKmainfont{PingFang SC}          % Mac
+% \setCJKmainfont{AR PL UMing CN}      % Linux
+% \setCJKmainfont{Noto Sans CJK SC}    % Cross-platform
+
+% Alternative: Use xeCJK's auto font detection (default behavior)
+% This will work if you have any Chinese font installed on your system
+
+% Page setup
+\geometry{margin=2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% Colors
+\definecolor{shanghai}{RGB}{200,50,50}
+\definecolor{liuzhou}{RGB}{255,165,0}
+\definecolor{potsdam}{RGB}{50,100,150}
+\definecolor{egg}{RGB}{255,220,100}
+
+% Checkbox command
+\newcommand{\checkbox}{\raisebox{0.1ex}{\tikz[scale=0.5]{\draw[thick] (0,0) rectangle (0.4,0.4);}}}
+\newcommand{\checkedbox}{\raisebox{0.1ex}{\tikz[scale=0.5]{\draw[thick] (0,0) rectangle (0.4,0.4); \draw[thick] (0.1,0.2) -- (0.2,0.3) -- (0.3,0.1);}}}
+
+\title{\textbf{跨界融合食谱 / Fusion Recipe / Fusionsrezept}\\
+\large 波茨坦德式香肠柳式酸辣炒蛋 \& 沪柳风情德式面包盅 \& 意式德式融合千层面包盅\\
+\large Potsdam Sour-Spicy Eggs \& Shanghai-Liuzhou Bread Bowl \& Italian-German Lasagna Bread Bowl\\
+\large Potsdamer Saure-Würstchen-Eier \& Shanghai-Liuzhou Brot-Schale \& Italienisch-Deutsche Lasagne Brot-Schale}
+\author{跨文化烹饪创新 / Cross-Cultural Culinary Innovation / Interkulturelle Kücheninnovation}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{引言 / Introduction / Einleitung}
+
+这些食谱融合了多个地区的烹饪精髓：波茨坦的德国食材、上海的浓油赤酱精致风格、柳州的酸辣鲜香，以及意式的经典层次。以鸡蛋、面包和奶酪为核心，创造出独特的跨文化碰撞感。包含实际烹饪经验和改进建议。
+
+These recipes combine the culinary essence of multiple regions: Potsdam's German ingredients, Shanghai's thick oil and red sauce refinement, Liuzhou's sour, spicy, fresh, and fragrant flavors, and Italian classic layering. Centered around eggs, bread, and cheese, they create unique cross-cultural fusion experiences. Includes real cooking experiences and improvement tips.
+
+Diese Rezepte vereinen die kulinarische Essenz mehrerer Regionen: Potsdamer deutsche Zutaten, Shanghais raffinierte dicke Öl- und Rotsaucen-Stil, Liuzhous saure, scharfe, frische und aromatische Aromen, und italienische klassische Schichtung. Mit Eiern, Brot und Käse im Mittelpunkt schaffen sie einzigartige interkulturelle Fusionserlebnisse. Enthält echte Kocherfahrungen und Verbesserungstipps.
+
+\vspace{1cm}
+
+\section*{购物清单 / Grocery List / Einkaufsliste}
+
+\begin{longtable}{|p{0.5cm}|p{5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\multicolumn{5}{|c|}{\textbf{食材清单 / Ingredients List / Zutatenliste}} \\
+\hline
+\textbf{✓} & \textbf{食材 / Ingredient / Zutat} & \textbf{数量 / Quantity / Menge} & \textbf{用途 / Use / Verwendung} & \textbf{备注 / Notes / Notizen} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{✓} & \textbf{食材 / Ingredient / Zutat} & \textbf{数量 / Quantity / Menge} & \textbf{用途 / Use / Verwendung} & \textbf{备注 / Notes / Notizen} \\
+\hline
+\endhead
+
+\hline
+\checkbox & 鸡蛋 / Eggs / Eier & 5-7枚 / 5-7 pieces / 5-7 Stück & 两食谱 / Both recipes / Beide Rezepte & Freilandhaltung 更佳 / Free-range preferred / Freilandhaltung bevorzugt \\
+\hline
+\checkbox & Bockwurst 或 Nürnberger Rostbratwurst & 1根 / 1 piece / 1 Stück & 食谱一 / Recipe 1 / Rezept 1 & 德国超市 / German supermarket / Deutscher Supermarkt \\
+\hline
+\checkbox & 德式小圆面包 / Brötchen / Deutsche Brötchen & 2-3个 / 2-3 pieces / 2-3 Stück & 食谱二 / Recipe 2 / Rezept 2 & 可选：无麸质 / Optional: Gluten-free / Optional: Glutenfrei \\
+\hline
+\checkbox & 生抽 / Light Soy Sauce / Helle Sojasoße & 适量 / As needed / Nach Bedarf & 两食谱 / Both recipes / Beide Rezepte & 亚洲超市 / Asian market / Asiatischer Markt \\
+\hline
+\checkbox & 老抽 / Dark Soy Sauce / Dunkle Sojasoße & 适量 / As needed / Nach Bedarf & 两食谱 / Both recipes / Beide Rezepte & 上色用 / For color / Für Farbe \\
+\hline
+\checkbox & 冰糖 / Rock Sugar / Kandiszucker & 2-3颗 / 2-3 pieces / 2-3 Stück & 食谱一 / Recipe 1 / Rezept 1 & 或砂糖 / Or regular sugar / Oder normaler Zucker \\
+\hline
+\checkbox & 砂糖 / Granulated Sugar / Kristallzucker & 适量 / As needed / Nach Bedarf & 食谱二 / Recipe 2 / Rezept 2 & 或冰糖 / Or rock sugar / Oder Kandiszucker \\
+\hline
+\checkbox & 酸笋 / Sour Bamboo Shoots / Saure Bambussprossen & 适量 / As needed / Nach Bedarf & 两食谱 / Both recipes / Beide Rezepte & 亚洲超市 / Asian market / Asiatischer Markt \\
+\hline
+\checkbox & 酸黄瓜 / Pickles (Gewürzgurken) / Gewürzgurken & 适量 / As needed / Nach Bedarf & 两食谱 / Both recipes / Beide Rezepte & 德国超市常见 / Common in German stores / In deutschen Läden üblich \\
+\hline
+\checkbox & 辣椒油 / Chili Oil / Chiliöl & 适量 / As needed / Nach Bedarf & 两食谱 / Both recipes / Beide Rezepte & 或自制 / Or homemade / Oder selbstgemacht \\
+\hline
+\checkbox & 红油辣椒 / Red Chili Oil / Rotes Chiliöl & 适量 / As needed / Nach Bedarf & 食谱二 / Recipe 2 / Rezept 2 & 可选 / Optional / Optional \\
+\hline
+\checkbox & 葱花 / Scallions / Frühlingszwiebeln & 适量 / As needed / Nach Bedarf & 两食谱 / Both recipes / Beide Rezepte & 新鲜 / Fresh / Frisch \\
+\hline
+\checkbox & 蒜 / Garlic / Knoblauch & 2-3瓣 / 2-3 cloves / 2-3 Zehen & 食谱一 / Recipe 1 / Rezept 1 & 切末 / Minced / Gehackt \\
+\hline
+\checkbox & 培根 / Bacon / Speck & 适量 / As needed / Nach Bedarf & 食谱二（可选）/ Recipe 2 (optional) / Rezept 2 (optional) & 切丁 / Diced / Gewürfelt \\
+\hline
+\checkbox & 食用油 / Cooking Oil / Speiseöl & 适量 / As needed / Nach Bedarf & 两食谱 / Both recipes / Beide Rezepte & 植物油 / Vegetable oil / Pflanzenöl \\
+\hline
+\checkbox & 水或牛奶 / Water or Milk / Wasser oder Milch & 少量 / A little / Etwas & 食谱一 / Recipe 1 / Rezept 1 & 使蛋更蓬松 / For fluffiness / Für Fluffigkeit \\
+\hline
+\checkbox & 奶酪 / Cheese / Käse & 适量 / As needed / Nach Bedarf & 食谱三 / Recipe 3 / Rezept 3 & 马苏里拉或切达 / Mozzarella or Cheddar / Mozzarella oder Cheddar \\
+\hline
+\checkbox & 火腿 / Ham / Schinken & 适量 / As needed / Nach Bedarf & 食谱三 / Recipe 3 / Rezept 3 & 切丁或切片 / Diced or sliced / Gewürfelt oder in Scheiben \\
+\hline
+\checkbox & 番茄酱 / Tomato Sauce / Tomatensoße & 适量 / As needed / Nach Bedarf & 食谱三（可选）/ Recipe 3 (optional) / Rezept 3 (optional) & 意式风味 / Italian flavor / Italienischer Geschmack \\
+\hline
+\checkbox & 罗勒或牛至 / Basil or Oregano / Basilikum oder Oregano & 适量 / As needed / Nach Bedarf & 食谱三（可选）/ Recipe 3 (optional) / Rezept 3 (optional) & 干或新鲜 / Dried or fresh / Getrocknet oder frisch \\
+\hline
+\end{longtable}
+
+\textit{提示：打印后可在方框内打勾 / Tip: Print and check boxes manually / Tipp: Drucken und Kästchen manuell ankreuzen}
+
+\vspace{1cm}
+
+\section{食谱一：波茨坦酸辣"混血"炒蛋\\
+Recipe 1: Potsdam Sour-Spicy Mixed Scrambled Eggs\\
+Rezept 1: Potsdamer Saure-Würstchen-Eier}
+
+\subsection{食材准备 / Ingredients / Zutaten}
+
+\begin{minipage}{0.48\textwidth}
+\textbf{中文 / Chinese:}
+\begin{itemize}
+    \item 鸡蛋：3-4枚（Freilandhaltung 走地鸡蛋更佳）
+    \item 德国配料：1根 Bockwurst 或 Nürnberger Rostbratwurst，切片
+    \item 上海风味：生抽、老抽、冰糖
+    \item 柳州灵魂：酸笋或酸黄瓜（Gewürzgurken），切碎；辣椒油
+    \item 基础配菜：葱花、蒜末
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\textbf{English:}
+\begin{itemize}
+    \item Eggs: 3-4 (free-range preferred)
+    \item German: 1 Bockwurst or Nürnberger Rostbratwurst, sliced
+    \item Shanghai: Light soy sauce, dark soy sauce, rock sugar
+    \item Liuzhou: Sour bamboo shoots or pickles (Gewürzgurken), chopped; chili oil
+    \item Base: Scallions, minced garlic
+\end{itemize}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\textbf{Deutsch / German:}
+\begin{itemize}
+    \item Eier: 3-4 (Freilandhaltung bevorzugt)
+    \item Deutsch: 1 Bockwurst oder Nürnberger Rostbratwurst, in Scheiben
+    \item Shanghai: Helle Sojasoße, dunkle Sojasoße, Kandiszucker
+    \item Liuzhou: Saure Bambussprossen oder Gewürzgurken, gehackt; Chiliöl
+    \item Basis: Frühlingszwiebeln, gehackter Knoblauch
+\end{itemize}
+
+\subsection{烹饪步骤 / Cooking Steps / Zubereitungsschritte}
+
+\subsubsection{步骤一：黄金炒蛋 / Step 1: Golden Scrambled Eggs / Schritt 1: Goldene Rühreier}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pan
+    \draw[fill=gray!30,rounded corners=5pt] (0,0) rectangle (4,0.5);
+    \draw[fill=gray!20] (0.2,0.5) -- (3.8,0.5) -- (3.6,0.7) -- (0.4,0.7) -- cycle;
+    
+    % Heat indicator
+    \draw[fill=red!60] (1.5,1.2) circle (0.3);
+    \node at (1.5,1.2) {\tiny 7-8};
+    \node[below] at (1.5,0.9) {\tiny Heat};
+    
+    % Eggs
+    \foreach \x in {0.8,1.5,2.2,2.9} {
+        \draw[fill=egg] (\x,0.25) circle (0.15);
+    }
+    
+    % Arrow showing mixing
+    \draw[->,thick,blue] (4.5,0.25) -- (5.5,0.25);
+    \node[above] at (5,0.5) {\tiny Mix};
+    
+    % Scrambled result
+    \draw[fill=gray!30,rounded corners=5pt] (6,0) rectangle (10,0.5);
+    \draw[fill=yellow!70] (6.5,0.1) -- (7.2,0.3) -- (8,0.15) -- (9,0.25) -- (9.5,0.1) -- cycle;
+    
+    \node[below] at (5,-0.5) {\small \textbf{Step 1: Scramble eggs until just set}};
+    \node[below] at (5,-1.2) {\tiny 步骤一：快速划散，刚断生即刻盛出};
+    \node[below] at (5,-1.5) {\tiny Schritt 1: Rühren bis gerade fest};
+\end{tikzpicture}
+
+\textbf{中文：}鸡蛋打散，加少许水或牛奶使蛋更蓬松。热油（感应炉7-8档），倒入蛋液快速划散，刚断生即刻盛出，保持鲜嫩。
+
+\textbf{English:} Beat eggs, add a little water or milk for fluffiness. Heat oil (induction 7-8), pour in eggs and scramble quickly. Remove immediately when just set, keeping them tender.
+
+\textbf{Deutsch:} Eier verquirlen, etwas Wasser oder Milch für Fluffigkeit hinzufügen. Öl erhitzen (Induktion 7-8), Eier einrühren und schnell rühren. Sofort entfernen, wenn gerade fest, zart halten.
+
+\subsubsection{步骤二：煸香德式香肠 / Step 2: Sauté German Sausage / Schritt 2: Deutsche Wurst anbraten}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pan with oil
+    \draw[fill=gray!30,rounded corners=5pt] (0,0) rectangle (4,0.5);
+    \draw[fill=yellow!40] (0.2,0.2) rectangle (3.8,0.3);
+    
+    % Sausage slices
+    \foreach \x in {0.8,1.6,2.4,3.2} {
+        \draw[fill=red!70,rounded corners=2pt] (\x-0.2,0.15) rectangle (\x+0.2,0.35);
+    }
+    
+    % Heat waves
+    \foreach \y in {0.6,0.7,0.8} {
+        \draw[red!50,decorate,decoration={snake,amplitude=2pt,segment length=5pt}] (0.5,\y) -- (3.5,\y);
+    }
+    
+    % Arrow
+    \draw[->,thick,blue] (4.5,0.25) -- (5.5,0.25);
+    
+    % Golden brown result
+    \draw[fill=gray!30,rounded corners=5pt] (6,0) rectangle (10,0.5);
+    \foreach \x in {6.8,7.6,8.4,9.2} {
+        \draw[fill=brown!70,rounded corners=2pt] (\x-0.2,0.15) rectangle (\x+0.2,0.35);
+    }
+    
+    \node[below] at (5,-0.5) {\small \textbf{Step 2: Sauté until golden brown}};
+    \node[below] at (5,-1.2) {\tiny 步骤二：煎至两面焦黄};
+    \node[below] at (5,-1.5) {\tiny Schritt 2: Anbraten bis goldbraun};
+\end{tikzpicture}
+
+\textbf{中文：}利用余油，放入香肠片煎至两面焦黄，逼出油脂，非常香。
+
+\textbf{English:} Using remaining oil, add sausage slices and pan-fry until golden brown on both sides, rendering fat for aroma.
+
+\textbf{Deutsch:} Mit restlichem Öl Wurstscheiben hinzufügen und von beiden Seiten goldbraun anbraten, Fett auslassen für Aroma.
+
+\subsubsection{步骤三：注入柳州灵魂 / Step 3: Add Liuzhou Soul / Schritt 3: Liuzhou-Seele hinzufügen}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pan
+    \draw[fill=gray!30,rounded corners=5pt] (0,0) rectangle (4,0.5);
+    
+    % Sausage
+    \draw[fill=brown!70,rounded corners=2pt] (1.5,0.15) rectangle (2.5,0.35);
+    
+    % Garlic and pickles
+    \draw[fill=white!80] (0.8,0.2) circle (0.08);
+    \draw[fill=green!60] (3,0.2) circle (0.1);
+    
+    % Chili oil
+    \draw[fill=red!80] (2,0.4) circle (0.12);
+    \node[white,font=\tiny] at (2,0.4) {辣};
+    
+    % Steam/aroma
+    \foreach \x in {0.5,1,1.5,2,2.5,3,3.5} {
+        \draw[red!40,decorate,decoration={snake,amplitude=1pt,segment length=3pt}] (\x,0.6) -- (\x,0.8);
+    }
+    
+    \node[below] at (2,-0.5) {\small \textbf{Step 3: Add garlic, pickles, chili oil}};
+    \node[below] at (2,-1.2) {\tiny 步骤三：蒜末、酸黄瓜、辣椒油};
+    \node[below] at (2,-1.5) {\tiny Schritt 3: Knoblauch, Gurken, Chiliöl};
+\end{tikzpicture}
+
+\textbf{中文：}放入蒜末和酸黄瓜碎翻炒，加一勺辣椒油，让酸辣味在热油里爆发。
+
+\textbf{English:} Add minced garlic and chopped pickles, stir-fry. Add a spoonful of chili oil, letting the sour-spicy flavor burst in hot oil.
+
+\textbf{Deutsch:} Gehackten Knoblauch und gehackte Gurken hinzufügen, anbraten. Einen Löffel Chiliöl hinzufügen, damit der saure-scharfe Geschmack im heißen Öl aufplatzt.
+
+\subsubsection{步骤四：浓油赤酱调味 / Step 4: Shanghai Thick Sauce / Schritt 4: Shanghai dicke Soße}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pan with everything
+    \draw[fill=gray!30,rounded corners=5pt] (0,0) rectangle (4,0.5);
+    
+    % Eggs back in
+    \draw[fill=yellow!70] (0.8,0.1) -- (1.5,0.3) -- (2.2,0.15) -- (3,0.25) -- (3.5,0.1) -- cycle;
+    
+    % Sausage
+    \draw[fill=brown!70] (1.2,0.2) rectangle (1.8,0.3);
+    
+    % Sauce ingredients
+    \node[above] at (0.5,0.5) {\tiny 生抽};
+    \node[above] at (1.5,0.5) {\tiny 老抽};
+    \node[above] at (2.5,0.5) {\tiny 冰糖};
+    
+    % Glossy finish
+    \draw[fill=shanghai!40,opacity=0.6] (0.2,0.1) rectangle (3.8,0.4);
+    
+    % Final result indicator
+    \draw[->,thick,blue] (4.5,0.25) -- (5.5,0.25);
+    \draw[fill=shanghai!20,rounded corners=5pt] (6,0) rectangle (10,0.5);
+    \draw[fill=yellow!70] (6.5,0.1) -- (7.2,0.3) -- (8,0.15) -- (9,0.25) -- (9.5,0.1) -- cycle;
+    \draw[fill=brown!70] (7,0.2) rectangle (7.6,0.3);
+    \draw[fill=shanghai!60,opacity=0.7] (6.2,0.1) rectangle (9.8,0.4);
+    
+    \node[below] at (5,-0.5) {\small \textbf{Step 4: Add sauces, reduce, coat evenly}};
+    \node[below] at (5,-1.2) {\tiny 步骤四：加调料，收汁，均匀裹色};
+    \node[below] at (5,-1.5) {\tiny Schritt 4: Soßen hinzufügen, reduzieren, gleichmäßig überziehen};
+\end{tikzpicture}
+
+\textbf{中文：}将鸡蛋倒回锅中，加入1勺生抽、半勺老抽、2-3颗碎冰糖。大火快速颠锅，让汤汁收浓，均匀裹在鸡蛋和香肠上。冰糖融化后形成亮亮的"上海芡"。
+
+\textbf{English:} Return eggs to pan. Add 1 tbsp light soy, 0.5 tbsp dark soy, 2-3 pieces crushed rock sugar. High heat, toss quickly to reduce sauce and coat evenly. Sugar creates a glossy "Shanghai glaze."
+
+\textbf{Deutsch:} Eier zurück in die Pfanne. 1 EL helle Sojasoße, 0.5 EL dunkle Sojasoße, 2-3 Stücke zerstoßener Kandiszucker hinzufügen. Hohe Hitze, schnell schwenken, um Soße zu reduzieren und gleichmäßig zu überziehen. Zucker erzeugt einen glänzenden "Shanghai-Glanz."
+
+\vspace{1cm}
+
+\section{食谱二：沪柳风情德式面包盅\\
+Recipe 2: Shanghai-Liuzhou Style German Bread Bowl\\
+Rezept 2: Shanghai-Liuzhou Brot-Schale}
+
+\subsection{食材准备 / Ingredients / Zutaten}
+
+\begin{minipage}{0.48\textwidth}
+\textbf{中文 / Chinese:}
+\begin{itemize}
+    \item 德式小圆面包（Brötchen）：2-3个
+    \item 鸡蛋：2-3枚
+    \item 柳州元素：酸笋或酸黄瓜，红油辣椒
+    \item 上海元素：生抽、老抽、砂糖或冰糖
+    \item 波茨坦配料：德国香肠或培根，切丁
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\textbf{English:}
+\begin{itemize}
+    \item German rolls (Brötchen): 2-3
+    \item Eggs: 2-3
+    \item Liuzhou: Sour bamboo/pickles, chili oil
+    \item Shanghai: Light/dark soy, sugar/rock sugar
+    \item Potsdam: German sausage or bacon, diced
+\end{itemize}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\textbf{Deutsch / German:}
+\begin{itemize}
+    \item Deutsche Brötchen: 2-3
+    \item Eier: 2-3
+    \item Liuzhou: Saure Bambussprossen/Gurken, Chiliöl
+    \item Shanghai: Helle/dunkle Sojasoße, Zucker/Kandiszucker
+    \item Potsdam: Deutsche Wurst oder Speck, gewürfelt
+\end{itemize}
+
+\subsection{烹饪步骤 / Cooking Steps / Zubereitungsschritte}
+
+\subsubsection{步骤一：改造面包容器 / Step 1: Prepare Bread Bowl / Schritt 1: Brotschale vorbereiten}
+
+\begin{tikzpicture}[scale=0.8]
+    % Original bread
+    \draw[fill=brown!50,rounded corners=10pt] (0,0) rectangle (2,1.5);
+    \draw[fill=brown!40] (0.2,1.5) arc (180:0:0.8) -- (2,1.5);
+    
+    % Cut line
+    \draw[dashed,red,thick] (0,1.2) -- (2,1.2);
+    
+    % Arrow
+    \draw[->,thick,blue] (2.5,0.75) -- (3.5,0.75);
+    
+    % Hollowed bread
+    \draw[fill=brown!50,rounded corners=10pt] (4,0) rectangle (6,1.5);
+    \draw[fill=brown!40] (4.2,1.5) arc (180:0:0.8) -- (6,1.5);
+    \draw[fill=white!90] (4.3,0.3) rectangle (5.7,1.1);
+    
+    % Lid
+    \draw[fill=brown!40,rounded corners=5pt] (6.5,1.2) rectangle (7.5,1.4);
+    
+    \node[below] at (3.5,-0.3) {\small \textbf{Step 1: Cut top, hollow center}};
+    \node[below] at (3.5,-1.2) {\tiny 步骤一：切顶，挖空中心};
+    \node[below] at (3.5,-1.5) {\tiny Schritt 1: Oberseite abschneiden, Mitte aushöhlen};
+\end{tikzpicture}
+
+\textbf{中文：}将小圆面包顶部切掉（像盖子），挖掉中心部分面包芯，使其变成小碗状。挖出的面包芯可烤脆作蘸料。
+
+\textbf{English:} Cut off bread top (like a lid), hollow out center to form a bowl. Toast removed bread for dipping.
+
+\textbf{Deutsch:} Oberseite abschneiden (wie ein Deckel), Mitte aushöhlen, um eine Schale zu formen. Entferntes Brot rösten zum Dippen.
+
+\subsubsection{步骤二：调制"沪柳"蛋液 / Step 2: Mix Egg Mixture / Schritt 2: Eimischung zubereiten}
+
+\begin{tikzpicture}[scale=0.8]
+    % Bowl
+    \draw[fill=gray!20] (1,0) arc (180:0:1) -- (2,0) -- cycle;
+    \draw[fill=gray!10] (0.8,0) arc (180:0:1.2) -- (2,0) -- cycle;
+    
+    % Eggs
+    \draw[fill=egg] (0.5,0.3) circle (0.2);
+    \draw[fill=egg] (1.5,0.3) circle (0.2);
+    
+    % Ingredients floating
+    \node[above] at (0.3,0.5) {\tiny 生抽};
+    \node[above] at (1,0.5) {\tiny 砂糖};
+    \node[above] at (1.7,0.5) {\tiny 酸黄瓜};
+    \draw[fill=red!60] (0.8,0.2) circle (0.1);
+    \node[white,font=\tiny] at (0.8,0.2) {辣};
+    
+    % Mixing arrow
+    \draw[->,thick,blue,decorate,decoration={snake,amplitude=3pt}] (2.5,0.3) arc (0:180:0.3);
+    
+    % Mixed result
+    \draw[fill=gray!20] (4,0) arc (180:0:1) -- (5,0) -- cycle;
+    \draw[fill=yellow!60,opacity=0.8] (3.5,0.1) arc (180:0:1.5) -- (5,0) -- cycle;
+    \draw[fill=red!40] (4.2,0.2) circle (0.08);
+    \draw[fill=green!40] (4.6,0.25) circle (0.06);
+    
+    \node[below] at (2.5,-0.5) {\small \textbf{Step 2: Mix eggs with all seasonings}};
+    \node[below] at (2.5,-1.2) {\tiny 步骤二：混合所有调料};
+    \node[below] at (2.5,-1.5) {\tiny Schritt 2: Eier mit allen Gewürzen mischen};
+\end{tikzpicture}
+
+\textbf{中文：}碗中打入鸡蛋，加入一勺生抽、半勺砂糖（上海风味），切碎的酸黄瓜/酸笋和一勺红油辣椒（柳州灵魂）。充分搅拌均匀，可加入香肠丁。
+
+\textbf{English:} Beat eggs in bowl. Add 1 tbsp light soy, 0.5 tbsp sugar (Shanghai), chopped pickles/bamboo shoots and 1 tbsp chili oil (Liuzhou). Mix well. Optional: add sausage dice.
+
+\textbf{Deutsch:} Eier in Schüssel verquirlen. 1 EL helle Sojasoße, 0.5 EL Zucker (Shanghai), gehackte Gurken/Bambussprossen und 1 EL Chiliöl (Liuzhou) hinzufügen. Gut mischen. Optional: Wurstwürfel hinzufügen.
+
+\subsubsection{步骤三：灌装与熟化 / Step 3: Fill and Cook / Schritt 3: Füllen und Garen}
+
+\begin{tikzpicture}[scale=0.8]
+    % Bread bowl with egg mixture
+    \draw[fill=brown!50,rounded corners=10pt] (0,0) rectangle (2,1.5);
+    \draw[fill=brown!40] (0.2,1.5) arc (180:0:0.8) -- (2,1.5);
+    \draw[fill=yellow!70] (0.3,0.3) rectangle (1.7,1.1);
+    
+    % Heat source options
+    % Air fryer
+    \draw[fill=gray!40,rounded corners=5pt] (3,0) rectangle (4.5,0.8);
+    \node[font=\tiny] at (3.75,0.4) {Air Fryer};
+    \node[font=\tiny] at (3.75,0.2) {180°C};
+    \node[font=\tiny] at (3.75,0) {10-12 min};
+    
+    % OR
+    \node at (5,0.4) {\textbf{OR}};
+    
+    % Pan method
+    \draw[fill=gray!30,rounded corners=5pt] (6,0) rectangle (7.5,0.5);
+    \draw[fill=gray!20] (6.2,0.5) -- (7.3,0.5) -- (7.1,0.7) -- (6.4,0.7) -- cycle;
+    \node[font=\tiny] at (6.75,0.25) {Pan};
+    \node[font=\tiny] at (6.75,0.1) {3-4档};
+    \node[font=\tiny] at (6.75,-0.1) {8 min};
+    
+    % Arrow to cooked result
+    \draw[->,thick,blue] (2.5,0.75) -- (3,0.75);
+    \draw[->,thick,blue] (4.5,0.75) -- (9,0.75);
+    
+    % Cooked bread bowl
+    \draw[fill=brown!60,rounded corners=10pt] (9,0) rectangle (11,1.5);
+    \draw[fill=brown!50] (9.2,1.5) arc (180:0:0.8) -- (11,1.5);
+    \draw[fill=yellow!80] (9.3,0.3) rectangle (10.7,1.1);
+    \draw[fill=green!60] (9.5,1.15) circle (0.08);
+    
+    % Crispy texture indicator
+    \foreach \x in {9.1,9.3,9.5,9.7,9.9,10.1,10.3,10.5,10.7,10.9} {
+        \draw[brown!80,thick] (\x,0) -- (\x,0.1);
+    }
+    
+    \node[below] at (5.5,-0.5) {\small \textbf{Step 3: Fill bread, cook until set and crispy}};
+    \node[below] at (5.5,-1.2) {\tiny 步骤三：灌装，烤至凝固酥脆};
+    \node[below] at (5.5,-1.5) {\tiny Schritt 3: Füllen, backen bis fest und knusprig};
+\end{tikzpicture}
+
+\textbf{中文：}将调制好的蛋液倒入面包盅（8分满）。可选：空气炸锅/烤箱180°C烤10-12分钟；或平底锅3-4档低火，盖上锅盖闷8分钟。
+
+\textbf{English:} Pour egg mixture into bread bowl (80\% full). Option 1: Air fryer/oven 180°C for 10-12 min. Option 2: Pan on low heat (3-4), cover and steam for 8 min.
+
+\textbf{Deutsch:} Eimischung in Brotschale gießen (80\% voll). Option 1: Heißluftfritteuse/Ofen 180°C für 10-12 Min. Option 2: Pfanne auf niedriger Hitze (3-4), abdecken und 8 Min. dämpfen.
+
+\subsubsection{步骤四：最后点缀 / Step 4: Final Garnish / Schritt 4: Finale Garnitur}
+
+\begin{tikzpicture}[scale=0.8]
+    % Finished bread bowl
+    \draw[fill=brown!60,rounded corners=10pt] (0,0) rectangle (2,1.5);
+    \draw[fill=brown!50] (0.2,1.5) arc (180:0:0.8) -- (2,1.5);
+    \draw[fill=yellow!80] (0.3,0.3) rectangle (1.7,1.1);
+    
+    % Dark soy drops
+    \draw[fill=shanghai!80] (0.5,1.05) circle (0.05);
+    \draw[fill=shanghai!80] (1.2,1.1) circle (0.05);
+    \draw[fill=shanghai!80] (1.5,1.08) circle (0.05);
+    
+    % Scallions
+    \draw[fill=green!70] (0.8,1.15) rectangle (0.9,1.25);
+    \draw[fill=green!70] (1.1,1.18) rectangle (1.2,1.28);
+    \draw[fill=green!70] (1.4,1.16) rectangle (1.5,1.26);
+    
+    % Glossy finish
+    \draw[fill=shanghai!30,opacity=0.5] (0.3,1.05) rectangle (1.7,1.15);
+    
+    \node[below] at (1,-0.3) {\small \textbf{Step 4: Drizzle dark soy, garnish with scallions}};
+    \node[below] at (1,-1.2) {\tiny 步骤四：滴老抽上色，撒葱花};
+    \node[below] at (1,-1.5) {\tiny Schritt 4: Dunkle Sojasoße träufeln, Frühlingszwiebeln garnieren};
+\end{tikzpicture}
+
+\textbf{中文：}出锅前，在蛋液表面滴两滴老抽上色，撒上葱花。
+
+\textbf{English:} Before serving, drizzle a few drops of dark soy on egg surface for color, garnish with scallions.
+
+\textbf{Deutsch:} Vor dem Servieren einige Tropfen dunkle Sojasoße auf die Eioberfläche träufeln für Farbe, mit Frühlingszwiebeln garnieren.
+
+\vspace{1cm}
+
+\section{烹饪原理图 / Cooking Process Diagram / Zubereitungsprozess-Diagramm}
+
+\begin{tikzpicture}[scale=0.9]
+% Recipe 1 flow
+\node[draw,fill=egg!30,rounded corners=5pt] (eggs1) at (0,4) {鸡蛋\\Eggs\\Eier};
+\node[draw,fill=potsdam!30,rounded corners=5pt] (sausage) at (3.2cm,1.2cm) {香肠\\Sausage\\Wurst};
+\node[draw,fill=liuzhou!30,rounded corners=5pt] (pickles) at (3.2cm,7.2cm) {酸黄瓜\\Pickles\\Gurken};
+\node[draw,fill=shanghai!30,rounded corners=5pt] (sauce) at (6.4cm,9.2cm) {调料\\Sauces\\Soßen};
+
+\node[draw,fill=yellow!50,rounded corners=5pt] (scrambled) at (-0.4cm,6.0cm) {炒蛋\\Scrambled\\Rührei};
+\node[draw,fill=brown!50,rounded corners=5pt] (fried) at (3.2cm,4.0cm) {煎香\\Fried\\Gebraten};
+
+\draw[->,thick] (eggs1) -- (scrambled);
+\draw[->,thick] (sausage) -- (fried);
+\draw[->,thick] (pickles) -- (fried);
+\draw[->,thick] (sauce) -- (fried);
+
+\node[draw,fill=shanghai!50,rounded corners=10pt] (final1) at (-0.4cm,0.4cm) {\textbf{波茨坦酸辣炒蛋}\\\textbf{Potsdam Sour-Spicy Eggs}\\\textbf{Potsdamer Saure Eier}};
+
+\draw[->,thick] (scrambled) -- (final1);
+\draw[->,thick] (fried) -- (final1);
+
+% Recipe 2 flow
+\node[draw,fill=brown!30,rounded corners=5pt] (bread) at (9.6cm,7.2cm) {面包\\Bread\\Brot};
+\node[draw,fill=egg!30,rounded corners=5pt] (eggs2) at (9.6cm,4.0cm) {鸡蛋\\Eggs\\Eier};
+\node[draw,fill=liuzhou!30,rounded corners=5pt] (liuzhou2) at (3.2cm,-1.2cm) {柳州元素\\Liuzhou\\Liuzhou};
+\node[draw,fill=shanghai!30,rounded corners=5pt] (shanghai2) at (8.0cm,1.2cm) {上海元素\\Shanghai\\Shanghai};
+
+\node[draw,fill=brown!50,rounded corners=5pt] (hollow) at (6.4cm,6.0cm) {挖空\\Hollow\\Aushöhlen};
+\node[draw,fill=yellow!50,rounded corners=5pt] (mixture) at (9.6cm,-1.2cm) {混合\\Mix\\Mischen};
+
+\draw[->,thick] (bread) -- (hollow);
+\draw[->,thick] (eggs2) -- (mixture);
+\draw[->,thick] (liuzhou2) -- (mixture);
+\draw[->,thick] (shanghai2) -- (mixture);
+
+\node[draw,fill=shanghai!50,rounded corners=10pt] (final2) at (6.4cm,-5.6cm) {\textbf{沪柳面包盅}\\\textbf{Shanghai-Liuzhou Bowl}\\\textbf{Shanghai-Liuzhou Schale}};
+
+\draw[->,thick] (hollow) -- (final2);
+\draw[->,thick] (mixture) -- (final2);
+\end{tikzpicture}
+
+\vspace{1cm}
+
+\section{小贴士 / Tips / Tipps}
+
+\begin{itemize}
+    \item \textbf{中文：}感应炉加热快，调味时建议关小火（4-5档），避免老抽和冰糖过快碳化发苦。
+    
+    \textbf{English:} Induction heats quickly; reduce to low heat (4-5) when seasoning to prevent dark soy and sugar from burning.
+    
+    \textbf{Deutsch:} Induktion erhitzt schnell; auf niedrige Hitze (4-5) reduzieren beim Würzen, um Verbrennen von dunkler Sojasoße und Zucker zu vermeiden.
+    
+    \item \textbf{中文：}想让菜更像柳州螺蛳粉配菜，可把鸡蛋做成炸荷包蛋（炸蛋），吸满汤汁后味道更绝。
+    
+    \textbf{English:} For more Liuzhou Luosifen style, make fried poached eggs (炸蛋) that absorb sauce for intense flavor.
+    
+    \textbf{Deutsch:} Für mehr Liuzhou Luosifen-Stil, gebratene pochierte Eier (炸蛋) machen, die Soße aufsaugen für intensiven Geschmack.
+    
+    \item \textbf{中文：}如果吃面包会胀气，可单独做一份纯柳州酸辣滑蛋，不加面粉和面包。
+    
+    \textbf{English:} If bread causes bloating, make a pure Liuzhou sour-spicy scrambled egg without bread.
+    
+    \textbf{Deutsch:} Wenn Brot Blähungen verursacht, reines Liuzhou saures-scharfes Rührei ohne Brot machen.
+    
+    \item \textbf{中文：}【实际烹饪经验】如果烤箱功率不足（如微波炉+烤箱组合模式），可能需要60分钟才能让蛋液完全凝固。建议先用平底锅方法，或提高烤箱温度。
+    
+    \textbf{English:} 【Real Cooking Experience】If your oven isn't strong enough (e.g., microwave+oven combo mode), it may take 60 minutes for eggs to fully solidify. Consider using the pan method first, or increase oven temperature.
+    
+    \textbf{Deutsch:} 【Echte Kocherfahrung】Wenn Ihr Ofen nicht stark genug ist (z.B. Mikrowelle+Ofen-Kombi-Modus), kann es 60 Minuten dauern, bis die Eier vollständig fest sind. Zuerst die Pfannenmethode verwenden oder Ofentemperatur erhöhen.
+    
+    \item \textbf{中文：}【实际烹饪经验】生抽不要直接倒入面包盅，应该先与鸡蛋液充分搅拌均匀，再倒入面包盅，这样味道更均匀。
+    
+    \textbf{English:} 【Real Cooking Experience】Don't pour soy sauce directly into the bread bowl. Mix it thoroughly with the egg mixture first, then pour into the bread bowl for more even flavor distribution.
+    
+    \textbf{Deutsch:} 【Echte Kocherfahrung】Sojasoße nicht direkt in die Brotschale gießen. Zuerst gründlich mit der Eimischung vermischen, dann in die Brotschale gießen für gleichmäßigere Geschmacksverteilung.
+    
+    \item \textbf{中文：}【实际烹饪经验】奶酪和火腿是绝配！可以加入切碎的奶酪和火腿丁，增加层次感和风味。
+    
+    \textbf{English:} 【Real Cooking Experience】Cheese and ham work perfectly! Add shredded cheese and diced ham for added layers and flavor.
+    
+    \textbf{Deutsch:} 【Echte Kocherfahrung】Käse und Schinken passen perfekt! Geriebenen Käse und gewürfelten Schinken hinzufügen für zusätzliche Schichten und Geschmack.
+\end{itemize}
+
+\vspace{1cm}
+
+\section{食谱三：意式德式融合千层面包盅\\
+Recipe 3: Italian-German Fusion Lasagna Bread Bowl\\
+Rezept 3: Italienisch-Deutsche Fusions-Lasagne Brot-Schale}
+
+\subsection{食材准备 / Ingredients / Zutaten}
+
+\begin{minipage}{0.48\textwidth}
+\textbf{中文 / Chinese:}
+\begin{itemize}
+    \item 德式小圆面包（Brötchen）：3-4个
+    \item 鸡蛋：3-4枚
+    \item 奶酪：马苏里拉或切达奶酪，切碎
+    \item 火腿：切丁或切片
+    \item 上海元素：生抽、老抽（与蛋液混合）
+    \item 柳州元素：酸黄瓜切碎，辣椒油（可选）
+    \item 意式元素：番茄酱或意面酱，罗勒或牛至
+    \item 装饰：葱花，更多奶酪
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\textbf{English:}
+\begin{itemize}
+    \item German rolls (Brötchen): 3-4
+    \item Eggs: 3-4
+    \item Cheese: Mozzarella or Cheddar, shredded
+    \item Ham: Diced or sliced
+    \item Shanghai: Light/dark soy (mixed with eggs)
+    \item Liuzhou: Chopped pickles, chili oil (optional)
+    \item Italian: Tomato sauce or pasta sauce, basil or oregano
+    \item Garnish: Scallions, more cheese
+\end{itemize}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\textbf{Deutsch / German:}
+\begin{itemize}
+    \item Deutsche Brötchen: 3-4
+    \item Eier: 3-4
+    \item Käse: Mozzarella oder Cheddar, gerieben
+    \item Schinken: Gewürfelt oder in Scheiben
+    \item Shanghai: Helle/dunkle Sojasoße (mit Eiern gemischt)
+    \item Liuzhou: Gehackte Gurken, Chiliöl (optional)
+    \item Italienisch: Tomatensoße oder Pastasoße, Basilikum oder Oregano
+    \item Garnitur: Frühlingszwiebeln, mehr Käse
+\end{itemize}
+
+\subsection{烹饪步骤 / Cooking Steps / Zubereitungsschritte}
+
+\subsubsection{步骤一：准备面包盅 / Step 1: Prepare Bread Bowls / Schritt 1: Brotschalen vorbereiten}
+
+\begin{tikzpicture}[scale=0.8]
+    % Multiple breads
+    \foreach \x in {0,2,4} {
+        \draw[fill=brown!50,rounded corners=10pt] (\x,0) rectangle (\x+1.5,1.2);
+        \draw[fill=brown!40] (\x+0.15,1.2) arc (180:0:0.6) -- (\x+1.5,1.2);
+    }
+    
+    % Cut line
+    \draw[dashed,red,thick] (0,0.9) -- (1.5,0.9);
+    \draw[dashed,red,thick] (2,0.9) -- (3.5,0.9);
+    \draw[dashed,red,thick] (4,0.9) -- (5.5,0.9);
+    
+    % Arrow
+    \draw[->,thick,blue] (6,0.6) -- (7,0.6);
+    
+    % Hollowed breads
+    \foreach \x in {8,10,12} {
+        \draw[fill=brown!50,rounded corners=10pt] (\x,0) rectangle (\x+1.5,1.2);
+        \draw[fill=brown!40] (\x+0.15,1.2) arc (180:0:0.6) -- (\x+1.5,1.2);
+        \draw[fill=white!90] (\x+0.2,0.2) rectangle (\x+1.3,0.9);
+    }
+    
+    \node[below] at (6.5,-0.3) {\small \textbf{Step 1: Cut tops, hollow centers}};
+    \node[below] at (6.5,-0.8) {\tiny 步骤一：切顶，挖空中心};
+    \node[below] at (6.5,-1.1) {\tiny Schritt 1: Oberseiten abschneiden, Mitte aushöhlen};
+\end{tikzpicture}
+
+\textbf{中文：}将3-4个小圆面包顶部切掉，挖空中心部分，形成面包盅。挖出的面包芯可烤脆备用。
+
+\textbf{English:} Cut tops off 3-4 rolls, hollow out centers to form bread bowls. Toast removed bread for later use.
+
+\textbf{Deutsch:} Oberseiten von 3-4 Brötchen abschneiden, Mitte aushöhlen, um Brotschalen zu formen. Entferntes Brot rösten für späteren Gebrauch.
+
+\subsubsection{步骤二：调制千层蛋液 / Step 2: Mix Lasagna-Style Egg Mixture / Schritt 2: Lasagne-Stil Eimischung}
+
+\begin{tikzpicture}[scale=0.8]
+    % Bowl with layers
+    \draw[fill=gray!20] (1,0) arc (180:0:1) -- (2,0) -- cycle;
+    
+    % Eggs at bottom
+    \draw[fill=yellow!70] (0.5,0.1) arc (180:0:1) -- (2,0.1) -- cycle;
+    
+    % Cheese layer
+    \draw[fill=yellow!40] (0.6,0.3) arc (180:0:0.8) -- (1.8,0.3) -- cycle;
+    \node[font=\tiny] at (1,0.4) {Cheese};
+    
+    % Ham pieces
+    \draw[fill=red!60,rounded corners=2pt] (0.7,0.5) rectangle (0.9,0.6);
+    \draw[fill=red!60,rounded corners=2pt] (1.3,0.5) rectangle (1.5,0.6);
+    
+    % Soy sauce mixed in
+    \draw[fill=shanghai!40,opacity=0.6] (0.5,0.1) arc (180:0:1) -- (2,0.1) -- cycle;
+    
+    % Mixing indicator
+    \draw[->,thick,blue,decorate,decoration={snake,amplitude=3pt}] (2.5,0.4) arc (0:180:0.3);
+    
+    % Mixed result
+    \draw[fill=gray!20] (4,0) arc (180:0:1) -- (5,0) -- cycle;
+    \draw[fill=yellow!60,opacity=0.8] (3.8,0.1) arc (180:0:1.4) -- (5,0.1) -- cycle;
+    \draw[fill=yellow!30] (4.2,0.3) circle (0.08);
+    \draw[fill=red!50] (4.6,0.35) circle (0.06);
+    
+    \node[below] at (2.5,-0.5) {\small \textbf{Step 2: Mix eggs with soy, add cheese \& ham}};
+    \node[below] at (2.5,-1.2) {\tiny 步骤二：蛋液与生抽混合，加奶酪和火腿};
+    \node[below] at (2.5,-1.5) {\tiny Schritt 2: Eier mit Sojasoße mischen, Käse \& Schinken hinzufügen};
+\end{tikzpicture}
+
+\textbf{中文：}【重要】先将鸡蛋打散，加入生抽充分搅拌均匀（不要直接倒入面包）。然后加入切碎的奶酪、火腿丁、切碎的酸黄瓜（可选）、辣椒油（可选）。如果喜欢意式风味，可加入少许番茄酱和干罗勒。
+
+\textbf{English:} 【Important】First beat eggs, add light soy and mix thoroughly (don't pour directly into bread). Then add shredded cheese, diced ham, chopped pickles (optional), chili oil (optional). For Italian flavor, add a little tomato sauce and dried basil.
+
+\textbf{Deutsch:} 【Wichtig】Zuerst Eier verquirlen, helle Sojasoße hinzufügen und gründlich mischen (nicht direkt ins Brot gießen). Dann geriebenen Käse, gewürfelten Schinken, gehackte Gurken (optional), Chiliöl (optional) hinzufügen. Für italienischen Geschmack etwas Tomatensoße und getrocknetes Basilikum hinzufügen.
+
+\subsubsection{步骤三：分层填充与烘烤 / Step 3: Layer and Bake / Schritt 3: Schichten und Backen}
+
+\begin{tikzpicture}[scale=0.8]
+    % Bread bowl with layers
+    \draw[fill=brown!50,rounded corners=10pt] (0,0) rectangle (2,1.5);
+    \draw[fill=brown!40] (0.2,1.5) arc (180:0:0.8) -- (2,1.5);
+    
+    % Layer 1: Egg mixture
+    \draw[fill=yellow!70] (0.3,0.3) rectangle (1.7,0.7);
+    
+    % Layer 2: Cheese
+    \draw[fill=yellow!40] (0.35,0.75) rectangle (1.65,0.95);
+    \node[font=\tiny] at (1,0.85) {Cheese};
+    
+    % Layer 3: Ham
+    \draw[fill=red!60,rounded corners=2pt] (0.4,1.0) rectangle (0.7,1.1);
+    \draw[fill=red!60,rounded corners=2pt] (1.1,1.0) rectangle (1.4,1.1);
+    
+    % Tomato sauce drizzle
+    \draw[fill=red!50,opacity=0.7] (0.5,1.05) circle (0.03);
+    \draw[fill=red!50,opacity=0.7] (1.2,1.05) circle (0.03);
+    
+    % Heat indicator
+    \draw[fill=red!60] (3,1.2) circle (0.3);
+    \node[white,font=\tiny] at (3,1.2) {180°C};
+    \node[below] at (3,0.9) {\tiny 45-60 min};
+    \node[below] at (3,0.7) {\tiny 或更长};
+    
+    % Arrow to baked
+    \draw[->,thick,blue] (2.5,0.75) -- (4.5,0.75);
+    
+    % Baked result
+    \draw[fill=brown!60,rounded corners=10pt] (5,0) rectangle (7,1.5);
+    \draw[fill=brown!50] (5.2,1.5) arc (180:0:0.8) -- (7,1.5);
+    \draw[fill=yellow!80] (5.3,0.3) rectangle (6.7,1.1);
+    \draw[fill=yellow!50] (5.4,1.15) rectangle (6.6,1.25);
+    \draw[fill=green!60] (5.5,1.3) circle (0.08);
+    
+    % Bubbling cheese
+    \draw[fill=yellow!30] (5.6,1.12) circle (0.05);
+    \draw[fill=yellow!30] (6.2,1.12) circle (0.05);
+    
+    \node[below] at (4.5,-0.5) {\small \textbf{Step 3: Layer ingredients, bake until set}};
+    \node[below] at (4.5,-1.2) {\tiny 步骤三：分层填充，烤至凝固};
+    \node[below] at (4.5,-1.5) {\tiny Schritt 3: Zutaten schichten, backen bis fest};
+\end{tikzpicture}
+
+\textbf{中文：}在面包盅中先倒入一半蛋液，撒一层奶酪，放几片火腿，再倒入剩余蛋液，最上层再撒奶酪。如果烤箱功率不足，可能需要45-60分钟甚至更长时间。建议：先用平底锅方法（3-4档，盖盖闷15-20分钟）让蛋液基本凝固，再放入烤箱上色。
+
+\textbf{English:} Pour half the egg mixture into bread bowl, add a layer of cheese, place ham slices, pour remaining egg mixture, top with more cheese. If oven isn't strong enough, may need 45-60 minutes or longer. Tip: Use pan method first (heat 3-4, cover and steam 15-20 min) to partially set eggs, then finish in oven for browning.
+
+\textbf{Deutsch:} Die Hälfte der Eimischung in die Brotschale gießen, Käseschicht hinzufügen, Schinkenscheiben legen, restliche Eimischung gießen, oben noch Käse. Wenn Ofen nicht stark genug ist, kann 45-60 Minuten oder länger benötigen. Tipp: Zuerst Pfannenmethode verwenden (Hitze 3-4, abdecken und 15-20 Min. dämpfen), um Eier teilweise fest zu machen, dann im Ofen fertig bräunen.
+
+\subsubsection{步骤四：意式装饰 / Step 4: Italian Garnish / Schritt 4: Italienische Garnitur}
+
+\begin{tikzpicture}[scale=0.8]
+    % Finished bread bowl
+    \draw[fill=brown!60,rounded corners=10pt] (0,0) rectangle (2,1.5);
+    \draw[fill=brown!50] (0.2,1.5) arc (180:0:0.8) -- (2,1.5);
+    \draw[fill=yellow!80] (0.3,0.3) rectangle (1.7,1.1);
+    
+    % Melted cheese on top
+    \draw[fill=yellow!50] (0.4,1.15) rectangle (1.6,1.25);
+    
+    % Tomato sauce drops
+    \draw[fill=red!60] (0.6,1.2) circle (0.04);
+    \draw[fill=red!60] (1.0,1.22) circle (0.04);
+    \draw[fill=red!60] (1.4,1.2) circle (0.04);
+    
+    % Basil leaves
+    \draw[fill=green!70] (0.7,1.28) -- (0.75,1.35) -- (0.8,1.28) -- cycle;
+    \draw[fill=green!70] (1.1,1.3) -- (1.15,1.37) -- (1.2,1.3) -- cycle;
+    
+    % Scallions
+    \draw[fill=green!60] (0.5,1.26) rectangle (0.55,1.32);
+    \draw[fill=green!60] (1.3,1.28) rectangle (1.35,1.34);
+    
+    \node[below] at (1,-0.3) {\small \textbf{Step 4: Garnish with herbs and sauce}};
+    \node[below] at (1,-0.8) {\tiny 步骤四：用香草和酱汁装饰};
+    \node[below] at (1,-1.1) {\tiny Schritt 4: Mit Kräutern und Soße garnieren};
+\end{tikzpicture}
+
+\textbf{中文：}出炉后，在表面滴几滴番茄酱（如使用），撒上新鲜罗勒叶或干牛至，再撒葱花。趁热享用，奶酪拉丝，层次丰富，融合了意式、德式、上海和柳州的元素。
+
+\textbf{English:} After baking, drizzle a few drops of tomato sauce (if using), sprinkle with fresh basil or dried oregano, add scallions. Serve hot - the cheese pulls, layers are rich, combining Italian, German, Shanghai, and Liuzhou elements.
+
+\textbf{Deutsch:} Nach dem Backen einige Tropfen Tomatensoße träufeln (falls verwendet), mit frischem Basilikum oder getrocknetem Oregano bestreuen, Frühlingszwiebeln hinzufügen. Heiß servieren - der Käse zieht Fäden, Schichten sind reich, vereint italienische, deutsche, Shanghai- und Liuzhou-Elemente.
+
+\subsection{变体做法：先炒后烤 / Variation: Scramble First, Then Bake / Variation: Zuerst Rühren, Dann Backen}
+
+\textbf{中文：}另一种做法是先做好柳州滑蛋，再加入波茨坦风味的奶酪和火腿，最后放入面包盅烤制。这种方法让滑蛋的口感更明显，奶酪和火腿的味道更融合。
+
+\textbf{English:} Another method is to first make Liuzhou-style scrambled eggs, then add Potsdam-style cheese and ham, finally bake in bread bowls. This method gives the scrambled eggs a more distinct texture, with cheese and ham flavors better integrated.
+
+\textbf{Deutsch:} Eine andere Methode ist, zuerst Liuzhou-Stil Rühreier zu machen, dann Potsdam-Stil Käse und Schinken hinzuzufügen, schließlich in Brotschalen zu backen. Diese Methode gibt den Rühreiern eine deutlichere Textur, mit besser integrierten Käse- und Schinkengeschmäcken.
+
+\subsubsection{步骤一：制作柳州滑蛋 / Step 1: Make Liuzhou Scrambled Eggs / Schritt 1: Liuzhou Rühreier machen}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pan
+    \draw[fill=gray!30,rounded corners=5pt] (0,0) rectangle (4,0.5);
+    \draw[fill=gray!20] (0.2,0.5) -- (3.8,0.5) -- (3.6,0.7) -- (0.4,0.7) -- cycle;
+    
+    % Eggs in pan
+    \draw[fill=yellow!70] (0.8,0.1) -- (1.5,0.3) -- (2.2,0.15) -- (3,0.25) -- (3.5,0.1) -- cycle;
+    
+    % Liuzhou elements
+    \draw[fill=green!60] (1,0.4) circle (0.08);
+    \node[font=\tiny] at (1,0.4) {酸};
+    \draw[fill=red!60] (2,0.4) circle (0.08);
+    \node[white,font=\tiny] at (2,0.4) {辣};
+    
+    % Heat waves
+    \foreach \y in {0.8,0.9,1.0} {
+        \draw[red!40,decorate,decoration={snake,amplitude=1pt,segment length=3pt}] (0.5,\y) -- (3.5,\y);
+    }
+    
+    % Arrow
+    \draw[->,thick,blue] (4.5,0.25) -- (5.5,0.25);
+    
+    % Scrambled result
+    \draw[fill=gray!30,rounded corners=5pt] (6,0) rectangle (10,0.5);
+    \draw[fill=yellow!70] (6.5,0.1) -- (7.2,0.3) -- (8,0.15) -- (9,0.25) -- (9.5,0.1) -- cycle;
+    \draw[fill=green!50] (7,0.2) circle (0.06);
+    \draw[fill=red!50] (8,0.2) circle (0.06);
+    
+    \node[below] at (5,-0.5) {\small \textbf{Step 1: Scramble eggs with Liuzhou flavors}};
+    \node[below] at (5,-1.2) {\tiny 步骤一：制作柳州滑蛋};
+    \node[below] at (5,-1.5) {\tiny Schritt 1: Liuzhou Rühreier machen};
+\end{tikzpicture}
+
+\textbf{中文：}热锅下油（感应炉7-8档），倒入打散的鸡蛋，快速划散。加入切碎的酸黄瓜、辣椒油，快速翻炒至刚断生，保持滑嫩口感。盛出备用。
+
+\textbf{English:} Heat oil in pan (induction 7-8), pour in beaten eggs, scramble quickly. Add chopped pickles, chili oil, stir-fry quickly until just set, keeping tender texture. Remove and set aside.
+
+\textbf{Deutsch:} Öl in Pfanne erhitzen (Induktion 7-8), verquirlte Eier einrühren, schnell rühren. Gehackte Gurken, Chiliöl hinzufügen, schnell anbraten bis gerade fest, zarte Textur behalten. Entfernen und beiseite stellen.
+
+\subsubsection{步骤二：加入波茨坦元素 / Step 2: Add Potsdam Elements / Schritt 2: Potsdam-Elemente hinzufügen}
+
+\begin{tikzpicture}[scale=0.8]
+    % Bowl with scrambled eggs
+    \draw[fill=gray!20] (1,0) arc (180:0:1) -- (2,0) -- cycle;
+    \draw[fill=yellow!70] (0.5,0.1) arc (180:0:1) -- (2,0.1) -- cycle;
+    
+    % Cheese pieces
+    \draw[fill=yellow!40] (0.7,0.3) rectangle (0.9,0.4);
+    \draw[fill=yellow!40] (1.3,0.3) rectangle (1.5,0.4);
+    \node[font=\tiny] at (1.1,0.35) {Cheese};
+    
+    % Ham pieces
+    \draw[fill=red!60,rounded corners=2pt] (0.8,0.5) rectangle (1.0,0.6);
+    \draw[fill=red!60,rounded corners=2pt] (1.4,0.5) rectangle (1.6,0.6);
+    
+    % Mixing
+    \draw[->,thick,blue,decorate,decoration={snake,amplitude=3pt}] (2.5,0.3) arc (0:180:0.3);
+    
+    % Mixed result
+    \draw[fill=gray!20] (4,0) arc (180:0:1) -- (5,0) -- cycle;
+    \draw[fill=yellow!70,opacity=0.8] (3.8,0.1) arc (180:0:1.4) -- (5,0.1) -- cycle;
+    \draw[fill=yellow!30] (4.2,0.25) circle (0.08);
+    \draw[fill=red!50] (4.6,0.3) circle (0.06);
+    
+    \node[below] at (2.5,-0.5) {\small \textbf{Step 2: Mix in cheese and ham}};
+    \node[below] at (2.5,-1.2) {\tiny 步骤二：加入奶酪和火腿};
+    \node[below] at (2.5,-1.5) {\tiny Schritt 2: Käse und Schinken hinzufügen};
+\end{tikzpicture}
+
+\textbf{中文：}将炒好的柳州滑蛋放入大碗，趁热加入切碎的奶酪和火腿丁，轻轻拌匀。奶酪会开始融化，与滑蛋融合。如果喜欢，可以加入少许生抽调味。
+
+\textbf{English:} Place scrambled eggs in large bowl, while hot add shredded cheese and diced ham, gently mix. Cheese will start melting, blending with scrambled eggs. Optionally add a little light soy for seasoning.
+
+\textbf{Deutsch:} Rühreier in große Schüssel geben, während heiß geriebenen Käse und gewürfelten Schinken hinzufügen, sanft mischen. Käse beginnt zu schmelzen, vermischt sich mit Rühreiern. Optional etwas helle Sojasoße zum Würzen hinzufügen.
+
+\subsubsection{步骤三：装入面包盅烘烤 / Step 3: Fill Bread Bowls and Bake / Schritt 3: In Brotschalen füllen und backen}
+
+\begin{tikzpicture}[scale=0.8]
+    % Bread bowl
+    \draw[fill=brown!50,rounded corners=10pt] (0,0) rectangle (2,1.5);
+    \draw[fill=brown!40] (0.2,1.5) arc (180:0:0.8) -- (2,1.5);
+    
+    % Filled with scrambled eggs mixture
+    \draw[fill=yellow!70] (0.3,0.3) rectangle (1.7,1.1);
+    \draw[fill=yellow!40] (0.4,1.05) rectangle (1.6,1.15);
+    \draw[fill=red!50] (0.5,0.8) circle (0.05);
+    \draw[fill=red!50] (1.2,0.85) circle (0.05);
+    
+    % Heat indicator
+    \draw[fill=red!60] (3,1.2) circle (0.3);
+    \node[white,font=\tiny] at (3,1.2) {180°C};
+    \node[below] at (3,0.9) {\tiny 15-20 min};
+    \node[below] at (3,0.7) {\tiny 或更长};
+    
+    % Arrow
+    \draw[->,thick,blue] (2.5,0.75) -- (4.5,0.75);
+    
+    % Baked result
+    \draw[fill=brown!60,rounded corners=10pt] (5,0) rectangle (7,1.5);
+    \draw[fill=brown!50] (5.2,1.5) arc (180:0:0.8) -- (7,1.5);
+    \draw[fill=yellow!80] (5.3,0.3) rectangle (6.7,1.1);
+    \draw[fill=yellow!50] (5.4,1.15) rectangle (6.6,1.25);
+    \draw[fill=green!60] (5.5,1.3) circle (0.08);
+    
+    % Bubbling
+    \draw[fill=yellow!30] (5.6,1.12) circle (0.05);
+    \draw[fill=yellow!30] (6.2,1.12) circle (0.05);
+    
+    \node[below] at (4.5,-0.5) {\small \textbf{Step 3: Fill bread bowls, bake until golden}};
+    \node[below] at (4.5,-1.2) {\tiny 步骤三：装入面包盅，烤至金黄};
+    \node[below] at (4.5,-1.5) {\tiny Schritt 3: In Brotschalen füllen, backen bis goldbraun};
+\end{tikzpicture}
+
+\textbf{中文：}将混合好的滑蛋、奶酪和火腿填入准备好的面包盅（8分满），最上层再撒一层奶酪。烤箱预热180°C，烘烤15-20分钟，直到奶酪融化上色，面包边缘酥脆。由于滑蛋已经炒熟，烘烤时间可以缩短，主要是让奶酪融化并让面包变脆。
+
+\textbf{English:} Fill prepared bread bowls with scrambled egg, cheese, and ham mixture (80\% full), top with another layer of cheese. Preheat oven to 180°C, bake 15-20 minutes until cheese melts and browns, bread edges are crispy. Since eggs are already cooked, baking time is shorter - mainly to melt cheese and crisp the bread.
+
+\textbf{Deutsch:} Vorbereitete Brotschalen mit Rührei-, Käse- und Schinkenmischung füllen (80\% voll), oben noch eine Käseschicht. Ofen auf 180°C vorheizen, 15-20 Minuten backen, bis Käse schmilzt und bräunt, Brotränder knusprig sind. Da Eier bereits gekocht sind, ist Backzeit kürzer - hauptsächlich um Käse zu schmelzen und Brot knusprig zu machen.
+
+\subsubsection{步骤四：享用 / Step 4: Serve / Schritt 4: Servieren}
+
+\begin{tikzpicture}[scale=0.8]
+    % Finished bread bowl
+    \draw[fill=brown!60,rounded corners=10pt] (0,0) rectangle (2,1.5);
+    \draw[fill=brown!50] (0.2,1.5) arc (180:0:0.8) -- (2,1.5);
+    \draw[fill=yellow!80] (0.3,0.3) rectangle (1.7,1.1);
+    
+    % Melted cheese
+    \draw[fill=yellow!50] (0.4,1.15) rectangle (1.6,1.25);
+    
+    % Scallions
+    \draw[fill=green!60] (0.6,1.26) rectangle (0.65,1.32);
+    \draw[fill=green!60] (1.1,1.28) rectangle (1.15,1.34);
+    \draw[fill=green!60] (1.4,1.26) rectangle (1.45,1.32);
+    
+    % Steam
+    \foreach \x in {0.5,1.0,1.5} {
+        \draw[gray!40,decorate,decoration={snake,amplitude=1pt,segment length=2pt}] (\x,1.6) -- (\x,1.8);
+    }
+    
+    \node[below] at (1,-0.3) {\small \textbf{Step 4: Garnish and serve hot}};
+    \node[below] at (1,-0.8) {\tiny 步骤四：装饰，趁热享用};
+    \node[below] at (1,-1.1) {\tiny Schritt 4: Garnieren und heiß servieren};
+\end{tikzpicture}
+
+\textbf{中文：}出炉后撒上葱花，趁热享用。这种做法的优点是滑蛋的口感更明显，奶酪和火腿与滑蛋的融合更自然，烘烤时间也更短。柳州酸辣、波茨坦扎实、上海精致，完美融合。
+
+\textbf{English:} After baking, sprinkle with scallions, serve hot. This method's advantage is the scrambled eggs have a more distinct texture, cheese and ham blend more naturally with the eggs, and baking time is shorter. Liuzhou sour-spicy, Potsdam heartiness, Shanghai refinement - perfectly fused.
+
+\textbf{Deutsch:} Nach dem Backen mit Frühlingszwiebeln bestreuen, heiß servieren. Der Vorteil dieser Methode ist, dass die Rühreier eine deutlichere Textur haben, Käse und Schinken sich natürlicher mit den Eiern vermischen, und die Backzeit kürzer ist. Liuzhou sauer-scharf, Potsdam Herzhaftigkeit, Shanghai Raffinesse - perfekt verschmolzen.
+
+\vspace{1cm}
+
+\section*{结语 / Conclusion / Schlusswort}
+
+这些跨文化融合菜展现了多个地区烹饪风格的完美结合：波茨坦的扎实、上海的精致、柳州的冲击力，以及意式的层次感。以鸡蛋、面包和奶酪为核心，创造出独特的美食体验。每个食谱都经过实际测试，包含真实烹饪经验和改进建议。
+
+These cross-cultural fusion dishes perfectly combine multiple regional cooking styles: Potsdam's heartiness, Shanghai's refinement, Liuzhou's intensity, and Italian layering. Centered around eggs, bread, and cheese, they create unique culinary experiences. Each recipe has been tested in real kitchens, including actual cooking experiences and improvement tips.
+
+Diese interkulturellen Fusionsgerichte vereinen perfekt mehrere regionale Kochstile: Potsdams Herzhaftigkeit, Shanghais Raffinesse, Liuzhous Intensität und italienische Schichtung. Mit Eiern, Brot und Käse im Mittelpunkt schaffen sie einzigartige kulinarische Erlebnisse. Jedes Rezept wurde in echten Küchen getestet, einschließlich tatsächlicher Kocherfahrungen und Verbesserungstipps.
+
+\vspace{0.5cm}
+
+\textit{享受烹饪！Enjoy cooking! Guten Appetit!}
+
+\end{document}
