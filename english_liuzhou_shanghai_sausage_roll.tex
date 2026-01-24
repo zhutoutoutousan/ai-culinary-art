@@ -1,0 +1,389 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{xeCJK} % For Chinese characters - must be loaded before babel
+\usepackage[english,german]{babel}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,decorations.pathmorphing,decorations.markings}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{amssymb}
+
+% Set fonts for Chinese
+% xeCJK will automatically use a suitable Chinese font from your system
+% If compilation fails with font errors, uncomment and modify one of the following:
+% \setCJKmainfont{SimSun}              % Windows
+% \setCJKmainfont{Microsoft YaHei}     % Windows  
+% \setCJKmainfont{STSong}               % Mac
+% \setCJKmainfont{PingFang SC}          % Mac
+% \setCJKmainfont{AR PL UMing CN}      % Linux
+% \setCJKmainfont{Noto Sans CJK SC}    % Cross-platform
+
+% Alternative: Use xeCJK's auto font detection (default behavior)
+% This will work if you have any Chinese font installed on your system
+
+% Page setup
+\geometry{margin=2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% Colors
+\definecolor{shanghai}{RGB}{200,50,50}
+\definecolor{liuzhou}{RGB}{255,165,0}
+\definecolor{english}{RGB}{100,150,200}
+\definecolor{meat}{RGB}{180,80,80}
+
+% Checkbox command
+\newcommand{\checkbox}{\raisebox{0.1ex}{\tikz[scale=0.5]{\draw[thick] (0,0) rectangle (0.4,0.4);}}}
+\newcommand{\checkedbox}{\raisebox{0.1ex}{\tikz[scale=0.5]{\draw[thick] (0,0) rectangle (0.4,0.4); \draw[thick] (0.1,0.2) -- (0.2,0.3) -- (0.3,0.1);}}}
+
+\title{\textbf{跨界融合食谱 / Fusion Recipe / Fusionsrezept}\\
+\large 英式柳沪香肠卷\\
+\large English-Liuzhou-Shanghai Sausage Roll\\
+\large Englisch-Liuzhou-Shanghai Würstchen-Rolle}
+\author{跨文化烹饪创新 / Cross-Cultural Culinary Innovation / Interkulturelle Kücheninnovation}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{引言 / Introduction / Einleitung}
+
+这道菜融合了三个地区的烹饪精髓：英式的经典烘焙传统、上海的浓油赤酱精致风格，以及柳州的酸辣鲜香。以酥皮和香肠为核心，创造出独特的跨文化碰撞感。
+
+This dish combines the culinary essence of three regions: English classic baking tradition, Shanghai's thick oil and red sauce refinement, and Liuzhou's sour, spicy, fresh, and fragrant flavors. Centered around puff pastry and sausage, it creates a unique cross-cultural fusion experience.
+
+Dieses Gericht vereint die kulinarische Essenz dreier Regionen: Englische klassische Backtradition, Shanghais raffinierte dicke Öl- und Rotsaucen-Stil, und Liuzhous saure, scharfe, frische und aromatische Aromen. Mit Blätterteig und Wurst im Mittelpunkt schafft es ein einzigartiges interkulturelles Fusionserlebnis.
+
+\vspace{1cm}
+
+\section*{购物清单 / Grocery List / Einkaufsliste}
+
+\begin{longtable}{|p{0.5cm}|p{5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\multicolumn{5}{|c|}{\textbf{食材清单 / Ingredients List / Zutatenliste}} \\
+\hline
+\textbf{✓} & \textbf{食材 / Ingredient / Zutat} & \textbf{数量 / Quantity / Menge} & \textbf{用途 / Use / Verwendung} & \textbf{备注 / Notes / Notizen} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{✓} & \textbf{食材 / Ingredient / Zutat} & \textbf{数量 / Quantity / Menge} & \textbf{用途 / Use / Verwendung} & \textbf{备注 / Notes / Notizen} \\
+\hline
+\endhead
+
+\hline
+\checkbox & 酥皮 / Puff Pastry / Blätterteig & 1张 / 1 sheet / 1 Blatt & 主料 / Main / Hauptzutat & 现成或自制 / Ready-made or homemade / Fertig oder selbstgemacht \\
+\hline
+\checkbox & 猪肉末 / Minced Pork / Schweinehackfleisch & 300g & 主料 / Main / Hauptzutat & 或去肠衣的香肠 / Or sausage without casing / Oder Wurst ohne Haut \\
+\hline
+\checkbox & 洋葱 / Onion / Zwiebel & 1个 / 1 piece / 1 Stück & 英式元素 / English element / Englisch & 切末 / Minced / Gehackt \\
+\hline
+\checkbox & 百里香 / Thyme / Thymian & 适量 / As needed / Nach Bedarf & 英式元素 / English element / Englisch & 干或新鲜 / Dried or fresh / Getrocknet oder frisch \\
+\hline
+\checkbox & 黑胡椒 / Black Pepper / Schwarzer Pfeffer & 适量 / As needed / Nach Bedarf & 英式元素 / English element / Englisch & 现磨更佳 / Freshly ground preferred / Frisch gemahlen bevorzugt \\
+\hline
+\checkbox & 生抽 / Light Soy Sauce / Helle Sojasoße & 适量 / As needed / Nach Bedarf & 上海元素 / Shanghai element / Shanghai & 亚洲超市 / Asian market / Asiatischer Markt \\
+\hline
+\checkbox & 老抽 / Dark Soy Sauce / Dunkle Sojasoße & 适量 / As needed / Nach Bedarf & 上海元素 / Shanghai element / Shanghai & 上色用 / For color / Für Farbe \\
+\hline
+\checkbox & 冰糖 / Rock Sugar / Kandiszucker & 2-3颗 / 2-3 pieces / 2-3 Stück & 上海元素 / Shanghai element / Shanghai & 或砂糖 / Or regular sugar / Oder normaler Zucker \\
+\hline
+\checkbox & 料酒 / Shaoxing Wine / Shaoxing-Wein & 适量 / As needed / Nach Bedarf & 上海元素 / Shanghai element / Shanghai & 亚洲超市 / Asian market / Asiatischer Markt \\
+\hline
+\checkbox & 酸笋 / Sour Bamboo Shoots / Saure Bambussprossen & 适量 / As needed / Nach Bedarf & 柳州元素 / Liuzhou element / Liuzhou & 亚洲超市 / Asian market / Asiatischer Markt \\
+\hline
+\checkbox & 酸黄瓜 / Pickles (Gewürzgurken) / Gewürzgurken & 适量 / As needed / Nach Bedarf & 柳州元素 / Liuzhou element / Liuzhou & 德国超市常见 / Common in German stores / In deutschen Läden üblich \\
+\hline
+\checkbox & 辣椒油 / Chili Oil / Chiliöl & 适量 / As needed / Nach Bedarf & 柳州元素 / Liuzhou element / Liuzhou & 或自制 / Or homemade / Oder selbstgemacht \\
+\hline
+\checkbox & 白醋 / White Vinegar / Weißweinessig & 适量 / As needed / Nach Bedarf & 柳州元素 / Liuzhou element / Liuzhou & 或米醋 / Or rice vinegar / Oder Reissessig \\
+\hline
+\checkbox & 鸡蛋 / Eggs / Eier & 1枚 / 1 piece / 1 Stück & 装饰 / Glaze / Glasur & 刷表面用 / For brushing surface / Zum Bestreichen \\
+\hline
+\checkbox & 芝麻 / Sesame Seeds / Sesamsamen & 适量 / As needed / Nach Bedarf & 装饰 / Glaze / Glasur & 白芝麻 / White sesame / Weißer Sesam \\
+\hline
+\checkbox & 醋 / Vinegar / Essig & 适量 / As needed / Nach Bedarf & 蘸酱 / Dipping sauce / Dip-Soße & 蘸酱用 / For dipping sauce / Für Dip-Soße \\
+\hline
+\end{longtable}
+
+\textit{提示：打印后可在方框内打勾 / Tip: Print and check boxes manually / Tipp: Drucken und Kästchen manuell ankreuzen}
+
+\vspace{1cm}
+
+\section{食材准备 / Ingredients / Zutaten}
+
+\begin{minipage}{0.48\textwidth}
+\textbf{中文 / Chinese:}
+\begin{itemize}
+    \item 酥皮：现成酥皮（Puff Pastry）1张，或自制
+    \item 香肠肉：猪肉末 300g，或德式香肠去肠衣
+    \item 柳州元素：酸笋或酸黄瓜切碎，辣椒油，少许白醋
+    \item 上海元素：生抽、老抽、冰糖，少许料酒
+    \item 英式元素：洋葱末，百里香（Thyme），黑胡椒
+    \item 装饰：蛋液（刷表面），芝麻
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\textbf{English:}
+\begin{itemize}
+    \item Pastry: 1 sheet puff pastry (ready-made or homemade)
+    \item Sausage: 300g minced pork, or German sausage (removed from casing)
+    \item Liuzhou: Chopped sour bamboo/pickles, chili oil, white vinegar
+    \item Shanghai: Light/dark soy sauce, rock sugar, Shaoxing wine
+    \item English: Minced onion, thyme, black pepper
+    \item Glaze: Egg wash, sesame seeds
+\end{itemize}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\textbf{Deutsch / German:}
+\begin{itemize}
+    \item Teig: 1 Blatt Blätterteig (fertig oder selbstgemacht)
+    \item Wurst: 300g Hackfleisch oder deutsche Wurst (aus der Haut)
+    \item Liuzhou: Gehackte saure Bambussprossen/Gurken, Chiliöl, Weißweinessig
+    \item Shanghai: Helle/dunkle Sojasoße, Kandiszucker, Shaoxing-Wein
+    \item Englisch: Gehackte Zwiebel, Thymian, schwarzer Pfeffer
+    \item Glasur: Eistreiche, Sesamsamen
+\end{itemize}
+
+\section{烹饪步骤 / Cooking Steps / Zubereitungsschritte}
+
+\subsection{步骤一：调制融合肉馅 / Step 1: Prepare Fusion Filling / Schritt 1: Füllung zubereiten}
+
+\begin{tikzpicture}[scale=0.8]
+    % Bowl
+    \draw[fill=gray!20] (1,0) arc (180:0:1) -- (2,0) -- cycle;
+    \draw[fill=gray!10] (0.8,0) arc (180:0:1.2) -- (2,0) -- cycle;
+    
+    % Meat base
+    \draw[fill=meat] (0.5,0.2) rectangle (1.5,0.4);
+    \node[white,font=\tiny] at (1,0.3) {肉};
+    
+    % Ingredients around
+    \node[above] at (0.3,0.5) {\tiny 酸笋};
+    \node[above] at (0.8,0.5) {\tiny 生抽};
+    \node[above] at (1.2,0.5) {\tiny 老抽};
+    \node[above] at (1.7,0.5) {\tiny 百里香};
+    \draw[fill=red!40] (0.8,0.15) circle (0.08);
+    \node[white,font=\tiny] at (0.8,0.15) {辣};
+    
+    % Mixing indicator
+    \draw[->,thick,blue,decorate,decoration={snake,amplitude=3pt}] (2.5,0.3) arc (0:180:0.3);
+    
+    % Mixed filling
+    \draw[fill=gray!20] (4,0) arc (180:0:1) -- (5,0) -- cycle;
+    \draw[fill=brown!70,opacity=0.8] (3.8,0.1) arc (180:0:1.4) -- (5,0) -- cycle;
+    \draw[fill=green!40] (4.2,0.2) circle (0.06);
+    \draw[fill=red!40] (4.6,0.25) circle (0.05);
+    
+    \node[below] at (2.5,-0.5) {\small \textbf{Step 1: Mix all filling ingredients}};
+    \node[below] at (2.5,-1.2) {\tiny 步骤一：混合所有馅料};
+    \node[below] at (2.5,-1.5) {\tiny Schritt 1: Alle Füllungszutaten mischen};
+\end{tikzpicture}
+
+\textbf{中文：}将猪肉末（或去肠衣的香肠肉）放入大碗，加入切碎的酸笋/酸黄瓜、一勺生抽、半勺老抽、一小块碎冰糖、少许料酒、辣椒油、白醋、洋葱末、百里香和黑胡椒。用手充分抓拌均匀，让所有味道融合。静置15-20分钟让味道充分渗透。
+
+\textbf{English:} Place minced pork (or sausage meat removed from casing) in a large bowl. Add chopped sour bamboo/pickles, 1 tbsp light soy, 0.5 tbsp dark soy, a small piece of crushed rock sugar, a little Shaoxing wine, chili oil, white vinegar, minced onion, thyme, and black pepper. Mix thoroughly with hands until all flavors are combined. Let rest 15-20 minutes for flavors to meld.
+
+\textbf{Deutsch:} Hackfleisch (oder Wurstfleisch ohne Haut) in eine große Schüssel geben. Gehackte saure Bambussprossen/Gurken, 1 EL helle Sojasoße, 0.5 EL dunkle Sojasoße, ein kleines Stück zerstoßener Kandiszucker, etwas Shaoxing-Wein, Chiliöl, Weißweinessig, gehackte Zwiebel, Thymian und schwarzen Pfeffer hinzufügen. Mit den Händen gründlich mischen, bis alle Aromen kombiniert sind. 15-20 Minuten ruhen lassen, damit die Aromen sich verbinden.
+
+\subsection{步骤二：包制香肠卷 / Step 2: Assemble Sausage Roll / Schritt 2: Würstchen-Rolle formen}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pastry sheet
+    \draw[fill=yellow!20,rounded corners=3pt] (0,0) rectangle (4,1);
+    \draw[fill=yellow!10] (0.1,0.1) rectangle (3.9,0.9);
+    
+    % Filling on pastry
+    \draw[fill=brown!70,rounded corners=2pt] (0.5,0.3) rectangle (3.5,0.7);
+    
+    % Rolling process
+    \draw[->,thick,blue] (4.5,0.5) -- (5.5,0.5);
+    \node[above] at (5,0.8) {\tiny Roll};
+    
+    % Rolled shape
+    \draw[fill=yellow!20,rounded corners=10pt] (6,0.2) arc (90:270:0.3) -- (6.5,0.2) arc (90:-90:0.3) -- cycle;
+    \draw[fill=brown!70] (6.1,0.3) arc (90:270:0.25) -- (6.4,0.3) arc (90:-90:0.25) -- cycle;
+    
+    % Seam
+    \draw[dashed,red,thick] (6.25,0.1) -- (6.25,0.9);
+    
+    \node[below] at (3.5,-0.5) {\small \textbf{Step 2: Roll pastry around filling}};
+    \node[below] at (3.5,-1.2) {\tiny 步骤二：用酥皮包裹肉馅};
+    \node[below] at (3.5,-1.5) {\tiny Schritt 2: Teig um Füllung rollen};
+\end{tikzpicture}
+
+\textbf{中文：}将酥皮展开（如果太厚可稍微擀薄），在中间放一条肉馅（约2-3cm宽，长度与酥皮一致）。将酥皮从一边卷起，完全包裹肉馅，接缝处压在底部。用刀切成6-8cm长的段，每段用刀在表面划2-3道浅口（不要切透），这样烘烤时不会爆裂。
+
+\textbf{English:} Unroll pastry sheet (roll slightly thinner if too thick). Place a strip of filling (about 2-3cm wide, length matching pastry) in the center. Roll pastry from one side to completely wrap the filling, with seam on the bottom. Cut into 6-8cm segments. Score 2-3 shallow cuts on top of each (don't cut through) to prevent bursting during baking.
+
+\textbf{Deutsch:} Blätterteig ausrollen (leicht dünner rollen, wenn zu dick). Einen Streifen Füllung (ca. 2-3cm breit, Länge passend zum Teig) in die Mitte legen. Teig von einer Seite rollen, um die Füllung vollständig zu umwickeln, Naht nach unten. In 6-8cm Segmente schneiden. 2-3 flache Schnitte oben auf jedes Segment machen (nicht durchschneiden), um Platzen beim Backen zu verhindern.
+
+\subsection{步骤三：刷蛋液与烘烤 / Step 3: Glaze and Bake / Schritt 3: Glasieren und Backen}
+
+\begin{tikzpicture}[scale=0.8]
+    % Sausage rolls
+    \foreach \x in {0,1.5,3} {
+        \draw[fill=yellow!20,rounded corners=8pt] (\x,0.2) arc (90:270:0.3) -- (\x+0.8,0.2) arc (90:-90:0.3) -- cycle;
+        \draw[fill=brown!70] (\x+0.1,0.3) arc (90:270:0.25) -- (\x+0.7,0.3) arc (90:-90:0.25) -- cycle;
+    }
+    
+    % Egg wash brush
+    \draw[fill=yellow!60] (4.5,0.4) rectangle (4.7,0.6);
+    \draw[fill=gray!40] (4.7,0.45) -- (5,0.5) -- (4.7,0.55) -- cycle;
+    
+    % Egg wash drops
+    \foreach \x in {0.2,1.7,3.2} {
+        \draw[fill=yellow!80,opacity=0.7] (\x,0.5) circle (0.05);
+    }
+    
+    % Sesame seeds
+    \foreach \x in {0.3,0.5,0.7,1.8,2.0,2.2,3.3,3.5,3.7} {
+        \draw[fill=gray!60] (\x,0.55) circle (0.03);
+    }
+    
+    % Arrow to baked
+    \draw[->,thick,blue] (5.5,0.5) -- (6.5,0.5);
+    
+    % Baked rolls with golden color
+    \foreach \x in {7,8.5,10} {
+        \draw[fill=yellow!40,rounded corners=8pt] (\x,0.2) arc (90:270:0.3) -- (\x+0.8,0.2) arc (90:-90:0.3) -- cycle;
+        \draw[fill=brown!80] (\x+0.1,0.3) arc (90:270:0.25) -- (\x+0.7,0.3) arc (90:-90:0.25) -- cycle;
+        % Golden sheen
+        \draw[fill=yellow!60,opacity=0.5] (\x+0.1,0.4) arc (90:270:0.2) -- (\x+0.7,0.4) arc (90:-90:0.2) -- cycle;
+    }
+    
+    % Heat indicator
+    \draw[fill=red!60] (8.5,1.2) circle (0.3);
+    \node[white,font=\tiny] at (8.5,1.2) {200°C};
+    \node[below] at (8.5,0.9) {\tiny 20-25 min};
+    
+    \node[below] at (6.5,-0.5) {\small \textbf{Step 3: Brush with egg, bake until golden}};
+    \node[below] at (6.5,-1.2) {\tiny 步骤三：刷蛋液，烤至金黄};
+    \node[below] at (6.5,-1.5) {\tiny Schritt 3: Mit Ei bestreichen, backen bis goldbraun};
+\end{tikzpicture}
+
+\textbf{中文：}在每段香肠卷表面刷上蛋液（打散的鸡蛋），撒上芝麻。烤箱预热200°C，烘烤20-25分钟，直到酥皮金黄酥脆，肉馅完全熟透。中途可翻面一次确保均匀上色。
+
+\textbf{English:} Brush each sausage roll with egg wash (beaten egg), sprinkle with sesame seeds. Preheat oven to 200°C, bake for 20-25 minutes until pastry is golden and crispy, filling is fully cooked. Flip once halfway through for even browning.
+
+\textbf{Deutsch:} Jede Würstchen-Rolle mit Eistreiche (verquirltes Ei) bestreichen, mit Sesamsamen bestreuen. Ofen auf 200°C vorheizen, 20-25 Minuten backen, bis der Teig goldbraun und knusprig ist, Füllung vollständig gar. Einmal halb durch wenden für gleichmäßige Bräunung.
+
+\subsection{步骤四：上海式蘸酱 / Step 4: Shanghai Dipping Sauce / Schritt 4: Shanghai Dip-Soße}
+
+\begin{tikzpicture}[scale=0.8]
+    % Small sauce dish
+    \draw[fill=gray!30] (1,0) arc (180:0:0.5) -- (2,0) -- cycle;
+    \draw[fill=shanghai!60,opacity=0.8] (0.8,0.1) arc (180:0:0.7) -- (2,0) -- cycle;
+    
+    % Sauce ingredients
+    \node[above] at (0.5,0.3) {\tiny 生抽};
+    \node[above] at (1,0.3) {\tiny 老抽};
+    \node[above] at (1.5,0.3) {\tiny 冰糖};
+    \node[above] at (2,0.3) {\tiny 醋};
+    
+    % Sausage roll dipping
+    \draw[fill=yellow!40,rounded corners=8pt] (4,0.3) arc (90:270:0.25) -- (4.6,0.3) arc (90:-90:0.25) -- cycle;
+    \draw[fill=brown!80] (4.1,0.35) arc (90:270:0.2) -- (4.5,0.35) arc (90:-90:0.2) -- cycle;
+    
+    % Dipping motion
+    \draw[->,thick,blue] (4.3,0.5) arc (90:45:0.3);
+    \draw[->,thick,blue] (1.5,0.2) arc (-90:-45:0.3);
+    
+    % Glossy finish on roll
+    \draw[fill=shanghai!40,opacity=0.6] (4.1,0.4) arc (90:270:0.15) -- (4.5,0.4) arc (90:-90:0.15) -- cycle;
+    
+    \node[below] at (2.5,-0.5) {\small \textbf{Step 4: Serve with Shanghai dipping sauce}};
+    \node[below] at (2.5,-1.2) {\tiny 步骤四：配上海式蘸酱享用};
+    \node[below] at (2.5,-1.5) {\tiny Schritt 4: Mit Shanghai Dip-Soße servieren};
+\end{tikzpicture}
+
+\textbf{中文：}制作蘸酱：将1勺生抽、半勺老抽、一小块碎冰糖、少许醋混合，小火加热至冰糖融化，形成浓稠的甜咸酱汁。香肠卷出炉后，趁热蘸酱享用。酥皮的黄油香、柳州的酸辣、上海的甜咸在口中完美融合，层次丰富。
+
+\textbf{English:} Make dipping sauce: Mix 1 tbsp light soy, 0.5 tbsp dark soy, a small piece of crushed rock sugar, and a little vinegar. Heat gently until sugar dissolves, forming a thick sweet-salty sauce. Serve hot sausage rolls with the sauce. The buttery pastry, Liuzhou's sour-spicy, and Shanghai's sweet-salty flavors combine perfectly with rich layers.
+
+\textbf{Deutsch:} Dip-Soße zubereiten: 1 EL helle Sojasoße, 0.5 EL dunkle Sojasoße, ein kleines Stück zerstoßener Kandiszucker und etwas Essig mischen. Leicht erhitzen, bis Zucker sich auflöst und eine dicke süß-salzige Soße entsteht. Heiße Würstchen-Rollen mit der Soße servieren. Der buttrige Teig, Liuzhous sauer-scharf und Shanghais süß-salzig vereinen sich perfekt mit reichen Schichten.
+
+\vspace{1cm}
+
+\section{烹饪原理图 / Cooking Process Diagram / Zubereitungsprozess-Diagramm}
+
+\begin{tikzpicture}[scale=0.8]
+% Recipe flow - English-Liuzhou-Shanghai Sausage Roll
+\node[draw,fill=yellow!30,rounded corners=5pt] (pastry) at (0,6) {酥皮\\Pastry\\Blätterteig};
+\node[draw,fill=red!30,rounded corners=5pt] (pork) at (2,6) {猪肉末\\Minced Pork\\Hackfleisch};
+\node[draw,fill=liuzhou!30,rounded corners=5pt] (liuzhou3) at (4,6) {柳州元素\\Liuzhou\\Liuzhou};
+\node[draw,fill=shanghai!30,rounded corners=5pt] (shanghai3) at (6,6) {上海元素\\Shanghai\\Shanghai};
+\node[draw,fill=english!30,rounded corners=5pt] (english) at (8,6) {英式元素\\English\\Englisch};
+
+\node[draw,fill=brown!50,rounded corners=5pt] (filling) at (4,4) {混合馅料\\Mixed Filling\\Gemischte Füllung};
+
+\draw[->,thick] (pastry) -- (3,5);
+\draw[->,thick] (pork) -- (filling);
+\draw[->,thick] (liuzhou3) -- (filling);
+\draw[->,thick] (shanghai3) -- (filling);
+\draw[->,thick] (english) -- (5,5);
+
+\node[draw,fill=yellow!50,rounded corners=5pt] (rolled) at (4,2) {包制\\Rolled\\Gerollt};
+
+\draw[->,thick] (filling) -- (rolled);
+\draw[->,thick] (3,5) -- (rolled);
+\draw[->,thick] (5,5) -- (rolled);
+
+\node[draw,fill=shanghai!50,rounded corners=10pt] (final3) at (4,0) {\textbf{英式柳沪香肠卷}\\\textbf{English-Liuzhou-Shanghai Roll}\\\textbf{Englisch-Liuzhou-Shanghai Rolle}};
+
+\draw[->,thick] (rolled) -- (final3);
+\end{tikzpicture}
+
+\vspace{1cm}
+
+\section{小贴士 / Tips / Tipps}
+
+\begin{itemize}
+    \item \textbf{中文：}如果使用现成酥皮，记得提前从冰箱取出解冻，但不要完全软化，保持微凉状态更容易操作。
+    
+    \textbf{English:} If using ready-made pastry, remember to thaw from freezer in advance, but don't let it completely soften - keeping it slightly cool makes it easier to handle.
+    
+    \textbf{Deutsch:} Wenn fertiger Blätterteig verwendet wird, rechtzeitig aus dem Gefrierschrank nehmen zum Auftauen, aber nicht vollständig erweichen lassen - leicht kühl ist leichter zu handhaben.
+    
+    \item \textbf{中文：}肉馅可以提前一天准备，在冰箱中腌制过夜，味道会更浓郁。
+    
+    \textbf{English:} The filling can be prepared a day ahead and marinated overnight in the refrigerator for more intense flavor.
+    
+    \textbf{Deutsch:} Die Füllung kann einen Tag vorher zubereitet und über Nacht im Kühlschrank mariniert werden für intensiveren Geschmack.
+    
+    \item \textbf{中文：}烘烤时如果酥皮上色太快，可以在上面盖一层锡纸，防止过度焦化。
+    
+    \textbf{English:} If the pastry browns too quickly during baking, cover with foil to prevent over-browning.
+    
+    \textbf{Deutsch:} Wenn der Teig beim Backen zu schnell braun wird, mit Alufolie abdecken, um Überbräunung zu verhindern.
+    
+    \item \textbf{中文：}蘸酱可以提前制作，冷藏保存，食用前稍微加热即可。
+    
+    \textbf{English:} The dipping sauce can be made ahead and stored in the refrigerator, just reheat slightly before serving.
+    
+    \textbf{Deutsch:} Die Dip-Soße kann vorher zubereitet und im Kühlschrank aufbewahrt werden, vor dem Servieren leicht erwärmen.
+\end{itemize}
+
+\vspace{1cm}
+
+\section*{结语 / Conclusion / Schlusswort}
+
+这道跨文化融合菜展现了三个地区烹饪风格的完美结合：英式的经典烘焙、上海的精致调味、柳州的冲击力。以酥皮和香肠为核心，创造出独特的美食体验。
+
+This cross-cultural fusion dish perfectly combines three regional cooking styles: English classic baking, Shanghai's refined seasoning, and Liuzhou's intensity. Centered around puff pastry and sausage, it creates a unique culinary experience.
+
+Dieses interkulturelle Fusionsgericht vereint perfekt drei regionale Kochstile: Englische klassische Backkunst, Shanghais raffinierte Würzung und Liuzhous Intensität. Mit Blätterteig und Wurst im Mittelpunkt schafft es ein einzigartiges kulinarisches Erlebnis.
+
+\vspace{0.5cm}
+
+\textit{享受烹饪！Enjoy cooking! Guten Appetit!}
+
+\end{document}
