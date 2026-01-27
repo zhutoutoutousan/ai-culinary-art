@@ -1,0 +1,521 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{xeCJK} % For Chinese characters - must be loaded before babel
+\usepackage[english,german,french]{babel}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,decorations.pathmorphing,decorations.markings}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{amssymb}
+
+% Set fonts for Chinese
+% xeCJK font configuration - optimized for Overleaf
+% Primary: Noto Sans CJK SC (commonly available on Overleaf and Linux)
+\setCJKmainfont{Noto Sans CJK SC}[AutoFakeBold=true, AutoFakeSlant=true]
+\setCJKsansfont{Noto Sans CJK SC}[AutoFakeBold=true]
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
+% If Noto Sans CJK SC not available, try these alternatives:
+% Uncomment the block that works on your system:
+
+% Alternative 1: Source Han Sans (also common on Overleaf)
+% \setCJKmainfont{Source Han Sans SC}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{Source Han Sans SC}[AutoFakeBold=true]
+% \setCJKmonofont{Source Han Sans SC}
+
+% Alternative 2: Windows fonts (for local compilation on Windows)
+% \setCJKmainfont{Microsoft YaHei}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{Microsoft YaHei}[AutoFakeBold=true]
+% \setCJKmonofont{Microsoft YaHei}
+
+% Alternative 3: SimSun (Windows, older systems)
+% \setCJKmainfont{SimSun}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{SimHei}[AutoFakeBold=true]
+% \setCJKmonofont{FangSong}
+
+% Alternative 4: Mac fonts
+% \setCJKmainfont{STSong}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{STHeiti}[AutoFakeBold=true]
+% \setCJKmonofont{STSong}
+
+% Set fonts for French and other languages
+% Primary: Noto Sans (supports Latin and many scripts - available on Overleaf)
+\setmainfont{Noto Sans}[
+    Ligatures=TeX,
+    Numbers=OldStyle
+]
+
+% If Noto Sans not available, try these alternatives (uncomment one):
+% \setmainfont{Liberation Sans}[Ligatures=TeX]     % Linux
+% \setmainfont{DejaVu Sans}[Ligatures=TeX]        % Cross-platform
+% \setmainfont{Times New Roman}[Ligatures=TeX]     % Windows
+% \setmainfont{Arial}[Ligatures=TeX]               % Windows
+% \setmainfont{Linux Libertine O}[Ligatures=TeX]   % Linux
+
+% Page setup
+\geometry{margin=2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% Colors
+\definecolor{steak}{RGB}{180,50,50}
+\definecolor{butter}{RGB}{255,220,100}
+\definecolor{redcabbage}{RGB}{150,50,100}
+\definecolor{potato}{RGB}{240,220,180}
+\definecolor{pan}{RGB}{80,80,80}
+
+% Checkbox command
+\newcommand{\checkbox}{\raisebox{0.1ex}{\tikz[scale=0.5]{\draw[thick] (0,0) rectangle (0.4,0.4);}}}
+\newcommand{\checkedbox}{\raisebox{0.1ex}{\tikz[scale=0.5]{\draw[thick] (0,0) rectangle (0.4,0.4); \draw[thick] (0.1,0.2) -- (0.2,0.3) -- (0.3,0.1);}}}
+
+\title{\textbf{初学者牛排食谱 / Beginner's Steak Recipe / Recette de Steak pour Débutants / Steak-Rezept für Anfänger}\\
+\large 德式牛排配红卷心菜和土豆泥\\
+\large German-Style Steak with Red Cabbage and Mashed Potatoes\\
+\large Steak à l'allemande avec chou rouge et purée de pommes de terre\\
+\large Deutsches Steak mit Rotkohl und Kartoffelpüree}
+\author{跨文化烹饪创新 / Cross-Cultural Culinary Innovation / Innovation Culinaire Interculturelle / Interkulturelle Kücheninnovation}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{引言 / Introduction / Introduction / Einleitung}
+
+这道食谱专为初学者设计，教你如何制作完美的牛排，配以经典的德式配菜：红卷心菜和土豆泥。使用简单的技巧和优质食材，即使是第一次做牛排也能成功。
+
+This recipe is designed for beginners, teaching you how to make the perfect steak, paired with classic German sides: red cabbage and mashed potatoes. Using simple techniques and quality ingredients, even first-time steak makers can succeed.
+
+Cette recette est conçue pour les débutants, vous apprenant à préparer le steak parfait, accompagné de plats d'accompagnement allemands classiques : chou rouge et purée de pommes de terre. Avec des techniques simples et des ingrédients de qualité, même les débutants peuvent réussir.
+
+Dieses Rezept ist für Anfänger konzipiert und zeigt Ihnen, wie Sie das perfekte Steak zubereiten, gepaart mit klassischen deutschen Beilagen: Rotkohl und Kartoffelpüree. Mit einfachen Techniken und hochwertigen Zutaten können auch Anfänger beim ersten Mal erfolgreich sein.
+
+\vspace{1cm}
+
+\section*{购物清单 / Grocery List / Liste de Courses / Einkaufsliste}
+
+\begin{longtable}{|p{0.5cm}|p{4cm}|p{2cm}|p{2cm}|p{2.5cm}|}
+\hline
+\multicolumn{5}{|c|}{\textbf{食材清单 / Ingredients List / Liste des Ingrédients / Zutatenliste}} \\
+\hline
+\textbf{✓} & \textbf{食材 / Ingredient / Ingrédient / Zutat} & \textbf{数量 / Quantity / Quantité / Menge} & \textbf{用途 / Use / Utilisation / Verwendung} & \textbf{备注 / Notes / Notes / Notizen} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{✓} & \textbf{食材 / Ingredient / Ingrédient / Zutat} & \textbf{数量 / Quantity / Quantité / Menge} & \textbf{用途 / Use / Utilisation / Verwendung} & \textbf{备注 / Notes / Notes / Notizen} \\
+\hline
+\endhead
+
+\hline
+\checkbox & 牛排 / Steak / Steak / Steak & 2块 / 2 pieces / 2 pièces / 2 Stück & 主料 / Main / Principal / Hauptzutat & 约200-250g每块 / ~200-250g each / ~200-250g chacun / ~200-250g pro Stück \\
+\hline
+\checkbox & 黄油 / Butter / Beurre / Butter & 50-80g & 烹饪和调味 / Cooking \& seasoning / Cuisson et assaisonnement / Kochen und Würzen & 无盐黄油 / Unsalted / Non salé / Ungesalzen \\
+\hline
+\checkbox & 新鲜香草 / Fresh Herbs / Herbes fraîches / Frische Kräuter & 适量 / As needed / Au besoin / Nach Bedarf & 调味 / Seasoning / Assaisonnement / Würzen & 迷迭香、百里香 / Rosemary, thyme / Romarin, thym / Rosmarin, Thymian \\
+\hline
+\checkbox & 大蒜 / Garlic / Ail / Knoblauch & 2-3瓣 / 2-3 cloves / 2-3 gousses / 2-3 Zehen & 调味 / Seasoning / Assaisonnement / Würzen & 压碎 / Crushed / Écrasé / Gequetscht \\
+\hline
+\checkbox & 红卷心菜 / Red Cabbage / Chou rouge / Rotkohl & 500g & 配菜 / Side / Accompagnement / Beilage & 新鲜或罐装 / Fresh or canned / Frais ou en conserve / Frisch oder aus der Dose \\
+\hline
+\checkbox & 土豆 / Potatoes / Pommes de terre / Kartoffeln & 500-600g & 配菜 / Side / Accompagnement / Beilage & 适合做泥的品种 / Mashing variety / Variété à purée / Mehligkochende Sorte \\
+\hline
+\checkbox & 牛奶或奶油 / Milk or Cream / Lait ou crème / Milch oder Sahne & 50-100ml & 配菜 / Side / Accompagnement / Beilage & 做土豆泥用 / For mashed potatoes / Pour la purée / Für Kartoffelpüree \\
+\hline
+\checkbox & 盐 / Salt / Sel / Salz & 适量 / As needed / Au besoin / Nach Bedarf & 调味 / Seasoning / Assaisonnement / Würzen & 粗海盐更佳 / Coarse sea salt preferred / Gros sel de mer préféré / Grobes Meersalz bevorzugt \\
+\hline
+\checkbox & 黑胡椒 / Black Pepper / Poivre noir / Schwarzer Pfeffer & 适量 / As needed / Au besoin / Nach Bedarf & 调味 / Seasoning / Assaisonnement / Würzen & 现磨更佳 / Freshly ground preferred / Fraîchement moulu préféré / Frisch gemahlen bevorzugt \\
+\hline
+\checkbox & 食用油 / Cooking Oil / Huile de cuisson / Speiseöl & 2-3汤匙 / 2-3 tbsp / 2-3 c. à soupe / 2-3 EL & 烹饪用 / For cooking / Pour la cuisson / Zum Kochen & 高烟点油 / High smoke point / Point de fumée élevé / Hoher Rauchpunkt \\
+\hline
+\checkbox & 红酒醋或苹果醋 / Red Wine Vinegar or Apple Cider Vinegar / Vinaigre de vin rouge ou vinaigre de cidre / Rotweinessig oder Apfelessig & 1-2汤匙 / 1-2 tbsp / 1-2 c. à soupe / 1-2 EL & 配菜调味 / Side seasoning / Assaisonnement d'accompagnement / Beilagenwürze & 可选 / Optional / Optionnel / Optional \\
+\hline
+\end{longtable}
+
+\textit{提示：打印后可在方框内打勾 / Tip: Print and check boxes manually / Astuce : Imprimez et cochez les cases manuellement / Tipp: Drucken und Kästchen manuell ankreuzen}
+
+\vspace{1cm}
+
+\section{食材准备 / Ingredients / Ingrédients / Zutaten}
+
+\begin{minipage}{0.48\textwidth}
+\textbf{中文 / Chinese:}
+\begin{itemize}
+    \item 牛排：提前30分钟从冰箱取出，回到室温
+    \item 黄油：室温软化，与香草混合制成香草黄油
+    \item 红卷心菜：如用新鲜，切丝；如用罐装，沥干
+    \item 土豆：去皮切块，准备煮制
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\textbf{English:}
+\begin{itemize}
+    \item Steak: Remove from fridge 30 minutes before cooking, bring to room temperature
+    \item Butter: Soften at room temperature, mix with herbs for herb butter
+    \item Red cabbage: If fresh, shred; if canned, drain
+    \item Potatoes: Peel and cut into chunks, ready to boil
+\end{itemize}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\textbf{Français / French:}
+\begin{itemize}
+    \item Steak : Sortir du réfrigérateur 30 minutes avant la cuisson, amener à température ambiante
+    \item Beurre : Ramollir à température ambiante, mélanger avec les herbes pour le beurre aux herbes
+    \item Chou rouge : Si frais, râper ; si en conserve, égoutter
+    \item Pommes de terre : Éplucher et couper en morceaux, prêtes à bouillir
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Deutsch / German:}
+\begin{itemize}
+    \item Steak: 30 Minuten vor dem Kochen aus dem Kühlschrank nehmen, auf Raumtemperatur bringen
+    \item Butter: Bei Raumtemperatur weich werden lassen, mit Kräutern für Kräuterbutter mischen
+    \item Rotkohl: Wenn frisch, raspeln; wenn aus der Dose, abtropfen lassen
+    \item Kartoffeln: Schälen und in Stücke schneiden, zum Kochen bereit
+\end{itemize}
+
+\section{烹饪步骤 / Cooking Steps / Étapes de Cuisson / Zubereitungsschritte}
+
+\subsection{步骤一：准备香草黄油 / Step 1: Prepare Herb Butter / Étape 1 : Préparer le Beurre aux Herbes / Schritt 1: Kräuterbutter vorbereiten}
+
+\begin{tikzpicture}[scale=0.8]
+    % Butter block
+    \draw[fill=butter,rounded corners=3pt] (0,0) rectangle (2,1);
+    
+    % Herbs
+    \draw[fill=green!70] (0.3,0.5) -- (0.4,0.7) -- (0.5,0.5) -- cycle;
+    \draw[fill=green!70] (0.7,0.5) -- (0.8,0.7) -- (0.9,0.5) -- cycle;
+    \draw[fill=green!70] (1.1,0.5) -- (1.2,0.7) -- (1.3,0.5) -- cycle;
+    \draw[fill=green!70] (1.5,0.5) -- (1.6,0.7) -- (1.7,0.5) -- cycle;
+    
+    % Garlic
+    \draw[fill=white!80] (0.5,0.2) circle (0.1);
+    \draw[fill=white!80] (1.5,0.2) circle (0.1);
+    
+    % Arrow
+    \draw[->,thick,blue] (2.5,0.5) -- (3.5,0.5);
+    
+    % Mixed butter
+    \draw[fill=butter!80,rounded corners=3pt] (4,0) rectangle (6,1);
+    \draw[fill=green!50,opacity=0.6] (4.2,0.2) rectangle (5.8,0.8);
+    
+    \node[below] at (3,-0.5) {\small \textbf{Step 1: Mix butter with herbs}};
+    \node[below] at (3,-1.2) {\tiny 步骤一：混合黄油和香草};
+    \node[below] at (3,-1.5) {\tiny Étape 1 : Mélanger beurre et herbes};
+    \node[below] at (3,-1.8) {\tiny Schritt 1: Butter mit Kräutern mischen};
+\end{tikzpicture}
+
+\textbf{中文：}将黄油在室温下软化（约30分钟）。将新鲜香草（迷迭香、百里香）切碎，大蒜压成泥。将所有材料混合均匀，用保鲜膜卷成圆柱形，放入冰箱冷藏至少30分钟，使其变硬。
+
+\textbf{English:} Soften butter at room temperature (about 30 minutes). Finely chop fresh herbs (rosemary, thyme) and crush garlic into a paste. Mix all ingredients well, roll in plastic wrap into a cylinder, and refrigerate for at least 30 minutes to harden.
+
+\textbf{Français:} Ramollir le beurre à température ambiante (environ 30 minutes). Hacher finement les herbes fraîches (romarin, thym) et écraser l'ail en pâte. Mélanger tous les ingrédients, rouler dans du film plastique en forme de cylindre, et réfrigérer au moins 30 minutes pour durcir.
+
+\textbf{Deutsch:} Butter bei Raumtemperatur weich werden lassen (ca. 30 Minuten). Frische Kräuter (Rosmarin, Thymian) fein hacken und Knoblauch zu einer Paste zerdrücken. Alle Zutaten gut mischen, in Frischhaltefolie zu einer Rolle formen und mindestens 30 Minuten kühlen, um zu härten.
+
+\subsection{步骤二：准备配菜 - 土豆泥 / Step 2: Prepare Side - Mashed Potatoes / Étape 2 : Préparer l'Accompagnement - Purée de Pommes de Terre / Schritt 2: Beilage vorbereiten - Kartoffelpüree}
+
+\begin{tikzpicture}[scale=0.8]
+    % Potatoes
+    \foreach \x in {0.5,1.5,2.5} {
+        \draw[fill=potato,rounded corners=8pt] (\x-0.2,0.1) arc (180:0:0.2) -- (\x+0.2,0.1);
+    }
+    
+    % Arrow
+    \draw[->,thick,blue] (3.5,0.3) -- (4.5,0.3);
+    
+    % Boiling pot
+    \draw[fill=gray!20,rounded corners=5pt] (5,0) rectangle (7,1.5);
+    \draw[fill=blue!30] (5.2,0.2) rectangle (6.8,1.3);
+    
+    % Steam
+    \foreach \x in {5.5,6,6.5} {
+        \draw[gray!60,decorate,decoration={snake,amplitude=1pt,segment length=2pt}] (\x,1.6) -- (\x,1.8);
+    }
+    
+    % Arrow 2
+    \draw[->,thick,blue] (7.5,0.75) -- (8.5,0.75);
+    
+    % Mashed potatoes
+    \draw[fill=potato!80,rounded corners=3pt] (9,0.2) rectangle (11,1);
+    \draw[fill=white!60,opacity=0.5] (9.2,0.4) rectangle (10.8,0.8);
+    
+    \node[below] at (5.5,-0.5) {\small \textbf{Step 2: Boil and mash potatoes}};
+    \node[below] at (5.5,-1.2) {\tiny 步骤二：煮制并捣成泥};
+    \node[below] at (5.5,-1.5) {\tiny Étape 2 : Faire bouillir et écraser};
+    \node[below] at (5.5,-1.8) {\tiny Schritt 2: Kochen und zerdrücken};
+\end{tikzpicture}
+
+\textbf{中文：}将土豆去皮切块，放入加盐的沸水中煮15-20分钟，直到用叉子可以轻松戳透。沥干水分，放回锅中用小火加热1-2分钟以蒸发多余水分。加入温牛奶或奶油、黄油、盐和胡椒，用土豆捣碎器或叉子捣成泥。保持温热。
+
+\textbf{English:} Peel and cut potatoes into chunks, boil in salted water for 15-20 minutes until easily pierced with a fork. Drain, return to pot over low heat for 1-2 minutes to evaporate excess moisture. Add warm milk or cream, butter, salt, and pepper, mash with a potato masher or fork. Keep warm.
+
+\textbf{Français:} Éplucher et couper les pommes de terre en morceaux, faire bouillir dans l'eau salée 15-20 minutes jusqu'à ce qu'elles soient facilement percées avec une fourchette. Égoutter, remettre dans la casserole à feu doux 1-2 minutes pour évaporer l'excès d'humidité. Ajouter du lait ou de la crème tiède, du beurre, du sel et du poivre, écraser avec un presse-purée ou une fourchette. Garder au chaud.
+
+\textbf{Deutsch:} Kartoffeln schälen und in Stücke schneiden, in gesalzenem Wasser 15-20 Minuten kochen, bis sie mit einer Gabel leicht durchstochen werden können. Abgießen, zurück in den Topf bei schwacher Hitze 1-2 Minuten geben, um überschüssige Feuchtigkeit zu verdampfen. Warme Milch oder Sahne, Butter, Salz und Pfeffer hinzufügen, mit Kartoffelstampfer oder Gabel zerdrücken. Warm halten.
+
+\subsection{步骤三：准备配菜 - 红卷心菜 / Step 3: Prepare Side - Red Cabbage / Étape 3 : Préparer l'Accompagnement - Chou Rouge / Schritt 3: Beilage vorbereiten - Rotkohl}
+
+\begin{tikzpicture}[scale=0.8]
+    % Red cabbage
+    \draw[fill=redcabbage,rounded corners=10pt] (0,0) ellipse (1.5 and 1);
+    
+    % Arrow
+    \draw[->,thick,blue] (2.5,0.5) -- (3.5,0.5);
+    
+    % Shredded cabbage
+    \foreach \x in {4,4.5,5,5.5,6} {
+        \draw[fill=redcabbage!80,rounded corners=2pt] (\x,0.1) rectangle (\x+0.3,0.9);
+    }
+    
+    % Arrow 2
+    \draw[->,thick,blue] (7,0.5) -- (8,0.5);
+    
+    % Cooked cabbage
+    \draw[fill=redcabbage!60,rounded corners=3pt] (8.5,0.2) rectangle (10.5,0.8);
+    \draw[fill=redcabbage!40,opacity=0.6] (8.7,0.4) rectangle (10.3,0.6);
+    
+    \node[below] at (5.25,-0.5) {\small \textbf{Step 3: Cook red cabbage}};
+    \node[below] at (5.25,-1.2) {\tiny 步骤三：烹饪红卷心菜};
+    \node[below] at (5.25,-1.5) {\tiny Étape 3 : Cuire le chou rouge};
+    \node[below] at (5.25,-1.8) {\tiny Schritt 3: Rotkohl kochen};
+\end{tikzpicture}
+
+\textbf{中文：}如果使用新鲜红卷心菜，切丝。在平底锅中用中火加热少许黄油，加入红卷心菜翻炒5-7分钟。加入1-2汤匙红酒醋或苹果醋、少许糖、盐和胡椒调味。如用罐装红卷心菜，只需加热即可。保持温热。
+
+\textbf{English:} If using fresh red cabbage, shred it. Heat a little butter in a pan over medium heat, add red cabbage and stir-fry for 5-7 minutes. Add 1-2 tbsp red wine vinegar or apple cider vinegar, a little sugar, salt, and pepper to taste. If using canned red cabbage, simply heat it. Keep warm.
+
+\textbf{Français:} Si vous utilisez du chou rouge frais, le râper. Faire chauffer un peu de beurre dans une poêle à feu moyen, ajouter le chou rouge et faire revenir 5-7 minutes. Ajouter 1-2 c. à soupe de vinaigre de vin rouge ou de cidre, un peu de sucre, sel et poivre au goût. Si vous utilisez du chou rouge en conserve, simplement le réchauffer. Garder au chaud.
+
+\textbf{Deutsch:} Wenn Sie frischen Rotkohl verwenden, raspeln Sie ihn. Etwas Butter in einer Pfanne bei mittlerer Hitze erhitzen, Rotkohl hinzufügen und 5-7 Minuten anbraten. 1-2 EL Rotweinessig oder Apfelessig, etwas Zucker, Salz und Pfeffer nach Geschmack hinzufügen. Wenn Sie Rotkohl aus der Dose verwenden, einfach erhitzen. Warm halten.
+
+\subsection{步骤四：煎制牛排 / Step 4: Cook the Steak / Étape 4 : Cuire le Steak / Schritt 4: Steak braten}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pan
+    \draw[fill=pan,rounded corners=5pt] (0,0) rectangle (4,0.5);
+    \draw[fill=gray!20] (0.2,0.5) -- (3.8,0.5) -- (3.6,0.7) -- (0.4,0.7) -- cycle;
+    
+    % Steak
+    \draw[fill=steak,rounded corners=3pt] (1,0.1) rectangle (3,0.4);
+    
+    % Heat waves
+    \foreach \y in {0.8,0.9,1.0} {
+        \draw[red!50,decorate,decoration={snake,amplitude=2pt,segment length=5pt}] (0.5,\y) -- (3.5,\y);
+    }
+    
+    % Temperature indicator
+    \draw[fill=red!60] (1.5,1.5) circle (0.3);
+    \node[white,font=\tiny] at (1.5,1.5) {高温};
+    \node[below] at (1.5,1.2) {\tiny High};
+    
+    % Arrow
+    \draw[->,thick,blue] (4.5,0.25) -- (5.5,0.25);
+    
+    % Cooked steak
+    \draw[fill=pan,rounded corners=5pt] (6,0) rectangle (10,0.5);
+    \draw[fill=steak!60,rounded corners=3pt] (7,0.1) rectangle (9,0.4);
+    \draw[fill=brown!80,opacity=0.7] (7.2,0.15) rectangle (8.8,0.35);
+    
+    % Resting
+    \node[above] at (8,0.5) {\tiny 静置};
+    \node[above] at (8,0.7) {\tiny Rest};
+    
+    \node[below] at (5,-0.5) {\small \textbf{Step 4: Sear and rest steak}};
+    \node[below] at (5,-1.2) {\tiny 步骤四：煎制并静置牛排};
+    \node[below] at (5,-1.5) {\tiny Étape 4 : Saisir et reposer le steak};
+    \node[below] at (5,-1.8) {\tiny Schritt 4: Steak anbraten und ruhen lassen};
+\end{tikzpicture}
+
+\textbf{中文：}在烹饪前30分钟，将牛排从冰箱取出，用厨房纸巾拍干，两面均匀撒上粗盐和现磨黑胡椒。将平底锅（最好是铸铁锅）用大火加热至非常热。加入高烟点食用油（如菜籽油），油热后放入牛排。每面煎2-4分钟（根据厚度和想要的熟度），不要频繁翻动。在最后1分钟，加入香草黄油和大蒜，用勺子将融化的黄油不断淋在牛排上。将牛排盛出，放在架子上静置5-10分钟，让汁水重新分布。
+
+\textbf{English:} 30 minutes before cooking, remove steak from fridge, pat dry with paper towels, season both sides generously with coarse salt and freshly ground black pepper. Heat a heavy-bottomed pan (preferably cast iron) over high heat until very hot. Add high smoke point cooking oil, when oil is hot, add steak. Cook 2-4 minutes per side (depending on thickness and desired doneness), don't flip frequently. In the last minute, add herb butter and garlic, continuously baste the steak with melted butter using a spoon. Remove steak, rest on a rack for 5-10 minutes to allow juices to redistribute.
+
+\textbf{Français:} 30 minutes avant la cuisson, sortir le steak du réfrigérateur, sécher avec du papier absorbant, assaisonner généreusement les deux côtés avec du gros sel et du poivre noir fraîchement moulu. Chauffer une poêle à fond épais (de préférence en fonte) à feu vif jusqu'à très chaude. Ajouter de l'huile de cuisson à point de fumée élevé, quand l'huile est chaude, ajouter le steak. Cuire 2-4 minutes par côté (selon l'épaisseur et la cuisson désirée), ne pas retourner fréquemment. Dans la dernière minute, ajouter le beurre aux herbes et l'ail, arroser continuellement le steak avec le beurre fondu à l'aide d'une cuillère. Retirer le steak, laisser reposer sur une grille 5-10 minutes pour permettre aux jus de se redistribuer.
+
+\textbf{Deutsch:} 30 Minuten vor dem Kochen Steak aus dem Kühlschrank nehmen, mit Küchenpapier trocken tupfen, beide Seiten großzügig mit grobem Salz und frisch gemahlenem schwarzem Pfeffer würzen. Eine schwere Pfanne (vorzugsweise Gusseisen) bei starker Hitze erhitzen, bis sie sehr heiß ist. Speiseöl mit hohem Rauchpunkt hinzufügen, wenn das Öl heiß ist, Steak hinzufügen. 2-4 Minuten pro Seite braten (je nach Dicke und gewünschtem Gargrad), nicht häufig wenden. In der letzten Minute Kräuterbutter und Knoblauch hinzufügen, Steak kontinuierlich mit geschmolzener Butter mit einem Löffel begießen. Steak entfernen, 5-10 Minuten auf einem Rost ruhen lassen, damit sich die Säfte neu verteilen.
+
+\subsection{步骤五：摆盘和上桌 / Step 5: Plating and Serving / Étape 5 : Dressage et Service / Schritt 5: Anrichten und Servieren}
+
+\begin{tikzpicture}[scale=0.7]
+    % Plate
+    \draw[fill=gray!20,rounded corners=20pt] (0,0) ellipse (5 and 3);
+    \draw[fill=white!95,rounded corners=18pt] (0,0.2) ellipse (4.5 and 2.7);
+    
+    % Steak (center)
+    \draw[fill=steak,rounded corners=3pt] (-1.5,-0.3) rectangle (1.5,0.3);
+    \draw[fill=brown!80,opacity=0.6] (-1.3,-0.1) rectangle (1.3,0.1);
+    
+    % Herb butter on steak
+    \draw[fill=butter] (-0.5,0.4) circle (0.15);
+    \draw[fill=green!70] (-0.5,0.4) circle (0.1);
+    
+    % Mashed potatoes (left)
+    \draw[fill=potato!80,rounded corners=3pt] (-3,-1) rectangle (-1.5,-0.3);
+    \draw[fill=white!60,opacity=0.5] (-2.8,-0.8) rectangle (-1.7,-0.5);
+    
+    % Red cabbage (right)
+    \draw[fill=redcabbage!60,rounded corners=3pt] (1.5,-1) rectangle (3,-0.3);
+    \draw[fill=redcabbage!40,opacity=0.6] (1.7,-0.8) rectangle (2.8,-0.5);
+    
+    \node[below] at (0,-3) {\small \textbf{Step 5: Arrange on plate}};
+    \node[below] at (0,-3.8) {\tiny 步骤五：摆盘};
+    \node[below] at (0,-4.1) {\tiny Étape 5 : Dresser dans l'assiette};
+    \node[below] at (0,-4.4) {\tiny Schritt 5: Auf Teller anrichten};
+\end{tikzpicture}
+
+\textbf{中文：}将静置好的牛排放在盘子中央，在牛排上放一片香草黄油。一侧摆放土豆泥，另一侧摆放红卷心菜。可以再淋一些融化的香草黄油在牛排上。立即上桌，趁热享用！
+
+\textbf{English:} Place the rested steak in the center of the plate, top with a slice of herb butter. Arrange mashed potatoes on one side, red cabbage on the other. You can drizzle more melted herb butter over the steak. Serve immediately, enjoy while hot!
+
+\textbf{Français:} Placer le steak reposé au centre de l'assiette, garnir d'une tranche de beurre aux herbes. Disposer la purée de pommes de terre d'un côté, le chou rouge de l'autre. Vous pouvez arroser le steak de plus de beurre aux herbes fondu. Servir immédiatement, déguster chaud !
+
+\textbf{Deutsch:} Das ruhende Steak in die Mitte des Tellers legen, mit einer Scheibe Kräuterbutter belegen. Kartoffelpüree auf eine Seite, Rotkohl auf die andere Seite anrichten. Sie können mehr geschmolzene Kräuterbutter über das Steak träufeln. Sofort servieren, heiß genießen!
+
+\vspace{1cm}
+
+\section{烹饪原理图 / Cooking Process Diagram / Diagramme du Processus de Cuisson / Zubereitungsprozess-Diagramm}
+
+\begin{tikzpicture}[scale=0.9]
+% Ingredients
+\node[draw,fill=steak!30,rounded corners=5pt,align=center] (steak) at (0,6) {牛排\\Steak\\Steak\\Steak};
+\node[draw,fill=butter!30,rounded corners=5pt,align=center] (butter) at (2.4cm,8.0cm) {黄油\\Butter\\Beurre\\Butter};
+\node[draw,fill=green!30,rounded corners=5pt,align=center] (herbs) at (6.8cm,8.0cm) {香草\\Herbs\\Herbes\\Kräuter};
+\node[draw,fill=potato!30,rounded corners=5pt,align=center] (potatoes) at (10.4cm,8.0cm) {土豆\\Potatoes\\Pommes de terre\\Kartoffeln};
+\node[draw,fill=redcabbage!30,rounded corners=5pt,align=center] (cabbage) at (14.0cm,8.0cm) {红卷心菜\\Red Cabbage\\Chou rouge\\Rotkohl};
+
+% Preparation steps
+\node[draw,fill=butter!50,rounded corners=5pt,align=center] (prep1) at (2.4cm,4.4cm) {香草黄油\\Herb Butter\\Beurre aux Herbes\\Kräuterbutter};
+\node[draw,fill=potato!50,rounded corners=5pt,align=center] (prep2) at (6.8cm,4.4cm) {土豆泥\\Mashed Potatoes\\Purée\\Kartoffelpüree};
+\node[draw,fill=redcabbage!50,rounded corners=5pt,align=center] (prep3) at (11.6cm,4.4cm) {红卷心菜\\Red Cabbage\\Chou rouge\\Rotkohl};
+
+% Cooking
+\node[draw,fill=steak!50,rounded corners=5pt,align=center] (cook) at (-1.6cm,2.0cm) {煎制牛排\\Cook Steak\\Cuire le Steak\\Steak braten};
+
+% Final
+\node[draw,fill=steak!70,rounded corners=10pt,align=center] (final) at (6.8cm,-2.0cm) {\textbf{完美牛排餐}\\\textbf{Perfect Steak Meal}\\\textbf{Repas de Steak Parfait}\\\textbf{Perfektes Steak-Gericht}};
+
+% Connections
+\draw[->,thick] (butter) -- (prep1);
+\draw[->,thick] (herbs) -- (prep1);
+\draw[->,thick] (potatoes) -- (prep2);
+\draw[->,thick] (cabbage) -- (prep3);
+\draw[->,thick] (steak) -- (cook);
+\draw[->,thick] (prep1) -- (cook);
+\draw[->,thick] (prep2) -- (final);
+\draw[->,thick] (prep3) -- (final);
+\draw[->,thick] (cook) -- (final);
+\end{tikzpicture}
+
+\vspace{1cm}
+
+\section{牛排熟度指南 / Steak Doneness Guide / Guide de Cuisson du Steak / Steak-Garstufen-Leitfaden}
+
+\begin{longtable}{|p{2.5cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{熟度 / Doneness / Cuisson / Garstufe} & \textbf{中文描述 / Chinese Description / Description en Chinois / Chinesische Beschreibung} & \textbf{English Description / Description Anglaise / Englische Beschreibung} & \textbf{Français Description / Description Française / Französische Beschreibung} & \textbf{Deutsch Beschreibung / German Description / Description Allemande / Deutsche Beschreibung} \\
+\hline
+\textbf{一分熟 / Rare / Saignant / Rare} & 内部温度约49-52°C，中心鲜红，触感非常软 & Internal temp ~49-52°C, center bright red, very soft to touch & Température interne ~49-52°C, centre rouge vif, très mou au toucher & Innentemperatur ~49-52°C, Zentrum hellrot, sehr weich beim Berühren \\
+\hline
+\textbf{三分熟 / Medium Rare / À point / Medium Rare} & 内部温度约54-57°C，中心粉红，触感柔软 & Internal temp ~54-57°C, center pink, soft to touch & Température interne ~54-57°C, centre rose, mou au toucher & Innentemperatur ~54-57°C, Zentrum rosa, weich beim Berühren \\
+\hline
+\textbf{五分熟 / Medium / Cuit / Medium} & 内部温度约60-63°C，中心浅粉，触感有弹性 & Internal temp ~60-63°C, center light pink, springy to touch & Température interne ~60-63°C, centre rose clair, élastique au toucher & Innentemperatur ~60-63°C, Zentrum hellrosa, federnd beim Berühren \\
+\hline
+\textbf{七分熟 / Medium Well / Bien cuit / Medium Well} & 内部温度约66-68°C，中心浅灰粉，触感较硬 & Internal temp ~66-68°C, center light gray-pink, firm to touch & Température interne ~66-68°C, centre gris-rose clair, ferme au toucher & Innentemperatur ~66-68°C, Zentrum hellgrau-rosa, fest beim Berühren \\
+\hline
+\textbf{全熟 / Well Done / Très cuit / Well Done} & 内部温度约71°C以上，中心灰色，触感很硬 & Internal temp ~71°C+, center gray, very firm to touch & Température interne ~71°C+, centre gris, très ferme au toucher & Innentemperatur ~71°C+, Zentrum grau, sehr fest beim Berühren \\
+\hline
+\end{longtable}
+
+\textit{提示：使用肉类温度计最准确 / Tip: Use a meat thermometer for accuracy / Astuce : Utilisez un thermomètre à viande pour la précision / Tipp: Verwenden Sie ein Fleischthermometer für Genauigkeit}
+
+\vspace{1cm}
+
+\section{小贴士 / Tips / Conseils / Tipps}
+
+\begin{itemize}
+    \item \textbf{中文：}牛排从冰箱取出后一定要回到室温再烹饪，这样内部和外部会均匀受热，不会外面焦了里面还是冷的。
+    
+    \textbf{English:} Always bring steak to room temperature before cooking after removing from fridge. This ensures even heating inside and out, preventing the outside from burning while the inside remains cold.
+    
+    \textbf{Français:} Toujours amener le steak à température ambiante avant la cuisson après l'avoir sorti du réfrigérateur. Cela assure un chauffage uniforme à l'intérieur et à l'extérieur, évitant que l'extérieur brûle tandis que l'intérieur reste froid.
+    
+    \textbf{Deutsch:} Steak immer auf Raumtemperatur bringen, bevor Sie es nach dem Entnehmen aus dem Kühlschrank kochen. Dies gewährleistet gleichmäßige Erwärmung innen und außen und verhindert, dass die Außenseite verbrennt, während das Innere kalt bleibt.
+    
+    \item \textbf{中文：}静置牛排非常重要！烹饪后立即切开会让肉汁流失，导致牛排变干。静置5-10分钟让肉汁重新分布，牛排会更嫩更多汁。
+    
+    \textbf{English:} Resting the steak is crucial! Cutting immediately after cooking causes juices to escape, making the steak dry. Resting 5-10 minutes allows juices to redistribute, making the steak more tender and juicy.
+    
+    \textbf{Français:} Laisser reposer le steak est crucial ! Couper immédiatement après la cuisson fait s'échapper les jus, rendant le steak sec. Laisser reposer 5-10 minutes permet aux jus de se redistribuer, rendant le steak plus tendre et juteux.
+    
+    \textbf{Deutsch:} Das Ruhenlassen des Steaks ist entscheidend! Sofortiges Schneiden nach dem Kochen lässt Säfte entweichen, wodurch das Steak trocken wird. 5-10 Minuten ruhen lassen, damit sich die Säfte neu verteilen, macht das Steak zarter und saftiger.
+    
+    \item \textbf{中文：}使用铸铁平底锅可以获得最好的焦化效果（Maillard反应），这是牛排美味的关键。如果没有铸铁锅，使用厚底不锈钢锅也可以。
+    
+    \textbf{English:} Using a cast iron pan gives the best sear (Maillard reaction), which is key to steak flavor. If you don't have cast iron, a heavy-bottomed stainless steel pan works too.
+    
+    \textbf{Français:} Utiliser une poêle en fonte donne la meilleure saisie (réaction de Maillard), essentielle au goût du steak. Si vous n'avez pas de fonte, une poêle en acier inoxydable à fond épais fonctionne aussi.
+    
+    \textbf{Deutsch:} Eine Gusseisenpfanne gibt die beste Kruste (Maillard-Reaktion), was für den Steak-Geschmack entscheidend ist. Wenn Sie kein Gusseisen haben, funktioniert auch eine schwere Edelstahlpfanne.
+    
+    \item \textbf{中文：}香草黄油可以提前制作，在冰箱中保存最多一周。也可以冷冻保存更长时间。除了配牛排，还可以配其他肉类、鱼或蔬菜。
+    
+    \textbf{English:} Herb butter can be made ahead and kept in the fridge for up to a week. It can also be frozen for longer storage. Besides steak, it pairs well with other meats, fish, or vegetables.
+    
+    \textbf{Français:} Le beurre aux herbes peut être préparé à l'avance et conservé au réfrigérateur jusqu'à une semaine. Il peut également être congelé pour un stockage plus long. Outre le steak, il se marie bien avec d'autres viandes, poissons ou légumes.
+    
+    \textbf{Deutsch:} Kräuterbutter kann im Voraus zubereitet und bis zu einer Woche im Kühlschrank aufbewahrt werden. Sie kann auch eingefroren werden, um länger haltbar zu sein. Neben Steak passt sie gut zu anderen Fleischsorten, Fisch oder Gemüse.
+    
+    \item \textbf{中文：}如果牛排很厚（超过2.5cm），可以在煎制后放入预热至200°C的烤箱中继续烤制，以达到理想的内部温度。这叫做"反向煎烤法"。
+    
+    \textbf{English:} If the steak is very thick (over 2.5cm), you can finish it in a preheated 200°C oven after searing to reach the desired internal temperature. This is called the "reverse sear method."
+    
+    \textbf{Français:} Si le steak est très épais (plus de 2,5 cm), vous pouvez le terminer dans un four préchauffé à 200°C après la saisie pour atteindre la température interne désirée. C'est ce qu'on appelle la "méthode de saisie inversée."
+    
+    \textbf{Deutsch:} Wenn das Steak sehr dick ist (über 2,5 cm), können Sie es nach dem Anbraten in einem auf 200°C vorgeheizten Ofen fertig garen, um die gewünschte Innentemperatur zu erreichen. Dies wird als "umgekehrte Anbratmethode" bezeichnet.
+\end{itemize}
+
+\vspace{1cm}
+
+\section{图片说明 / Image Guide / Guide des Images / Bildanleitung}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{images/4-steak.jpg}
+\includegraphics[width=0.3\textwidth]{images/4-butter.jpg}
+\includegraphics[width=0.3\textwidth]{images/4-pfanne.jpg}
+\caption{牛排、黄油和平底锅 / Steak, Butter and Pan / Steak, Beurre et Poêle / Steak, Butter und Pfanne}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{images/4-rotkohl.jpg}
+\includegraphics[width=0.4\textwidth]{images/4-kartoffel.jpg}
+\caption{红卷心菜和土豆泥 / Red Cabbage and Mashed Potatoes / Chou Rouge et Purée de Pommes de Terre / Rotkohl und Kartoffelpüree}
+\end{figure}
+
+\vspace{1cm}
+
+\section*{结语 / Conclusion / Conclusion / Schlusswort}
+
+这道初学者牛排食谱结合了简单的技巧和优质的食材，帮助你制作出餐厅级别的牛排。配以经典的德式配菜——红卷心菜和土豆泥，这是一顿完美的周末大餐。记住：让牛排回到室温、高温煎制、充分静置，是成功的关键！
+
+This beginner's steak recipe combines simple techniques with quality ingredients to help you create restaurant-quality steak. Paired with classic German sides—red cabbage and mashed potatoes—this is a perfect weekend meal. Remember: bringing steak to room temperature, high-heat searing, and proper resting are the keys to success!
+
+Cette recette de steak pour débutants combine des techniques simples avec des ingrédients de qualité pour vous aider à créer un steak de qualité restaurant. Accompagné de plats d'accompagnement allemands classiques—chou rouge et purée de pommes de terre—c'est un repas de week-end parfait. Rappelez-vous : amener le steak à température ambiante, saisir à feu vif et laisser reposer correctement sont les clés du succès !
+
+Dieses Anfänger-Steak-Rezept kombiniert einfache Techniken mit hochwertigen Zutaten, um Ihnen zu helfen, ein Steak in Restaurantqualität zu kreieren. Gepaart mit klassischen deutschen Beilagen—Rotkohl und Kartoffelpüree—ist dies eine perfekte Wochenendmahlzeit. Denken Sie daran: Steak auf Raumtemperatur bringen, bei starker Hitze anbraten und richtig ruhen lassen sind die Schlüssel zum Erfolg!
+
+\vspace{0.5cm}
+
+\textit{享受烹饪！Enjoy cooking! Bon appétit! Guten Appetit!}
+
+\end{document}
