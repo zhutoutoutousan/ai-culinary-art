@@ -1,0 +1,207 @@
+\documentclass[11pt,a4paper]{book}
+
+% For XeLaTeX compilation (recommended for multilingual)
+\usepackage{fontspec}
+\usepackage{xeCJK} % For Chinese support
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguages{german}
+\setotherlanguage{chinese}
+
+% Chinese font settings - using Overleaf-compatible fonts
+% Overleaf typically has Noto Sans CJK SC available
+% This setup tries multiple fonts in order of preference
+
+% Primary: Noto Sans CJK SC (commonly available on Overleaf and Linux)
+\setCJKmainfont{Noto Sans CJK SC}[AutoFakeBold=true, AutoFakeSlant=true]
+\setCJKsansfont{Noto Sans CJK SC}[AutoFakeBold=true]
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
+% If Noto Sans CJK SC not available, try these alternatives:
+% Uncomment the block that works on your system:
+
+% Alternative 1: Source Han Sans (also common on Overleaf)
+% \setCJKmainfont{Source Han Sans SC}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{Source Han Sans SC}[AutoFakeBold=true]
+% \setCJKmonofont{Source Han Sans SC}
+
+% Alternative 2: Windows fonts
+% \setCJKmainfont{SimSun}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{SimHei}[AutoFakeBold=true]
+% \setCJKmonofont{FangSong}
+
+% Alternative 3: Microsoft YaHei (Windows)
+% \setCJKmainfont{Microsoft YaHei}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{Microsoft YaHei}[AutoFakeBold=true]
+% \setCJKmonofont{Microsoft YaHei}
+
+% Alternative 4: Mac fonts
+% \setCJKmainfont{STSong}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{STHeiti}[AutoFakeBold=true]
+% \setCJKmonofont{STSong}
+
+% Fallback for pdfLaTeX (if XeLaTeX not available)
+% Uncomment if using pdfLaTeX instead:
+% \usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc}
+% \usepackage[english,ngerman]{babel}
+% \usepackage{CJKutf8}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc,decorations.pathmorphing,decorations.pathreplacing,fit,backgrounds,matrix,patterns,shadows}
+
+% Page geometry
+\geometry{
+    left=2.5cm,
+    right=2.5cm,
+    top=3cm,
+    bottom=3cm,
+    headheight=60pt
+}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={The Complete Guide to Restaurant Operations | 餐厅运营完整指南 | Der vollständige Leitfaden für Restaurantbetrieb},
+    pdfauthor={Sue and Owen},
+    pdfsubject={Restaurant Management, Gastronomie, and Innovative Hospitality | 餐厅管理、美食与创新酒店业 | Restaurantmanagement, Gastronomie und innovative Gastronomie},
+    pdfkeywords={restaurant, gastronomie, food service, supply chain, hyper restaurant, theme hotel, social gaming, stranger social networking, 餐厅, 美食, 餐饮服务, 供应链, 超餐厅, 主题酒店, 社交游戏, 陌生人社交, Restaurant, Gastronomie, Lebensmittelservice, Lieferkette, Hyper-Restaurant, Themenhotel, soziales Spielen, Fremden-Sozialnetzwerke}
+}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\rightmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Custom command for trilingual chapter titles
+% Arguments: {English}{Chinese}{German}{unused}
+% The optional argument goes to TOC, the required argument is the displayed title
+\newcommand{\trilingualchapter}[4]{%
+    \chapter[#1 | #2 | #3]{#1\\#2\\#3}%
+}
+
+% Custom command for trilingual part titles
+% Arguments: {English}{Chinese}{German}{unused}
+\newcommand{\trilingualpart}[4]{%
+    \part[#1 | #2 | #3]{#1\\#2\\#3}%
+}
+
+% Custom command for trilingual section titles
+% Arguments: {English}{Chinese}{German}{unused}
+\newcommand{\trilingualsection}[4]{%
+    \section[#1 | #2 | #3]{#1\\#2\\#3}%
+}
+
+% Custom command for trilingual subsection titles
+% Arguments: {English}{Chinese}{German}{unused}
+\newcommand{\trilingualsubsection}[4]{%
+    \subsection[#1 | #2 | #3]{#1\\#2\\#3}%
+}
+
+% Custom command for trilingual subsubsection titles
+% Arguments: {English}{Chinese}{German}{unused}
+\newcommand{\trilingualsubsubsection}[4]{%
+    \subsubsection[#1 | #2 | #3]{#1\\#2\\#3}%
+}
+
+% Chapter formatting
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+
+% Title page information
+\title{The Complete Guide to Restaurant Operations\\
+\large From Concept to Success: Traditional and Innovative Hospitality\\
+\vspace{0.5cm}
+\large 餐厅运营完整指南\\
+\large 从概念到成功：传统与创新酒店业\\
+\vspace{0.5cm}
+\large Der vollständige Leitfaden für Restaurantbetrieb\\
+\large Von der Konzeption zum Erfolg: Traditionelle und innovative Gastronomie}
+\author{Sue and Owen}
+\date{\today}
+
+\begin{document}
+
+% Front matter
+\frontmatter
+
+% Title page
+\maketitle
+
+% Table of contents
+\tableofcontents
+\newpage
+
+% Introduction
+\include{chapter/introduction}
+
+% Main matter
+\mainmatter
+
+% Part I: Planning and Concept
+\part{Planning and Concept Development}
+
+\include{chapter/concept_planning}
+\include{chapter/location_design}
+
+% Part II: Operations and Supply Chain
+\trilingualpart{Operations and Supply Chain Management}{运营与供应链管理}{Betrieb und Lieferkettenmanagement}{}
+
+\include{chapter/supply_chain}
+\include{chapter/food_service_operations}
+
+% Part III: Human Resources and Management
+\trilingualpart{Human Resources and Management}{人力资源与管理}{Personalwesen und Management}{}
+
+\include{chapter/staffing_training}
+\include{chapter/financial_management}
+
+% Part IV: Marketing and Growth
+\trilingualpart{Marketing and Growth}{营销与增长}{Marketing und Wachstum}{}
+
+\include{chapter/marketing_branding}
+\include{chapter/opening_day}
+
+% Part V: Sustained Success
+\trilingualpart{Sustained Success}{持续成功}{Nachhaltiger Erfolg}{}
+
+\include{chapter/ongoing_operations}
+
+% Part VI: Innovation and Future Concepts
+\trilingualpart{Innovation and Future Concepts}{创新与未来概念}{Innovation und Zukunftskonzepte}{}
+
+\include{chapter/hyper_restaurant}
+\include{chapter/theme_hotel}
+\include{chapter/social_gaming_integration}
+
+\include{chapter/conclusion}
+
+% Back matter
+\backmatter
+
+% Bibliography (if needed)
+% \bibliography{references}
+
+% Index (if needed)
+% \printindex
+
+\end{document}

@@ -1,0 +1,814 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{xeCJK} % For Chinese characters - must be loaded before babel
+\usepackage[english,german,russian]{babel}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,decorations.pathmorphing,decorations.markings}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{amssymb}
+
+% Set fonts for Chinese
+% xeCJK font configuration - optimized for Overleaf
+% Primary: Noto Sans CJK SC (commonly available on Overleaf and Linux)
+\setCJKmainfont{Noto Sans CJK SC}[AutoFakeBold=true, AutoFakeSlant=true]
+\setCJKsansfont{Noto Sans CJK SC}[AutoFakeBold=true]
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
+% If Noto Sans CJK SC not available, try these alternatives:
+% Uncomment the block that works on your system:
+
+% Alternative 1: Source Han Sans (also common on Overleaf)
+% \setCJKmainfont{Source Han Sans SC}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{Source Han Sans SC}[AutoFakeBold=true]
+% \setCJKmonofont{Source Han Sans SC}
+
+% Alternative 2: Windows fonts (for local compilation on Windows)
+% \setCJKmainfont{Microsoft YaHei}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{Microsoft YaHei}[AutoFakeBold=true]
+% \setCJKmonofont{Microsoft YaHei}
+
+% Alternative 3: SimSun (Windows, older systems)
+% \setCJKmainfont{SimSun}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{SimHei}[AutoFakeBold=true]
+% \setCJKmonofont{FangSong}
+
+% Alternative 4: Mac fonts
+% \setCJKmainfont{STSong}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{STHeiti}[AutoFakeBold=true]
+% \setCJKmonofont{STSong}
+
+% Set fonts for Russian (Cyrillic) and other languages
+% Primary: Noto Sans (supports Cyrillic, Latin, and many scripts - available on Overleaf)
+% This font supports Russian Cyrillic characters
+\setmainfont{Noto Sans}[
+    Ligatures=TeX,
+    Numbers=OldStyle
+]
+
+% If Noto Sans not available, try these alternatives (uncomment one):
+% \setmainfont{Liberation Sans}[Ligatures=TeX]     % Linux, supports Cyrillic
+% \setmainfont{DejaVu Sans}[Ligatures=TeX]        % Cross-platform, supports Cyrillic
+% \setmainfont{Times New Roman}[Ligatures=TeX]     % Windows, supports Cyrillic
+% \setmainfont{Arial}[Ligatures=TeX]               % Windows, supports Cyrillic
+% \setmainfont{Linux Libertine O}[Ligatures=TeX]   % Linux, supports Cyrillic
+
+% Page setup
+\geometry{margin=2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% Colors
+\definecolor{shanghai}{RGB}{200,50,50}
+\definecolor{russian}{RGB}{0,100,200}
+\definecolor{english}{RGB}{100,150,200}
+\definecolor{egg}{RGB}{255,220,100}
+\definecolor{bacon}{RGB}{180,80,80}
+
+% Checkbox command
+\newcommand{\checkbox}{\raisebox{0.1ex}{\tikz[scale=0.5]{\draw[thick] (0,0) rectangle (0.4,0.4);}}}
+\newcommand{\checkedbox}{\raisebox{0.1ex}{\tikz[scale=0.5]{\draw[thick] (0,0) rectangle (0.4,0.4); \draw[thick] (0.1,0.2) -- (0.2,0.3) -- (0.3,0.1);}}}
+
+\title{\textbf{跨界融合食谱 / Fusion Recipe / Fusionsrezept / Рецепт фьюжн}\\
+\large 沪俄式英式全餐\\
+\large Shanghai-Russian Full English Breakfast\\
+\large Shanghai-Russisches Englisches Frühstück\\
+\large Шанхайско-русский полный английский завтрак}
+\author{跨文化烹饪创新 / Cross-Cultural Culinary Innovation / Interkulturelle Kücheninnovation / Межкультурные кулинарные инновации}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{引言 / Introduction / Einleitung / Введение}
+
+这道菜融合了三个地区的烹饪精髓：英式的经典全餐传统、上海的浓油赤酱精致风格，以及俄罗斯的酸奶油和香草风味。以鸡蛋、培根、香肠为核心，创造出独特的跨文化碰撞感。
+
+This dish combines the culinary essence of three regions: English classic full breakfast tradition, Shanghai's thick oil and red sauce refinement, and Russian sour cream and herb flavors. Centered around eggs, bacon, and sausages, it creates a unique cross-cultural fusion experience.
+
+Dieses Gericht vereint die kulinarische Essenz dreier Regionen: Englische klassische Frühstückstradition, Shanghais raffinierte dicke Öl- und Rotsaucen-Stil, und russische Sauerrahm- und Kräutergeschmäcke. Mit Eiern, Speck und Würsten im Mittelpunkt schafft es ein einzigartiges interkulturelles Fusionserlebnis.
+
+Это блюдо сочетает кулинарную суть трех регионов: английская классическая традиция полного завтрака, изысканный стиль Шанхая с густым маслом и красным соусом, а также русские вкусы сметаны и трав. С яйцами, беконом и сосисками в центре создается уникальный межкультурный фьюжн-опыт.
+
+\vspace{1cm}
+
+\section*{购物清单 / Grocery List / Einkaufsliste / Список покупок}
+
+\begin{longtable}{|p{0.5cm}|p{4cm}|p{2cm}|p{2cm}|p{2.5cm}|}
+\hline
+\multicolumn{5}{|c|}{\textbf{食材清单 / Ingredients List / Zutatenliste / Список ингредиентов}} \\
+\hline
+\textbf{✓} & \textbf{食材 / Ingredient / Zutat / Ингредиент} & \textbf{数量 / Quantity / Menge / Количество} & \textbf{用途 / Use / Verwendung / Использование} & \textbf{备注 / Notes / Notizen / Примечания} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{✓} & \textbf{食材 / Ingredient / Zutat / Ингредиент} & \textbf{数量 / Quantity / Menge / Количество} & \textbf{用途 / Use / Verwendung / Использование} & \textbf{备注 / Notes / Notizen / Примечания} \\
+\hline
+\endhead
+
+\hline
+\checkbox & 鸡蛋 / Eggs / Eier / Яйца & 4-6枚 / 4-6 pieces / 4-6 Stück / 4-6 шт & 主料 / Main / Hauptzutat / Основной & 走地鸡蛋更佳 / Free-range preferred / Freilandhaltung bevorzugt / Предпочтительно свободного выгула \\
+\hline
+\checkbox & 培根 / Bacon / Speck / Бекон & 6-8片 / 6-8 slices / 6-8 Scheiben / 6-8 ломтиков & 主料 / Main / Hauptzutat / Основной & 英式厚切培根 / English thick-cut / Englischer dicker Schnitt / Английский толстый нарез \\
+\hline
+\checkbox & 香肠 / Sausages / Würste / Сосиски & 4-6根 / 4-6 pieces / 4-6 Stück / 4-6 шт & 主料 / Main / Hauptzutat / Основной & 英式或俄式 / English or Russian / Englisch oder russisch / Английские или русские \\
+\hline
+\checkbox & 蘑菇 / Mushrooms / Champignons / Грибы & 200g & 配菜 / Side / Beilage / Гарнир & 白蘑菇或褐菇 / White or brown / Weiß oder braun / Белые или коричневые \\
+\hline
+\checkbox & 番茄 / Tomatoes / Tomaten / Помидоры & 2-3个 / 2-3 pieces / 2-3 Stück / 2-3 шт & 配菜 / Side / Beilage / Гарнир & 中等大小 / Medium size / Mittlere Größe / Среднего размера \\
+\hline
+\checkbox & 烤豆 / Baked Beans / Bohnen / Запеченная фасоль & 1罐 / 1 can / 1 Dose / 1 банка & 配菜 / Side / Beilage / Гарнир & 英式烤豆 / English baked beans / Englische Bohnen / Английская запеченная фасоль \\
+\hline
+\checkbox & 面包 / Bread / Brot / Хлеб & 4-6片 / 4-6 slices / 4-6 Scheiben / 4-6 ломтиков & 配菜 / Side / Beilage / Гарнир & 白面包或全麦 / White or wholemeal / Weiß oder Vollkorn / Белый или цельнозерновой \\
+\hline
+\checkbox & 黑布丁 / Black Pudding / Blutwurst / Кровяная колбаса & 2-3片 / 2-3 slices / 2-3 Scheiben / 2-3 ломтика & 配菜（可选）/ Side (optional) / Beilage (optional) / Гарнир (опционально) & 英式传统 / English traditional / Englisch traditionell / Английская традиционная \\
+\hline
+\checkbox & 土豆饼 / Hash Browns / Kartoffelpuffer / Картофельные оладьи & 2-3个 / 2-3 pieces / 2-3 Stück / 2-3 шт & 配菜（可选）/ Side (optional) / Beilage (optional) / Гарнир (опционально) & 现成或自制 / Ready-made or homemade / Fertig oder selbstgemacht / Готовые или домашние \\
+\hline
+\checkbox & 生抽 / Light Soy Sauce / Helle Sojasoße / Светлый соевый соус & 适量 / As needed / Nach Bedarf / По необходимости & 上海元素 / Shanghai element / Shanghai-Element / Шанхайский элемент & 亚洲超市 / Asian market / Asiatischer Markt / Азиатский магазин \\
+\hline
+\checkbox & 老抽 / Dark Soy Sauce / Dunkle Sojasoße / Темный соевый соус & 适量 / As needed / Nach Bedarf / По необходимости & 上海元素 / Shanghai element / Shanghai-Element / Шанхайский элемент & 上色用 / For color / Für Farbe / Для цвета \\
+\hline
+\checkbox & 冰糖 / Rock Sugar / Kandiszucker / Кандис & 2-3颗 / 2-3 pieces / 2-3 Stück / 2-3 шт & 上海元素 / Shanghai element / Shanghai-Element / Шанхайский элемент & 或砂糖 / Or regular sugar / Oder normaler Zucker / Или обычный сахар \\
+\hline
+\checkbox & 料酒 / Shaoxing Wine / Shaoxing-Wein / Вино Шаосин & 适量 / As needed / Nach Bedarf / По необходимости & 上海元素 / Shanghai element / Shanghai-Element / Шанхайский элемент & 亚洲超市 / Asian market / Asiatischer Markt / Азиатский магазин \\
+\hline
+\checkbox & 酸奶油 / Sour Cream / Sauerrahm / Сметана & 100-150ml & 俄罗斯元素 / Russian element / Russisches Element / Русский элемент & 浓稠型 / Thick type / Dicke Sorte / Густая \\
+\hline
+\checkbox & 新鲜莳萝 / Fresh Dill / Frischer Dill / Свежий укроп & 适量 / As needed / Nach Bedarf / По необходимости & 俄罗斯元素 / Russian element / Russisches Element / Русский элемент & 切碎 / Chopped / Gehackt / Нарезанный \\
+\hline
+\checkbox & 俄罗斯泡菜 / Russian Pickles / Russische Gurken / Русские соленья & 适量 / As needed / Nach Bedarf / По необходимости & 俄罗斯元素 / Russian element / Russisches Element / Русский элемент & 可选 / Optional / Optional / Опционально \\
+\hline
+\checkbox & 黄油 / Butter / Butter / Масло & 适量 / As needed / Nach Bedarf / По необходимости & 烹饪用 / For cooking / Zum Kochen / Для готовки & 无盐或含盐 / Unsalted or salted / Ungesalzen oder gesalzen / Несоленое или соленое \\
+\hline
+\checkbox & 食用油 / Cooking Oil / Speiseöl / Растительное масло & 适量 / As needed / Nach Bedarf / По необходимости & 烹饪用 / For cooking / Zum Kochen / Для готовки & 植物油 / Vegetable oil / Pflanzenöl / Растительное масло \\
+\hline
+\checkbox & 盐 / Salt / Salz / Соль & 适量 / As needed / Nach Bedarf / По необходимости & 调味 / Seasoning / Würzen / Приправа & 海盐更佳 / Sea salt preferred / Meersalz bevorzugt / Предпочтительно морская \\
+\hline
+\checkbox & 黑胡椒 / Black Pepper / Schwarzer Pfeffer / Черный перец & 适量 / As needed / Nach Bedarf / По необходимости & 调味 / Seasoning / Würzen / Приправа & 现磨更佳 / Freshly ground preferred / Frisch gemahlen bevorzugt / Предпочтительно свежемолотый \\
+\hline
+\end{longtable}
+
+\textit{提示：打印后可在方框内打勾 / Tip: Print and check boxes manually / Tipp: Drucken und Kästchen manuell ankreuzen / Совет: Распечатайте и отметьте вручную}
+
+\vspace{1cm}
+
+\section{食材准备 / Ingredients / Zutaten / Ингредиенты}
+
+\begin{minipage}{0.48\textwidth}
+\textbf{中文 / Chinese:}
+\begin{itemize}
+    \item 英式元素：鸡蛋、培根、香肠、烤豆、黑布丁（可选）、土豆饼（可选）
+    \item 上海元素：生抽、老抽、冰糖、料酒
+    \item 俄罗斯元素：酸奶油、新鲜莳萝、俄罗斯泡菜（可选）
+    \item 基础配菜：蘑菇、番茄、面包、黄油
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\textbf{English:}
+\begin{itemize}
+    \item English: Eggs, bacon, sausages, baked beans, black pudding (optional), hash browns (optional)
+    \item Shanghai: Light soy, dark soy, rock sugar, Shaoxing wine
+    \item Russian: Sour cream, fresh dill, Russian pickles (optional)
+    \item Base: Mushrooms, tomatoes, bread, butter
+\end{itemize}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\textbf{Deutsch / German:}
+\begin{itemize}
+    \item Englisch: Eier, Speck, Würste, Bohnen, Blutwurst (optional), Kartoffelpuffer (optional)
+    \item Shanghai: Helle Sojasoße, dunkle Sojasoße, Kandiszucker, Shaoxing-Wein
+    \item Russisch: Sauerrahm, frischer Dill, russische Gurken (optional)
+    \item Basis: Champignons, Tomaten, Brot, Butter
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Русский / Russian:}
+\begin{itemize}
+    \item Английские: Яйца, бекон, сосиски, запеченная фасоль, кровяная колбаса (опционально), картофельные оладьи (опционально)
+    \item Шанхайские: Светлый соевый соус, темный соевый соус, кандис, вино Шаосин
+    \item Русские: Сметана, свежий укроп, русские соленья (опционально)
+    \item Основа: Грибы, помидоры, хлеб, масло
+\end{itemize}
+
+\section{烹饪步骤 / Cooking Steps / Zubereitungsschritte / Шаги приготовления}
+
+\subsection{步骤一：准备培根和香肠 / Step 1: Prepare Bacon and Sausages / Schritt 1: Speck und Würste vorbereiten / Шаг 1: Подготовка бекона и сосисок}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pan
+    \draw[fill=gray!30,rounded corners=5pt] (0,0) rectangle (4,0.5);
+    \draw[fill=gray!20] (0.2,0.5) -- (3.8,0.5) -- (3.6,0.7) -- (0.4,0.7) -- cycle;
+    
+    % Bacon strips
+    \foreach \x in {0.5,1.2,1.9,2.6} {
+        \draw[fill=bacon,rounded corners=2pt] (\x,0.15) rectangle (\x+0.5,0.35);
+    }
+    
+    % Sausages
+    \foreach \x in {0.8,2.2} {
+        \draw[fill=red!70,rounded corners=3pt] (\x,0.1) arc (90:270:0.15) -- (\x+0.6,0.1) arc (90:-90:0.15) -- cycle;
+    }
+    
+    % Heat waves
+    \foreach \y in {0.8,0.9,1.0} {
+        \draw[red!50,decorate,decoration={snake,amplitude=2pt,segment length=5pt}] (0.5,\y) -- (3.5,\y);
+    }
+    
+    % Arrow
+    \draw[->,thick,blue] (4.5,0.25) -- (5.5,0.25);
+    
+    % Cooked result
+    \draw[fill=gray!30,rounded corners=5pt] (6,0) rectangle (10,0.5);
+    \foreach \x in {6.5,7.2,7.9,8.6} {
+        \draw[fill=brown!80,rounded corners=2pt] (\x,0.15) rectangle (\x+0.5,0.35);
+    }
+    \foreach \x in {6.8,8.2} {
+        \draw[fill=brown!90,rounded corners=3pt] (\x,0.1) arc (90:270:0.15) -- (\x+0.6,0.1) arc (90:-90:0.15) -- cycle;
+    }
+    
+    \node[below] at (5,-0.5) {\small \textbf{Step 1: Cook bacon and sausages}};
+    \node[below] at (5,-1.2) {\tiny 步骤一：煎培根和香肠};
+    \node[below] at (5,-1.5) {\tiny Schritt 1: Speck und Würste braten};
+    \node[below] at (5,-1.8) {\tiny Шаг 1: Жарим бекон и сосиски};
+\end{tikzpicture}
+
+\textbf{中文：}在大平底锅中用中火加热少许油。先放入培根片，煎至两面金黄酥脆（约5-7分钟）。将培根盛出，保留锅中的油脂。在同一锅中放入香肠，煎至四面金黄（约8-10分钟），中途翻面。将香肠盛出，与培根一起保温。
+
+\textbf{English:} Heat a little oil in a large frying pan over medium heat. Add bacon slices first, fry until golden and crispy on both sides (about 5-7 minutes). Remove bacon, reserve fat in pan. Add sausages to the same pan, fry until golden on all sides (about 8-10 minutes), turning occasionally. Remove sausages, keep warm with bacon.
+
+\textbf{Deutsch:} Etwas Öl in einer großen Pfanne bei mittlerer Hitze erhitzen. Zuerst Speckscheiben hinzufügen, von beiden Seiten goldbraun und knusprig braten (ca. 5-7 Minuten). Speck entfernen, Fett in Pfanne behalten. Würste in dieselbe Pfanne geben, von allen Seiten goldbraun braten (ca. 8-10 Minuten), gelegentlich wenden. Würste entfernen, mit Speck warm halten.
+
+\textbf{Русский:} Нагрейте немного масла в большой сковороде на среднем огне. Сначала добавьте ломтики бекона, жарьте до золотистого и хрустящего состояния с обеих сторон (около 5-7 минут). Уберите бекон, оставьте жир в сковороде. Добавьте сосиски в ту же сковороду, жарьте до золотистого цвета со всех сторон (около 8-10 минут), периодически переворачивая. Уберите сосиски, держите в тепле с беконом.
+
+\subsection{步骤二：上海式炒蘑菇 / Step 2: Shanghai-Style Mushrooms / Schritt 2: Shanghai-Stil Champignons / Шаг 2: Грибы в шанхайском стиле}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pan with mushrooms
+    \draw[fill=gray!30,rounded corners=5pt] (0,0) rectangle (4,0.5);
+    
+    % Mushrooms
+    \foreach \x in {0.8,1.6,2.4,3.2} {
+        \draw[fill=gray!60,rounded corners=8pt] (\x-0.15,0.2) arc (180:0:0.15) -- (\x+0.15,0.2);
+        \draw[fill=gray!70] (\x-0.1,0.2) arc (180:0:0.1) -- (\x+0.1,0.2);
+    }
+    
+    % Sauce ingredients
+    \node[above] at (0.5,0.5) {\tiny 生抽};
+    \node[above] at (1.5,0.5) {\tiny 老抽};
+    \node[above] at (2.5,0.5) {\tiny 冰糖};
+    
+    % Glossy finish
+    \draw[fill=shanghai!40,opacity=0.6] (0.2,0.1) rectangle (3.8,0.4);
+    
+    % Steam
+    \foreach \x in {0.5,1,1.5,2,2.5,3,3.5} {
+        \draw[red!40,decorate,decoration={snake,amplitude=1pt,segment length=3pt}] (\x,0.6) -- (\x,0.8);
+    }
+    
+    \node[below] at (2,-0.5) {\small \textbf{Step 2: Sauté mushrooms with Shanghai sauce}};
+    \node[below] at (2,-1.2) {\tiny 步骤二：上海式炒蘑菇};
+    \node[below] at (2,-1.5) {\tiny Schritt 2: Champignons mit Shanghai-Soße braten};
+    \node[below] at (2,-1.8) {\tiny Шаг 2: Жарим грибы с шанхайским соусом};
+\end{tikzpicture}
+
+\textbf{中文：}在保留的油脂中（如不够可加少许黄油），放入切片的蘑菇，中火翻炒。当蘑菇开始出水时，加入1勺生抽、半勺老抽、2-3颗碎冰糖，快速翻炒。让汤汁收浓，均匀裹在蘑菇上，形成亮亮的"上海芡"。盛出保温。
+
+\textbf{English:} In the reserved fat (add a little butter if needed), add sliced mushrooms, stir-fry over medium heat. When mushrooms start releasing liquid, add 1 tbsp light soy, 0.5 tbsp dark soy, 2-3 pieces crushed rock sugar. Stir-fry quickly. Let sauce reduce and coat mushrooms evenly, forming a glossy "Shanghai glaze." Remove and keep warm.
+
+\textbf{Deutsch:} Im zurückbehaltenen Fett (bei Bedarf etwas Butter hinzufügen) geschnittene Champignons hinzufügen, bei mittlerer Hitze anbraten. Wenn Champignons Flüssigkeit abgeben, 1 EL helle Sojasoße, 0.5 EL dunkle Sojasoße, 2-3 Stücke zerstoßener Kandiszucker hinzufügen. Schnell anbraten. Soße reduzieren lassen und Champignons gleichmäßig überziehen, glänzenden "Shanghai-Glanz" bilden. Entfernen und warm halten.
+
+\textbf{Русский:} В оставшемся жире (при необходимости добавьте немного масла) добавьте нарезанные грибы, обжаривайте на среднем огне. Когда грибы начнут выделять жидкость, добавьте 1 ст.л. светлого соевого соуса, 0.5 ст.л. темного соевого соуса, 2-3 кусочка измельченного кандиса. Быстро обжаривайте. Дайте соусу увариться и равномерно покройте грибы, образуя блестящий "шанхайский глянец". Уберите и держите в тепле.
+
+\subsection{步骤三：俄罗斯式煎番茄 / Step 3: Russian-Style Fried Tomatoes / Schritt 3: Russische Tomaten / Шаг 3: Помидоры по-русски}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pan
+    \draw[fill=gray!30,rounded corners=5pt] (0,0) rectangle (4,0.5);
+    
+    % Tomato halves
+    \foreach \x in {0.8,2.2} {
+        \draw[fill=red!70] (\x,0.1) arc (180:0:0.4) -- (\x+0.8,0.1) -- cycle;
+        \draw[fill=red!80] (\x+0.2,0.15) arc (180:0:0.3) -- (\x+0.6,0.15) -- cycle;
+    }
+    
+    % Dill
+    \draw[fill=green!70] (1.2,0.3) -- (1.25,0.4) -- (1.3,0.3) -- cycle;
+    \draw[fill=green!70] (2.6,0.3) -- (2.65,0.4) -- (2.7,0.3) -- cycle;
+    
+    % Sour cream dollop
+    \draw[fill=white!90] (1.5,0.35) circle (0.1);
+    \draw[fill=white!90] (2.9,0.35) circle (0.1);
+    
+    \node[below] at (2,-0.5) {\small \textbf{Step 3: Fry tomatoes, garnish with dill and sour cream}};
+    \node[below] at (2,-1.2) {\tiny 步骤三：煎番茄，配莳萝和酸奶油};
+    \node[below] at (2,-1.5) {\tiny Schritt 3: Tomaten braten, mit Dill und Sauerrahm garnieren};
+    \node[below] at (2,-1.8) {\tiny Шаг 3: Жарим помидоры, украшаем укропом и сметаной};
+\end{tikzpicture}
+
+\textbf{中文：}将番茄对半切开，切面朝下放入热锅中（可用少许黄油）。中火煎2-3分钟，直到切面微微焦黄。翻面再煎1-2分钟。盛出后，在每个番茄上放一小勺酸奶油，撒上切碎的新鲜莳萝。
+
+\textbf{English:} Cut tomatoes in half, place cut-side down in hot pan (use a little butter). Fry over medium heat for 2-3 minutes until cut side is slightly golden. Flip and fry 1-2 minutes more. Remove, top each tomato with a dollop of sour cream, sprinkle with chopped fresh dill.
+
+\textbf{Deutsch:} Tomaten halbieren, Schnittseite nach unten in heiße Pfanne legen (etwas Butter verwenden). Bei mittlerer Hitze 2-3 Minuten braten, bis Schnittseite leicht goldbraun ist. Wenden und weitere 1-2 Minuten braten. Entfernen, jede Tomate mit einem Klecks Sauerrahm belegen, mit gehacktem frischem Dill bestreuen.
+
+\textbf{Русский:} Разрежьте помидоры пополам, положите срезом вниз на горячую сковороду (используйте немного масла). Жарьте на среднем огне 2-3 минуты, пока срез не станет слегка золотистым. Переверните и жарьте еще 1-2 минуты. Уберите, положите на каждый помидор ложку сметаны, посыпьте нарезанным свежим укропом.
+
+\subsection{步骤四：英式炒蛋配上海调味 / Step 4: Scrambled Eggs with Shanghai Seasoning / Schritt 4: Rühreier mit Shanghai-Würze / Шаг 4: Яичница-болтунья с шанхайской приправой}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pan
+    \draw[fill=gray!30,rounded corners=5pt] (0,0) rectangle (4,0.5);
+    \draw[fill=gray!20] (0.2,0.5) -- (3.8,0.5) -- (3.6,0.7) -- (0.4,0.7) -- cycle;
+    
+    % Eggs
+    \draw[fill=egg] (0.8,0.1) -- (1.5,0.3) -- (2.2,0.15) -- (3,0.25) -- (3.5,0.1) -- cycle;
+    
+    % Sauce ingredients
+    \node[above] at (1,0.5) {\tiny 生抽};
+    \node[above] at (2,0.5) {\tiny 料酒};
+    
+    % Glossy finish
+    \draw[fill=shanghai!30,opacity=0.5] (0.2,0.1) rectangle (3.8,0.4);
+    
+    % Heat indicator
+    \draw[fill=red!60] (1.5,1.2) circle (0.3);
+    \node[white,font=\tiny] at (1.5,1.2) {中火};
+    \node[below] at (1.5,0.9) {\tiny Medium};
+    
+    \node[below] at (2,-0.5) {\small \textbf{Step 4: Scramble eggs with light soy and wine}};
+    \node[below] at (2,-1.2) {\tiny 步骤四：用生抽和料酒炒蛋};
+    \node[below] at (2,-1.5) {\tiny Schritt 4: Eier mit heller Sojasoße und Wein rühren};
+    \node[below] at (2,-1.8) {\tiny Шаг 4: Яичница со светлым соевым соусом и вином};
+\end{tikzpicture}
+
+\textbf{中文：}在干净的平底锅中用中低火加热黄油。鸡蛋打散，加入1勺生抽和少许料酒，搅拌均匀。倒入锅中，用木铲不断搅拌，直到形成柔软的小块（不要过度烹饪）。立即盛出，保持滑嫩。
+
+\textbf{English:} Heat butter in a clean pan over medium-low heat. Beat eggs, add 1 tbsp light soy and a little Shaoxing wine, mix well. Pour into pan, stir constantly with wooden spoon until soft curds form (don't overcook). Remove immediately, keeping them tender.
+
+\textbf{Deutsch:} Butter in sauberer Pfanne bei mittlerer-niedriger Hitze erhitzen. Eier verquirlen, 1 EL helle Sojasoße und etwas Shaoxing-Wein hinzufügen, gut mischen. In Pfanne gießen, ständig mit Holzlöffel rühren, bis weiche Klumpen entstehen (nicht überkochen). Sofort entfernen, zart halten.
+
+\textbf{Русский:} Нагрейте масло в чистой сковороде на среднем-низком огне. Взбейте яйца, добавьте 1 ст.л. светлого соевого соуса и немного вина Шаосин, хорошо перемешайте. Вылейте на сковороду, постоянно помешивайте деревянной ложкой, пока не образуются мягкие комочки (не переваривайте). Немедленно уберите, сохраняя нежность.
+
+\subsection{步骤五：组装全餐 / Step 5: Assemble Full Breakfast / Schritt 5: Vollständiges Frühstück zusammenstellen / Шаг 5: Сборка полного завтрака}
+
+\begin{tikzpicture}[scale=0.7]
+    % Plate
+    \draw[fill=gray!20,rounded corners=20pt] (0,0) ellipse (5 and 3);
+    \draw[fill=white!95,rounded corners=18pt] (0,0.2) ellipse (4.5 and 2.7);
+    
+    % Eggs (center)
+    \draw[fill=egg] (-0.5,-0.3) -- (0.2,0.1) -- (0.8,-0.1) -- (1.2,0.2) -- (1.5,-0.3) -- cycle;
+    
+    % Bacon (left)
+    \foreach \x in {-2.5,-2,-1.5} {
+        \draw[fill=brown!80,rounded corners=2pt] (\x-0.3,0.5) rectangle (\x+0.3,0.8);
+    }
+    
+    % Sausages (right)
+    \foreach \x in {1.5,2.5} {
+        \draw[fill=brown!90,rounded corners=3pt] (\x,0.3) arc (90:270:0.2) -- (\x+0.5,0.3) arc (90:-90:0.2) -- cycle;
+    }
+    
+    % Mushrooms (top left)
+    \foreach \x in {-1.5,-0.8} {
+        \draw[fill=gray!60,rounded corners=8pt] (\x-0.15,1.2) arc (180:0:0.15) -- (\x+0.15,1.2);
+    }
+    
+    % Tomatoes (top right)
+    \foreach \x in {1.5,2.5} {
+        \draw[fill=red!70] (\x,1.2) arc (180:0:0.3) -- (\x+0.6,1.2) -- cycle;
+        \draw[fill=white!90] (\x+0.15,1.35) circle (0.08);
+    }
+    
+    % Beans (bottom)
+    \draw[fill=orange!60,rounded corners=3pt] (-1.5,-1.5) rectangle (1.5,-1.2);
+    \foreach \x in {-1.2,-0.6,0,0.6,1.2} {
+        \draw[fill=orange!80] (\x,-1.35) circle (0.06);
+    }
+    
+    % Bread (side)
+    \draw[fill=brown!50,rounded corners=3pt] (-3.5,0) rectangle (-3,-0.8);
+    
+    \node[below] at (0,-3) {\small \textbf{Step 5: Arrange all components on plate}};
+    \node[below] at (0,-3.8) {\tiny 步骤五：将所有食材摆盘};
+    \node[below] at (0,-4.1) {\tiny Schritt 5: Alle Komponenten anrichten};
+    \node[below] at (0,-4.4) {\tiny Шаг 5: Раскладываем все компоненты на тарелке};
+\end{tikzpicture}
+
+\textbf{中文：}在一个大餐盘上，将炒蛋放在中央。周围摆放培根、香肠、蘑菇、番茄。一侧放烤豆，另一侧放烤面包（可涂黄油）。如果准备了黑布丁和土豆饼，也一起摆上。最后在炒蛋上淋少许酸奶油，撒上莳萝。趁热享用！
+
+\textbf{English:} On a large plate, place scrambled eggs in the center. Arrange bacon, sausages, mushrooms, and tomatoes around. Place baked beans on one side, toast (buttered if desired) on the other. If you prepared black pudding and hash browns, add them too. Finally, drizzle a little sour cream over the eggs, sprinkle with dill. Serve hot!
+
+\textbf{Deutsch:} Auf einem großen Teller Rühreier in die Mitte legen. Speck, Würste, Champignons und Tomaten drumherum anrichten. Bohnen auf eine Seite, Toast (mit Butter, wenn gewünscht) auf die andere Seite. Wenn Blutwurst und Kartoffelpuffer vorbereitet wurden, auch hinzufügen. Zum Schluss etwas Sauerrahm über die Eier träufeln, mit Dill bestreuen. Heiß servieren!
+
+\textbf{Русский:} На большой тарелке поместите яичницу-болтунью в центр. Разложите бекон, сосиски, грибы и помидоры вокруг. Положите запеченную фасоль с одной стороны, тост (с маслом, если хотите) с другой. Если вы приготовили кровяную колбасу и картофельные оладьи, также добавьте их. Наконец, полейте яичницу небольшим количеством сметаны, посыпьте укропом. Подавайте горячим!
+
+\vspace{1cm}
+
+\section{烹饪原理图 / Cooking Process Diagram / Zubereitungsprozess-Diagramm / Диаграмма процесса приготовления}
+
+\begin{tikzpicture}[scale=0.9]
+% Ingredients
+\node[draw,fill=egg!30,rounded corners=5pt,align=center] (eggs) at (0,6) {鸡蛋\\Eggs\\Eier\\Яйца};
+\node[draw,fill=bacon!30,rounded corners=5pt,align=center] (bacon) at (2,6) {培根\\Bacon\\Speck\\Бекон};
+\node[draw,fill=red!30,rounded corners=5pt,align=center] (sausages) at (4,6) {香肠\\Sausages\\Würste\\Сосиски};
+\node[draw,fill=gray!30,rounded corners=5pt,align=center] (mushrooms) at (6,6) {蘑菇\\Mushrooms\\Champignons\\Грибы};
+\node[draw,fill=red!30,rounded corners=5pt,align=center] (tomatoes) at (8,6) {番茄\\Tomatoes\\Tomaten\\Помидоры};
+
+% Shanghai elements
+\node[draw,fill=shanghai!30,rounded corners=5pt,align=center] (shanghai) at (2,4) {上海元素\\Shanghai\\Shanghai\\Шанхай};
+\node[draw,fill=russian!30,rounded corners=5pt,align=center] (russian) at (6,4) {俄罗斯元素\\Russian\\Russisch\\Русский};
+
+% Cooking steps
+\node[draw,fill=brown!50,rounded corners=5pt,align=center] (cook1) at (1,2) {煎培根香肠\\Fry Bacon\\Speck braten\\Жарим бекон};
+\node[draw,fill=shanghai!50,rounded corners=5pt,align=center] (cook2) at (4,2) {上海炒蘑菇\\Shanghai Mushrooms\\Shanghai Champignons\\Шанхайские грибы};
+\node[draw,fill=russian!50,rounded corners=5pt,align=center] (cook3) at (7,2) {俄式番茄\\Russian Tomatoes\\Russische Tomaten\\Русские помидоры};
+\node[draw,fill=egg!50,rounded corners=5pt,align=center] (cook4) at (4,0) {上海炒蛋\\Shanghai Eggs\\Shanghai Eier\\Шанхайские яйца};
+
+% Final
+\node[draw,fill=shanghai!70,rounded corners=10pt,align=center] (final) at (4,-2) {\textbf{沪俄式英式全餐}\\\textbf{Shanghai-Russian Full Breakfast}\\\textbf{Shanghai-Russisches Frühstück}\\\textbf{Шанхайско-русский завтрак}};
+
+% Connections
+\draw[->,thick] (bacon) -- (cook1);
+\draw[->,thick] (sausages) -- (cook1);
+\draw[->,thick] (mushrooms) -- (shanghai);
+\draw[->,thick] (shanghai) -- (cook2);
+\draw[->,thick] (tomatoes) -- (russian);
+\draw[->,thick] (russian) -- (cook3);
+\draw[->,thick] (eggs) -- (cook4);
+\draw[->,thick] (cook1) -- (final);
+\draw[->,thick] (cook2) -- (final);
+\draw[->,thick] (cook3) -- (final);
+\draw[->,thick] (cook4) -- (final);
+\end{tikzpicture}
+
+\vspace{1cm}
+
+\section{小贴士 / Tips / Tipps / Советы}
+
+\begin{itemize}
+    \item \textbf{中文：}培根和香肠可以提前煎好，在烤箱中低温（80-100°C）保温，这样所有食材可以同时上桌。
+    
+    \textbf{English:} Bacon and sausages can be cooked ahead and kept warm in a low oven (80-100°C), so all components can be served together.
+    
+    \textbf{Deutsch:} Speck und Würste können vorher gebraten und im Ofen bei niedriger Temperatur (80-100°C) warm gehalten werden, damit alle Komponenten zusammen serviert werden können.
+    
+    \textbf{Русский:} Бекон и сосиски можно приготовить заранее и держать в тепле в духовке при низкой температуре (80-100°C), чтобы все компоненты можно было подать вместе.
+    
+    \item \textbf{中文：}炒蛋的关键是不要过度烹饪，在还有一点湿润的时候就盛出，余温会让它继续凝固到完美状态。
+    
+    \textbf{English:} The key to scrambled eggs is not to overcook - remove them while still slightly wet, residual heat will finish cooking them to perfection.
+    
+    \textbf{Deutsch:} Der Schlüssel zu Rühreiern ist, sie nicht zu überkochen - entfernen, wenn sie noch leicht feucht sind, Restwärme wird sie zur Perfektion fertig garen.
+    
+    \textbf{Русский:} Ключ к яичнице-болтунье - не переварить - уберите, пока она еще слегка влажная, остаточное тепло доведет ее до совершенства.
+    
+    \item \textbf{中文：}如果喜欢更浓郁的俄罗斯风味，可以在酸奶油中加入少许切碎的莳萝和一点柠檬汁，调成莳萝酸奶油酱。
+    
+    \textbf{English:} For a stronger Russian flavor, mix a little chopped dill and a touch of lemon juice into the sour cream to make dill sour cream sauce.
+    
+    \textbf{Deutsch:} Für stärkeren russischen Geschmack etwas gehackten Dill und einen Hauch Zitronensaft in den Sauerrahm mischen, um Dill-Sauerrahm-Soße zu machen.
+    
+    \textbf{Русский:} Для более сильного русского вкуса смешайте немного нарезанного укропа и каплю лимонного сока со сметаной, чтобы сделать соус из сметаны с укропом.
+    
+    \item \textbf{中文：}烤豆可以加热后放在小碗中，或者直接在平底锅中加热，加入少许黄油和黑胡椒调味。
+    
+    \textbf{English:} Baked beans can be heated and served in a small bowl, or heated directly in the pan with a little butter and black pepper for seasoning.
+    
+    \textbf{Deutsch:} Bohnen können erhitzt und in einer kleinen Schüssel serviert werden, oder direkt in der Pfanne mit etwas Butter und schwarzem Pfeffer zum Würzen erhitzt werden.
+    
+    \textbf{Русский:} Запеченную фасоль можно разогреть и подать в маленькой миске, или разогреть прямо на сковороде с небольшим количеством масла и черного перца для приправы.
+    
+    \item \textbf{中文：}这道菜分量较大，适合周末悠闲的早午餐。可以配上一杯英式红茶或俄罗斯茶，完美！
+    
+    \textbf{English:} This is a substantial dish, perfect for a leisurely weekend brunch. Pair with English black tea or Russian tea - perfect!
+    
+    \textbf{Deutsch:} Dies ist ein reichhaltiges Gericht, perfekt für ein gemütliches Wochenend-Brunch. Kombinieren Sie mit englischem schwarzem Tee oder russischem Tee - perfekt!
+    
+    \textbf{Русский:} Это сытное блюдо, идеально подходит для неторопливого выходного бранча. Сочетайте с английским черным чаем или русским чаем - идеально!
+\end{itemize}
+
+\vspace{1cm}
+
+\section{俄语学习教程 / Russian Learning Tutorial / Russisch-Lern-Tutorial / Учебник по русскому языку}
+
+\subsection{基础词汇 / Basic Vocabulary / Grundwortschatz / Базовый словарь}
+
+\begin{longtable}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{中文} & \textbf{English} & \textbf{Deutsch} & \textbf{Русский} \\
+\hline
+鸡蛋 & Eggs & Eier & Яйца (yaitsa) \\
+\hline
+培根 & Bacon & Speck & Бекон (bekon) \\
+\hline
+香肠 & Sausages & Würste & Сосиски (sosiski) \\
+\hline
+蘑菇 & Mushrooms & Champignons & Грибы (griby) \\
+\hline
+番茄 & Tomatoes & Tomaten & Помидоры (pomidory) \\
+\hline
+酸奶油 & Sour cream & Sauerrahm & Сметана (smetana) \\
+\hline
+莳萝 & Dill & Dill & Укроп (ukrop) \\
+\hline
+煎 & To fry & Braten & Жарить (zharit') \\
+\hline
+炒 & To stir-fry & Anbraten & Обжаривать (obzharivat') \\
+\hline
+切 & To cut & Schneiden & Резать (rezat') \\
+\hline
+搅拌 & To mix & Mischen & Смешивать (smeshivat') \\
+\hline
+\end{longtable}
+
+\subsection{语法要点 / Grammar Points / Grammatikpunkte / Грамматические моменты}
+
+\subsubsection{名词的格 / Noun Cases / Substantivfälle / Падежи существительных}
+
+\textbf{中文：}俄语有6个格。在烹饪中常用：
+
+\textbf{English:} Russian has 6 cases. Commonly used in cooking:
+
+\textbf{Deutsch:} Russisch hat 6 Fälle. Häufig beim Kochen verwendet:
+
+\textbf{Русский:} В русском языке 6 падежей. Часто используются в кулинарии:
+
+\begin{itemize}
+    \item \textbf{主格 (Nominative) / Именительный падеж:} 主语或命名
+    \begin{itemize}
+        \item \textbf{中文：}这是鸡蛋。\textbf{Русский:} Это яйцо. (This is an egg.)
+        \item \textbf{中文：}培根很香。\textbf{Русский:} Бекон очень ароматный. (Bacon is very aromatic.)
+    \end{itemize}
+    
+    \item \textbf{宾格 (Accusative) / Винительный падеж:} 直接宾语
+    \begin{itemize}
+        \item \textbf{中文：}我煎鸡蛋。\textbf{Русский:} Я жарю яйца. (I fry eggs.)
+        \item \textbf{中文：}我切蘑菇。\textbf{Русский:} Я режу грибы. (I cut mushrooms.)
+    \end{itemize}
+    
+    \item \textbf{工具格 (Instrumental) / Творительный падеж:} 用...做
+    \begin{itemize}
+        \item \textbf{中文：}用黄油煎。\textbf{Русский:} Жарить на масле. (Fry with butter.)
+        \item \textbf{中文：}用勺子搅拌。\textbf{Русский:} Смешивать ложкой. (Mix with a spoon.)
+    \end{itemize}
+    
+    \item \textbf{前置格 (Prepositional) / Предложный падеж:} 在...里/上
+    \begin{itemize}
+        \item \textbf{中文：}在平底锅里。\textbf{Русский:} На сковороде. (In the pan.)
+        \item \textbf{中文：}在盘子上。\textbf{Русский:} На тарелке. (On the plate.)
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{动词体 / Verb Aspects / Verbaspekte / Виды глаголов}
+
+\textbf{中文：}俄语动词有完成体和未完成体：
+
+\textbf{English:} Russian verbs have perfective and imperfective aspects:
+
+\textbf{Deutsch:} Russische Verben haben perfektive und imperfektive Aspekte:
+
+\textbf{Русский:} В русском языке глаголы имеют совершенный и несовершенный вид:
+
+\begin{itemize}
+    \item \textbf{未完成体 (Imperfective) / Несовершенный вид:} 表示过程、重复动作
+    \begin{itemize}
+        \item \textbf{中文：}我正在煎培根。\textbf{Русский:} Я жарю бекон. (I am frying bacon.)
+        \item \textbf{中文：}我经常做早餐。\textbf{Русский:} Я часто готовлю завтрак. (I often cook breakfast.)
+    \end{itemize}
+    
+    \item \textbf{完成体 (Perfective) / Совершенный вид:} 表示完成、一次性动作
+    \begin{itemize}
+        \item \textbf{中文：}我煎好了培根。\textbf{Русский:} Я пожарил бекон. (I fried the bacon.)
+        \item \textbf{中文：}我切了番茄。\textbf{Русский:} Я порезал помидоры. (I cut the tomatoes.)
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{数量表达 / Quantity Expressions / Mengenausdrücke / Выражения количества}
+
+\textbf{中文：}俄语中数量后的名词要用复数属格：
+
+\textbf{English:} In Russian, nouns after numbers use genitive plural:
+
+\textbf{Deutsch:} Im Russischen verwenden Substantive nach Zahlen Genitiv Plural:
+
+\textbf{Русский:} В русском языке существительные после числительных стоят в родительном падеже множественного числа:
+
+\begin{itemize}
+    \item \textbf{中文：}4-6个鸡蛋 \textbf{Русский:} 4-6 яиц (4-6 eggs)
+    \item \textbf{中文：}6-8片培根 \textbf{Русский:} 6-8 ломтиков бекона (6-8 slices of bacon)
+    \item \textbf{中文：}2-3个番茄 \textbf{Русский:} 2-3 помидора (2-3 tomatoes)
+    \item \textbf{中文：}适量酸奶油 \textbf{Русский:} Сметана по необходимости (Sour cream as needed)
+\end{itemize}
+
+\subsection{常用烹饪短语 / Common Cooking Phrases / Häufige Kochphrasen / Частые кулинарные фразы}
+
+\begin{longtable}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+\textbf{中文} & \textbf{English} & \textbf{Deutsch} & \textbf{Русский} \\
+\hline
+加热平底锅 & Heat the pan & Pfanne erhitzen & Нагреть сковороду \\
+\hline
+中火 & Medium heat & Mittlere Hitze & Средний огонь \\
+\hline
+煎至金黄 & Fry until golden & Bis goldbraun braten & Жарить до золотистого цвета \\
+\hline
+翻面 & Flip over & Wenden & Перевернуть \\
+\hline
+搅拌均匀 & Mix well & Gut mischen & Хорошо перемешать \\
+\hline
+盛出 & Remove from pan & Aus Pfanne nehmen & Убрать со сковороды \\
+\hline
+保温 & Keep warm & Warm halten & Держать в тепле \\
+\hline
+切碎 & Chop finely & Fein hacken & Мелко нарезать \\
+\hline
+撒上 & Sprinkle with & Bestreuen mit & Посыпать \\
+\hline
+趁热享用 & Serve hot & Heiß servieren & Подавать горячим \\
+\hline
+\end{longtable}
+
+\subsection{发音提示 / Pronunciation Tips / Aussprachetipps / Советы по произношению}
+
+\textbf{中文：}俄语发音要点：
+
+\textbf{English:} Key Russian pronunciation points:
+
+\textbf{Deutsch:} Wichtige russische Aussprachepunkte:
+
+\textbf{Русский:} Важные моменты русской фонетики:
+
+\begin{itemize}
+    \item \textbf{重音 (Stress):} 俄语重音很重要，改变重音会改变词义
+    \begin{itemize}
+        \item \textbf{中文：}重音在第一个音节：\textbf{Русский:} яйцо (yaitsó) - 鸡蛋
+        \item \textbf{中文：}重音在第二个音节：\textbf{Русский:} помидор (pomidór) - 番茄
+    \end{itemize}
+    
+    \item \textbf{软音符号 (Soft Sign) / Мягкий знак (ь):} 使前面的辅音变软
+    \begin{itemize}
+        \item \textbf{中文：}соль (sol') - 盐 (salt)，'ь'使'л'变软
+    \end{itemize}
+    
+    \item \textbf{硬音符号 (Hard Sign) / Твёрдый знак (ъ):} 分隔音节，很少用
+    \begin{itemize}
+        \item \textbf{中文：}现在很少见，主要用于复合词
+    \end{itemize}
+    
+    \item \textbf{常见音变 (Sound Changes):}
+    \begin{itemize}
+        \item \textbf{中文：}г在词尾读作[k]：\textbf{Русский:} бекон (bekón) - 培根
+        \item \textbf{中文：}о在非重音位置读作[a]：\textbf{Русский:} помидор (pamidór) - 番茄
+    \end{itemize}
+\end{itemize}
+
+\subsection{文化背景 / Cultural Context / Kultureller Kontext / Культурный контекст}
+
+\textbf{中文：}俄罗斯饮食文化要点：
+
+\textbf{English:} Key points of Russian food culture:
+
+\textbf{Deutsch:} Wichtige Punkte der russischen Esskultur:
+
+\textbf{Русский:} Важные моменты русской кулинарной культуры:
+
+\begin{itemize}
+    \item \textbf{酸奶油 (Сметана):} 俄罗斯料理中非常常用，几乎可以配任何菜
+    \begin{itemize}
+        \item \textbf{中文：}传统上，俄罗斯人用酸奶油配汤、沙拉、主菜，甚至甜点
+        \item \textbf{Русский:} Традиционно русские используют сметану с супами, салатами, основными блюдами и даже десертами
+    \end{itemize}
+    
+    \item \textbf{莳萝 (Укроп):} 俄罗斯最常用的香草之一
+    \begin{itemize}
+        \item \textbf{中文：}新鲜莳萝在俄罗斯料理中无处不在，从汤到沙拉到主菜
+        \item \textbf{Русский:} Свежий укроп везде в русской кухне - от супов до салатов и основных блюд
+    \end{itemize}
+    
+    \item \textbf{早餐习惯 (Завтрак):} 传统俄罗斯早餐通常比英式早餐简单
+    \begin{itemize}
+        \item \textbf{中文：}传统早餐包括：粥、鸡蛋、面包、奶酪、香肠、茶
+        \item \textbf{Русский:} Традиционный завтрак включает: кашу, яйца, хлеб, сыр, колбасу, чай
+    \end{itemize}
+    
+    \item \textbf{茶文化 (Чай):} 俄罗斯人非常爱喝茶
+    \begin{itemize}
+        \item \textbf{中文：}俄罗斯茶通常很浓，配糖、柠檬、果酱或蜂蜜
+        \item \textbf{Русский:} Русский чай обычно крепкий, с сахаром, лимоном, вареньем или мёдом
+    \end{itemize}
+\end{itemize}
+
+\subsection{练习句子 / Practice Sentences / Übungssätze / Практические предложения}
+
+\textbf{中文：}用本食谱中的词汇练习造句：
+
+\textbf{English:} Practice making sentences with vocabulary from this recipe:
+
+\textbf{Deutsch:} Üben Sie, Sätze mit dem Wortschatz aus diesem Rezept zu bilden:
+
+\textbf{Русский:} Практикуйтесь составлять предложения со словами из этого рецепта:
+
+\begin{enumerate}
+    \item \textbf{中文：}我今天要做英式早餐。\\
+    \textbf{Русский:} Сегодня я буду готовить английский завтрак.\\
+    \textbf{English:} Today I will cook an English breakfast.
+    
+    \item \textbf{中文：}首先，我要煎培根和香肠。\\
+    \textbf{Русский:} Сначала я буду жарить бекон и сосиски.\\
+    \textbf{English:} First, I will fry bacon and sausages.
+    
+    \item \textbf{中文：}然后，我用上海的方式炒蘑菇。\\
+    \textbf{Русский:} Затем я буду обжаривать грибы по-шанхайски.\\
+    \textbf{English:} Then, I will stir-fry mushrooms in Shanghai style.
+    
+    \item \textbf{中文：}我在番茄上放酸奶油和莳萝。\\
+    \textbf{Русский:} Я кладу сметану и укроп на помидоры.\\
+    \textbf{English:} I put sour cream and dill on the tomatoes.
+    
+    \item \textbf{中文：}最后，我把所有东西摆在盘子上。\\
+    \textbf{Русский:} Наконец, я раскладываю всё на тарелке.\\
+    \textbf{English:} Finally, I arrange everything on the plate.
+    
+    \item \textbf{中文：}这道菜融合了三种烹饪风格。\\
+    \textbf{Русский:} Это блюдо сочетает три стиля приготовления.\\
+    \textbf{English:} This dish combines three cooking styles.
+    
+    \item \textbf{中文：}趁热享用，配上一杯茶！\\
+    \textbf{Русский:} Подавайте горячим, с чашкой чая!\\
+    \textbf{English:} Serve hot, with a cup of tea!
+\end{enumerate}
+
+\subsection{语法练习 / Grammar Exercises / Grammatikübungen / Грамматические упражнения}
+
+\textbf{中文：}完成以下练习，注意格的变化：
+
+\textbf{English:} Complete the following exercises, paying attention to case changes:
+
+\textbf{Deutsch:} Vervollständigen Sie die folgenden Übungen und achten Sie auf Falländerungen:
+
+\textbf{Русский:} Выполните следующие упражнения, обращая внимание на изменение падежей:
+
+\begin{enumerate}
+    \item \textbf{中文：}填入正确的格：
+    \begin{itemize}
+        \item Я жарю \underline{\hspace{2cm}} (яйца - 宾格)
+        \item Я режу \underline{\hspace{2cm}} (грибы - 宾格)
+        \item Я готовлю \underline{\hspace{2cm}} (завтрак - 宾格)
+        \item На \underline{\hspace{2cm}} (сковорода - 前置格)
+        \item С \underline{\hspace{2cm}} (сметана - 工具格)
+    \end{itemize}
+    
+    \item \textbf{中文：}选择正确的动词体：
+    \begin{itemize}
+        \item Сейчас я \underline{\hspace{2cm}} (жарить/пожарить) бекон. (现在进行时 - 未完成体)
+        \item Вчера я \underline{\hspace{2cm}} (жарить/пожарить) бекон. (过去完成 - 完成体)
+        \item Я часто \underline{\hspace{2cm}} (готовить/приготовить) завтрак. (经常 - 未完成体)
+    \end{itemize}
+    
+    \item \textbf{中文：}翻译以下数量表达：
+    \begin{itemize}
+        \item 4个鸡蛋 \underline{\hspace{3cm}}
+        \item 6片培根 \underline{\hspace{3cm}}
+        \item 2个番茄 \underline{\hspace{3cm}}
+        \item 适量盐 \underline{\hspace{3cm}}
+    \end{itemize}
+\end{enumerate}
+
+\textbf{答案 / Answers / Antworten / Ответы:}
+
+\begin{enumerate}
+    \item \textbf{Русский:} яйца, грибы, завтрак, сковороде, сметаной
+    \item \textbf{Русский:} жарю, пожарил, готовлю
+    \item \textbf{Русский:} 4 яйца, 6 ломтиков бекона, 2 помидора, соль по необходимости
+\end{enumerate}
+
+\vspace{1cm}
+
+\section*{结语 / Conclusion / Schlusswort / Заключение}
+
+这道跨文化融合菜展现了三个地区烹饪风格的完美结合：英式的经典全餐、上海的精致调味、俄罗斯的酸奶油和香草。以鸡蛋、培根、香肠为核心，创造出独特的美食体验。
+
+This cross-cultural fusion dish perfectly combines three regional cooking styles: English classic full breakfast, Shanghai's refined seasoning, and Russian sour cream and herbs. Centered around eggs, bacon, and sausages, it creates a unique culinary experience.
+
+Dieses interkulturelle Fusionsgericht vereint perfekt drei regionale Kochstile: Englisches klassisches Frühstück, Shanghais raffinierte Würzung und russischer Sauerrahm und Kräuter. Mit Eiern, Speck und Würsten im Mittelpunkt schafft es ein einzigartiges kulinarisches Erlebnis.
+
+Это межкультурное фьюжн-блюдо идеально сочетает три региональных стиля приготовления: английский классический полный завтрак, изысканная приправа Шанхая и русская сметана и травы. С яйцами, беконом и сосисками в центре создается уникальный кулинарный опыт.
+
+\vspace{0.5cm}
+
+\textit{享受烹饪！Enjoy cooking! Guten Appetit! Приятного аппетита!}
+
+\end{document}
+|
