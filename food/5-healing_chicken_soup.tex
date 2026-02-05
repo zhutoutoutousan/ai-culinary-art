@@ -1,0 +1,384 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{xeCJK} % For Chinese characters - must be loaded before babel
+\usepackage[english,german,french]{babel}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,decorations.pathmorphing,decorations.markings}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{amssymb}
+
+% Set fonts for Chinese
+% xeCJK font configuration - optimized for Overleaf
+% Primary: Noto Sans CJK SC (commonly available on Overleaf and Linux)
+\setCJKmainfont{Noto Sans CJK SC}[AutoFakeBold=true, AutoFakeSlant=true]
+\setCJKsansfont{Noto Sans CJK SC}[AutoFakeBold=true]
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
+% If Noto Sans CJK SC not available, try these alternatives:
+% Uncomment the block that works on your system:
+
+% Alternative 1: Source Han Sans (also common on Overleaf)
+% \setCJKmainfont{Source Han Sans SC}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{Source Han Sans SC}[AutoFakeBold=true]
+% \setCJKmonofont{Source Han Sans SC}
+
+% Alternative 2: Windows fonts (for local compilation on Windows)
+% \setCJKmainfont{Microsoft YaHei}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{Microsoft YaHei}[AutoFakeBold=true]
+% \setCJKmonofont{Microsoft YaHei}
+
+% Alternative 3: SimSun (Windows, older systems)
+% \setCJKmainfont{SimSun}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{SimHei}[AutoFakeBold=true]
+% \setCJKmonofont{FangSong}
+
+% Alternative 4: Mac fonts
+% \setCJKmainfont{STSong}[AutoFakeBold=true, AutoFakeSlant=true]
+% \setCJKsansfont{STHeiti}[AutoFakeBold=true]
+% \setCJKmonofont{STSong}
+
+% Set fonts for French and other languages
+% Primary: Noto Sans (supports Latin and many scripts - available on Overleaf)
+\setmainfont{Noto Sans}[
+    Ligatures=TeX,
+    Numbers=OldStyle
+]
+
+% If Noto Sans not available, try these alternatives (uncomment one):
+% \setmainfont{Liberation Sans}[Ligatures=TeX]     % Linux
+% \setmainfont{DejaVu Sans}[Ligatures=TeX]        % Cross-platform
+% \setmainfont{Times New Roman}[Ligatures=TeX]     % Windows
+% \setmainfont{Arial}[Ligatures=TeX]               % Windows
+% \setmainfont{Linux Libertine O}[Ligatures=TeX]   % Linux
+
+% Page setup
+\geometry{margin=2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% Colors
+\definecolor{chicken}{RGB}{255,200,150}
+\definecolor{broth}{RGB}{255,240,200}
+\definecolor{ginger}{RGB}{255,200,100}
+\definecolor{garlic}{RGB}{240,230,200}
+\definecolor{vegetable}{RGB}{150,200,100}
+\definecolor{pot}{RGB}{150,150,150}
+
+% Checkbox command
+\newcommand{\checkbox}{\raisebox{0.1ex}{\tikz[scale=0.5]{\draw[thick] (0,0) rectangle (0.4,0.4);}}}
+\newcommand{\checkedbox}{\raisebox{0.1ex}{\tikz[scale=0.5]{\draw[thick] (0,0) rectangle (0.4,0.4); \draw[thick] (0.1,0.2) -- (0.2,0.3) -- (0.3,0.1);}}}
+
+\title{\textbf{最简单治愈骨汤 / Simplest Healing Bone Broth / Bouillon d'Os le Plus Simple / Einfachste Heilende Knochenbrühe}\\
+\large 生病时最简单的暖心骨汤\\
+\large The Easiest Hearty Bone Broth When Sick\\
+\large Le Bouillon d'Os le Plus Simple Quand On Est Malade\\
+\large Die Einfachste Herzhafteste Knochenbrühe Wenn Man Krank Ist}
+\author{跨文化烹饪创新 / Cross-Cultural Culinary Innovation / Innovation Culinaire Interculturelle / Interkulturelle Kücheninnovation}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{引言 / Introduction / Introduction / Einleitung}
+
+当你们两人都生病时，需要最简单、最暖心的食物。这道骨汤只需要3-4样东西，几乎不需要任何准备，只需要把东西放进锅里，让它自己煮。这就是全部。温暖、营养、简单。
+
+When both of you are sick, you need the simplest, most comforting food. This bone broth needs only 3-4 things, almost no preparation—just put things in a pot and let it cook itself. That's it. Warm, nourishing, simple.
+
+Quand vous êtes tous les deux malades, vous avez besoin de la nourriture la plus simple et la plus réconfortante. Ce bouillon d'os nécessite seulement 3-4 choses, presque aucune préparation—mettez juste les choses dans une casserole et laissez cuire. C'est tout. Chaud, nourrissant, simple.
+
+Wenn Sie beide krank sind, brauchen Sie das einfachste, tröstendste Essen. Diese Knochenbrühe braucht nur 3-4 Dinge, fast keine Vorbereitung—einfach Dinge in einen Topf geben und kochen lassen. Das war's. Warm, nahrhaft, einfach.
+
+\vspace{1cm}
+
+\section*{购物清单 / Grocery List / Liste de Courses / Einkaufsliste}
+
+\begin{longtable}{|p{0.5cm}|p{4cm}|p{2cm}|p{2cm}|p{2.5cm}|}
+\hline
+\multicolumn{5}{|c|}{\textbf{食材清单 / Ingredients List / Liste des Ingrédients / Zutatenliste}} \\
+\hline
+\textbf{✓} & \textbf{食材 / Ingredient / Ingrédient / Zutat} & \textbf{数量 / Quantity / Quantité / Menge} & \textbf{用途 / Use / Utilisation / Verwendung} & \textbf{备注 / Notes / Notes / Notizen} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{✓} & \textbf{食材 / Ingredient / Ingrédient / Zutat} & \textbf{数量 / Quantity / Quantité / Menge} & \textbf{用途 / Use / Utilisation / Verwendung} & \textbf{备注 / Notes / Notes / Notizen} \\
+\hline
+\endhead
+
+\hline
+\checkbox & 带骨鸡肉 / Bone-in Chicken / Poulet avec os / Huhn mit Knochen & 500g-1kg & 主料 / Main / Principal / Hauptzutat & 鸡腿、鸡翅或整鸡 / Legs, wings, or whole / Cuisses, ailes ou entier / Schenkel, Flügel oder ganzes \\
+\hline
+\checkbox & 水 / Water / Eau / Wasser & 2-3升 / 2-3 liters / 2-3 litres / 2-3 Liter & 汤底 / Broth base / Base de bouillon / Suppenbasis & 足够覆盖鸡肉 / Enough to cover / Assez pour couvrir / Genug zum Bedecken \\
+\hline
+\checkbox & 盐 / Salt / Sel / Salz & 1-2茶匙 / 1-2 tsp / 1-2 c. à café / 1-2 TL & 调味 / Seasoning / Assaisonnement / Würzen & 最后加 / Add at end / Ajouter à la fin / Am Ende hinzufügen \\
+\hline
+\checkbox & 生姜 / Fresh Ginger / Gingembre frais / Frischer Ingwer & 2-3片 / 2-3 slices / 2-3 tranches / 2-3 Scheiben & 可选 / Optional / Optionnel / Optional & 如果有力气切 / If you have energy to cut / Si vous avez l'énergie / Falls Sie Energie haben \\
+\hline
+\end{longtable}
+
+\textit{提示：打印后可在方框内打勾 / Tip: Print and check boxes manually / Astuce : Imprimez et cochez les cases manuellement / Tipp: Drucken und Kästchen manuell ankreuzen}
+
+\textbf{就这些！/ That's it! / C'est tout! / Das war's!}
+
+\vspace{1cm}
+
+\section{食材准备 / Ingredients / Ingrédients / Zutaten}
+
+\textbf{中文 / Chinese:} 几乎不需要准备！把带骨鸡肉放进锅里，加水，如果有力气就放几片生姜。就这样。
+
+\textbf{English:} Almost no preparation! Put bone-in chicken in pot, add water, add a few ginger slices if you have energy. That's it.
+
+\textbf{Français:} Presque aucune préparation ! Mettez le poulet avec os dans la casserole, ajoutez de l'eau, ajoutez quelques tranches de gingembre si vous avez l'énergie. C'est tout.
+
+\textbf{Deutsch:} Fast keine Vorbereitung! Huhn mit Knochen in Topf geben, Wasser hinzufügen, ein paar Ingwerscheiben hinzufügen, wenn Sie Energie haben. Das war's.
+
+\section{烹饪步骤 / Cooking Steps / Étapes de Cuisson / Zubereitungsschritte}
+
+\subsection{步骤一：把所有东西放进锅里 / Step 1: Put Everything in Pot / Étape 1 : Tout Mettre dans la Casserole / Schritt 1: Alles in Topf geben}
+
+\begin{tikzpicture}[scale=0.8]
+    % Large pot
+    \draw[fill=pot,rounded corners=5pt] (0,0) rectangle (4,2);
+    \draw[fill=gray!20] (0.2,2) -- (3.8,2) -- (3.6,2.3) -- (0.4,2.3) -- cycle;
+    
+    % Water
+    \draw[fill=broth,opacity=0.7] (0.3,0.3) rectangle (3.7,1.7);
+    
+    % Chicken
+    \draw[fill=chicken,rounded corners=3pt] (1.5,0.8) ellipse (0.8 and 0.4);
+    
+    % Vegetables floating
+    \draw[fill=vegetable,rounded corners=2pt] (2.5,1.2) rectangle (3,1.4);
+    \draw[fill=orange!70,rounded corners=2pt] (0.8,1.3) rectangle (1.2,1.5);
+    
+    % Steam
+    \foreach \x in {1,1.5,2,2.5,3} {
+        \draw[gray!60,decorate,decoration={snake,amplitude=1pt,segment length=2pt}] (\x,2.4) -- (\x,2.8);
+    }
+    
+    % Heat indicator
+    \draw[fill=red!60] (2,3.2) circle (0.3);
+    \node[white,font=\tiny] at (2,3.2) {小火};
+    \node[below] at (2,2.9) {\tiny Low};
+    
+    \node[below] at (2,-0.5) {\small \textbf{Step 1: Simmer chicken and vegetables}};
+    \node[below] at (2,-1.2) {\tiny 步骤一：慢炖鸡肉和蔬菜};
+    \node[below] at (2,-1.5) {\tiny Étape 1 : Faire mijoter poulet et légumes};
+    \node[below] at (2,-1.8) {\tiny Schritt 1: Huhn und Gemüse köcheln};
+\end{tikzpicture}
+
+\textbf{中文：}把带骨鸡肉放进一个大锅里。加水，水要完全覆盖鸡肉。如果有力气，放2-3片生姜（不用切，直接扔进去）。开大火，等水开了，转小火。就这样。让它自己煮2-3小时。你可以去休息了。
+
+\textbf{English:} Put bone-in chicken in a large pot. Add water, enough to completely cover chicken. If you have energy, throw in 2-3 slices of ginger (don't even cut them, just throw them in). Turn on high heat, when it boils, turn to low heat. That's it. Let it cook itself for 2-3 hours. You can go rest.
+
+\textbf{Français:} Mettez le poulet avec os dans une grande casserole. Ajoutez de l'eau, assez pour couvrir complètement le poulet. Si vous avez l'énergie, jetez 2-3 tranches de gingembre (ne les coupez même pas, jetez-les juste). Mettez à feu vif, quand ça bout, baissez à feu doux. C'est tout. Laissez cuire 2-3 heures. Vous pouvez aller vous reposer.
+
+\textbf{Deutsch:} Huhn mit Knochen in einen großen Topf geben. Wasser hinzufügen, genug, um das Huhn vollständig zu bedecken. Wenn Sie Energie haben, werfen Sie 2-3 Ingwerscheiben hinein (schneiden Sie sie nicht einmal, werfen Sie sie einfach hinein). Bei starker Hitze anstellen, wenn es kocht, auf schwache Hitze reduzieren. Das war's. 2-3 Stunden kochen lassen. Sie können sich ausruhen.
+
+\subsection{步骤二：加盐，完成 / Step 2: Add Salt, Done / Étape 2 : Ajouter du Sel, Terminé / Schritt 2: Salz hinzufügen, fertig}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pot with broth
+    \draw[fill=pot,rounded corners=5pt] (0,0) rectangle (4,2);
+    \draw[fill=broth,opacity=0.7] (0.3,0.3) rectangle (3.7,1.7);
+    
+    % Adding ingredients
+    \node[above] at (0.8,2.3) {\tiny 生姜};
+    \draw[fill=ginger,rounded corners=2pt] (0.6,2) rectangle (1,2.2);
+    
+    \node[above] at (2,2.3) {\tiny 大蒜};
+    \draw[fill=garlic,circle] (1.9,2.1) circle (0.08);
+    
+    \node[above] at (3.2,2.3) {\tiny 香草};
+    \draw[fill=green!70] (3,2) -- (3.1,2.2) -- (3.2,2) -- cycle;
+    
+    % Steam with healing effect
+    \foreach \x in {1,2,3} {
+        \draw[green!40,decorate,decoration={snake,amplitude=1.5pt,segment length=3pt}] (\x,2.4) -- (\x,2.9);
+    }
+    
+    \node[below] at (2,-0.5) {\small \textbf{Step 2: Add healing ingredients}};
+    \node[below] at (2,-1.2) {\tiny 步骤二：加入治愈食材};
+    \node[below] at (2,-1.5) {\tiny Étape 2 : Ajouter ingrédients curatifs};
+    \node[below] at (2,-1.8) {\tiny Schritt 2: Heilende Zutaten hinzufügen};
+\end{tikzpicture}
+
+\textbf{中文：}2-3小时后，关火。加1-2茶匙盐。尝一下，不够再加。完成。把汤倒出来喝。如果想吃肉，就把肉撕下来吃。就这样。
+
+\textbf{English:} After 2-3 hours, turn off heat. Add 1-2 teaspoons salt. Taste, add more if needed. Done. Pour out the broth and drink it. If you want the meat, just pull it off and eat it. That's it.
+
+\textbf{Français:} Après 2-3 heures, éteindre le feu. Ajouter 1-2 cuillères à café de sel. Goûter, ajouter plus si nécessaire. Terminé. Verser le bouillon et le boire. Si vous voulez la viande, tirez-la simplement et mangez-la. C'est tout.
+
+\textbf{Deutsch:} Nach 2-3 Stunden Hitze ausschalten. 1-2 Teelöffel Salz hinzufügen. Probieren, bei Bedarf mehr hinzufügen. Fertig. Brühe ausgießen und trinken. Wenn Sie das Fleisch wollen, ziehen Sie es einfach ab und essen Sie es. Das war's.
+
+\subsection{步骤三：喝汤 / Step 3: Drink the Broth / Étape 3 : Boire le Bouillon / Schritt 3: Brühe trinken}
+
+\begin{tikzpicture}[scale=0.8]
+    % Pot
+    \draw[fill=pot,rounded corners=5pt] (0,0) rectangle (3,2);
+    \draw[fill=broth,opacity=0.7] (0.3,0.3) rectangle (2.7,1.7);
+    
+    % Strainer
+    \draw[fill=gray!40,rounded corners=2pt] (3.5,0.5) rectangle (5.5,1.5);
+    \draw[fill=gray!30] (3.6,0.6) rectangle (5.4,1.4);
+    
+    % Arrow
+    \draw[->,thick,blue] (3.2,1) -- (3.4,1);
+    
+    % Clean broth in bowl
+    \draw[fill=gray!20,rounded corners=10pt] (6.5,0.5) ellipse (1.2 and 0.8);
+    \draw[fill=broth,opacity=0.8,rounded corners=8pt] (6.5,0.7) ellipse (1 and 0.6);
+    
+    % Chicken pieces
+    \draw[fill=chicken,rounded corners=2pt] (5.8,1.2) ellipse (0.3 and 0.15);
+    \draw[fill=chicken,rounded corners=2pt] (7.2,1.2) ellipse (0.3 and 0.15);
+    
+    \node[below] at (4,-0.5) {\small \textbf{Step 3: Strain and separate}};
+    \node[below] at (4,-1.2) {\tiny 步骤三：过滤和分离};
+    \node[below] at (4,-1.5) {\tiny Étape 3 : Filtrer et séparer};
+    \node[below] at (4,-1.8) {\tiny Schritt 3: Abseihen und trennen};
+\end{tikzpicture}
+
+\textbf{中文：}用勺子把汤舀到杯子里或碗里。慢慢喝。如果汤里有骨头或生姜片，避开它们就行。温热的汤会温暖你的身体。如果想吃鸡肉，就用手或叉子把肉从骨头上撕下来。不需要复杂的东西。
+
+\textbf{English:} Use a spoon to ladle broth into a cup or bowl. Sip slowly. If there are bones or ginger slices in the broth, just avoid them. Warm broth will warm your body. If you want the chicken meat, just pull it off the bones with your hands or a fork. No need for anything complicated.
+
+\textbf{Français:} Utilisez une cuillère pour verser le bouillon dans une tasse ou un bol. Sirotez lentement. S'il y a des os ou des tranches de gingembre dans le bouillon, évitez-les simplement. Le bouillon chaud réchauffera votre corps. Si vous voulez la viande de poulet, tirez-la simplement des os avec vos mains ou une fourchette. Pas besoin de quelque chose de compliqué.
+
+\textbf{Deutsch:} Verwenden Sie einen Löffel, um die Brühe in eine Tasse oder Schüssel zu schöpfen. Langsam schlürfen. Wenn es Knochen oder Ingwerscheiben in der Brühe gibt, vermeiden Sie sie einfach. Warme Brühe wärmt Ihren Körper. Wenn Sie das Hühnerfleisch wollen, ziehen Sie es einfach mit den Händen oder einer Gabel von den Knochen. Keine Notwendigkeit für etwas Kompliziertes.
+
+
+\begin{tikzpicture}[scale=0.7]
+    % Bowl
+    \draw[fill=gray!20,rounded corners=15pt] (0,0) ellipse (3 and 2);
+    \draw[fill=white!95,rounded corners=12pt] (0,0.3) ellipse (2.5 and 1.7);
+    
+    % Broth
+    \draw[fill=broth,opacity=0.8,rounded corners=10pt] (0,0.5) ellipse (2.2 and 1.4);
+    
+    % Chicken pieces
+    \draw[fill=chicken,rounded corners=2pt] (-0.8,0.3) ellipse (0.4 and 0.2);
+    \draw[fill=chicken,rounded corners=2pt] (0.8,0.3) ellipse (0.4 and 0.2);
+    \draw[fill=chicken,rounded corners=2pt] (0,0.8) ellipse (0.4 and 0.2);
+    
+    % Vegetables
+    \draw[fill=orange!70,rounded corners=2pt] (-1.2,0.6) rectangle (-0.8,0.8);
+    \draw[fill=green!70,rounded corners=2pt] (1.2,0.6) rectangle (0.8,0.8);
+    
+    % Scallions on top
+    \draw[fill=green!80] (-0.3,1.2) -- (-0.2,1.4) -- (-0.1,1.2) -- cycle;
+    \draw[fill=green!80] (0.1,1.2) -- (0.2,1.4) -- (0.3,1.2) -- cycle;
+    
+    % Steam
+    \foreach \x in {-0.5,0,0.5} {
+        \draw[gray!50,decorate,decoration={snake,amplitude=1pt,segment length=2pt}] (\x,1.8) -- (\x,2.2);
+    }
+    
+    \node[below] at (0,-2.5) {\small \textbf{Step 4: Serve warm and comforting}};
+    \node[below] at (0,-3.3) {\tiny 步骤四：温暖上桌};
+    \node[below] at (0,-3.6) {\tiny Étape 4 : Servir chaud et réconfortant};
+    \node[below] at (0,-3.9) {\tiny Schritt 4: Warm und tröstend servieren};
+\end{tikzpicture}
+
+
+\vspace{1cm}
+
+\section{烹饪原理图 / Cooking Process Diagram / Diagramme du Processus de Cuisson / Zubereitungsprozess-Diagramm}
+
+\begin{tikzpicture}[scale=0.9]
+% Ingredients
+\node[draw,fill=chicken!30,rounded corners=5pt,align=center] (chicken) at (0,4) {带骨鸡肉\\Bone-in Chicken\\Poulet avec os\\Huhn mit Knochen};
+\node[draw,fill=broth!30,rounded corners=5pt,align=center] (water) at (3.6cm,5.2cm) {水\\Water\\Eau\\Wasser};
+\node[draw,fill=ginger!30,rounded corners=5pt,align=center] (ginger) at (10.4cm,5.2cm) {生姜（可选）\\Ginger (optional)\\\\Gingembre (optionnel)\\\\Ingwer (optional)};
+
+% Cooking step
+\node[draw,fill=broth!50,rounded corners=5pt,align=center] (simmer) at (3.6cm,2.0cm) {小火煮2-3小时\\Simmer 2-3h\\Mijoter 2-3h\\2-3h köcheln};
+
+% Final
+\node[draw,fill=chicken!70,rounded corners=10pt,align=center] (final) at (3.6cm,-1.6cm) {\textbf{完成！喝汤}\\\textbf{Done! Drink Broth}\\\textbf{Terminé! Boire Bouillon}\\\textbf{Fertig! Brühe trinken}};
+
+% Connections
+\draw[->,thick] (chicken) -- (simmer);
+\draw[->,thick] (water) -- (simmer);
+\draw[->,thick] (ginger) -- (simmer);
+\draw[->,thick] (simmer) -- (final);
+\end{tikzpicture}
+
+\vspace{1cm}
+
+\section{为什么这么简单？/ Why So Simple? / Pourquoi Si Simple? / Warum So Einfach?}
+
+\textbf{中文：}因为你们生病了！不需要切菜，不需要准备很多东西，不需要复杂的步骤。只需要把东西放进锅里，让它自己煮。骨头会释放出所有营养，水会变成温暖的汤。这就是全部。简单就是最好的。
+
+\textbf{English:} Because you're sick! No need to chop vegetables, no need to prepare many things, no need for complicated steps. Just put things in a pot and let it cook itself. Bones release all the nutrients, water becomes warm broth. That's it. Simple is best.
+
+\textbf{Français:} Parce que vous êtes malades ! Pas besoin de couper des légumes, pas besoin de préparer beaucoup de choses, pas besoin d'étapes compliquées. Mettez juste les choses dans une casserole et laissez cuire. Les os libèrent tous les nutriments, l'eau devient bouillon chaud. C'est tout. Simple est meilleur.
+
+\textbf{Deutsch:} Weil Sie krank sind! Keine Notwendigkeit, Gemüse zu schneiden, keine Notwendigkeit, viele Dinge vorzubereiten, keine Notwendigkeit für komplizierte Schritte. Einfach Dinge in einen Topf geben und kochen lassen. Knochen setzen alle Nährstoffe frei, Wasser wird warme Brühe. Das war's. Einfach ist am besten.
+
+\vspace{1cm}
+
+\section{小贴士 / Tips / Conseils / Tipps}
+
+\begin{itemize}
+    \item \textbf{中文：}如果你们太累了，可以买现成的带骨鸡肉，甚至可以用鸡骨架。任何带骨头的鸡肉都可以。不需要切，直接扔进锅里。
+    
+    \textbf{English:} If you're too tired, you can buy ready-made bone-in chicken, or even use chicken carcass. Any chicken with bones works. No need to cut, just throw it in the pot.
+    
+    \textbf{Français:} Si vous êtes trop fatigués, vous pouvez acheter du poulet avec os prêt, ou même utiliser une carcasse de poulet. N'importe quel poulet avec os fonctionne. Pas besoin de couper, jetez-le juste dans la casserole.
+    
+    \textbf{Deutsch:} Wenn Sie zu müde sind, können Sie fertiges Huhn mit Knochen kaufen oder sogar eine Hühnerkarkasse verwenden. Jedes Huhn mit Knochen funktioniert. Keine Notwendigkeit zu schneiden, einfach in den Topf werfen.
+    
+    \item \textbf{中文：}如果2-3小时太长，至少煮1小时也可以。时间越长，汤越浓，但1小时也能做出好汤。
+    
+    \textbf{English:} If 2-3 hours is too long, at least 1 hour works too. Longer time makes richer broth, but 1 hour still makes good broth.
+    
+    \textbf{Français:} Si 2-3 heures est trop long, au moins 1 heure fonctionne aussi. Plus de temps fait un bouillon plus riche, mais 1 heure fait encore un bon bouillon.
+    
+    \textbf{Deutsch:} Wenn 2-3 Stunden zu lang ist, funktioniert auch mindestens 1 Stunde. Längere Zeit macht reichere Brühe, aber 1 Stunde macht immer noch gute Brühe.
+    
+    \item \textbf{中文：}如果连生姜都不想切，就不放。只有鸡肉和水也可以。盐最后加，这样你可以尝一下再加。
+    
+    \textbf{English:} If you don't even want to cut ginger, don't add it. Just chicken and water works too. Add salt at the end, so you can taste and add more.
+    
+    \textbf{Français:} Si vous ne voulez même pas couper le gingembre, ne l'ajoutez pas. Juste poulet et eau fonctionne aussi. Ajoutez le sel à la fin, pour pouvoir goûter et ajouter plus.
+    
+    \textbf{Deutsch:} Wenn Sie nicht einmal Ingwer schneiden wollen, fügen Sie ihn nicht hinzu. Nur Huhn und Wasser funktioniert auch. Salz am Ende hinzufügen, damit Sie probieren und mehr hinzufügen können.
+    
+    \item \textbf{中文：}汤可以保存3-4天。一次做多一点，需要时重新加热。这样你们可以多休息，少做饭。
+    
+    \textbf{English:} Broth keeps for 3-4 days. Make more at once, reheat when needed. This way you can rest more, cook less.
+    
+    \textbf{Français:} Le bouillon se conserve 3-4 jours. Faites-en plus en une fois, réchauffez quand nécessaire. Ainsi vous pouvez vous reposer plus, cuisiner moins.
+    
+    \textbf{Deutsch:} Brühe hält 3-4 Tage. Machen Sie mehr auf einmal, wärmen Sie bei Bedarf auf. So können Sie sich mehr ausruhen, weniger kochen.
+\end{itemize}
+
+\vspace{1cm}
+
+
+
+\vspace{1cm}
+
+\section*{结语 / Conclusion / Conclusion / Schlusswort}
+
+就是这样。简单。温暖。营养。当你们生病时，这就是你们需要的全部。不需要复杂的东西，不需要很多准备，只需要把东西放进锅里，让它自己煮。然后慢慢喝汤，好好休息。照顾好自己，也照顾好彼此。
+
+That's it. Simple. Warm. Nourishing. When you're sick, this is all you need. No need for complicated things, no need for lots of preparation, just put things in a pot and let it cook itself. Then slowly drink the broth, rest well. Take care of yourselves, and take care of each other.
+
+C'est tout. Simple. Chaud. Nourrissant. Quand vous êtes malades, c'est tout ce dont vous avez besoin. Pas besoin de choses compliquées, pas besoin de beaucoup de préparation, mettez juste les choses dans une casserole et laissez cuire. Puis buvez lentement le bouillon, reposez-vous bien. Prenez soin de vous, et prenez soin l'un de l'autre.
+
+Das war's. Einfach. Warm. Nahrhaft. Wenn Sie krank sind, ist das alles, was Sie brauchen. Keine Notwendigkeit für komplizierte Dinge, keine Notwendigkeit für viel Vorbereitung, einfach Dinge in einen Topf geben und kochen lassen. Dann langsam die Brühe trinken, gut ausruhen. Kümmern Sie sich um sich selbst und kümmern Sie sich umeinander.
+
+\vspace{0.5cm}
+
+\textit{早日康复！Get well soon! Bon rétablissement! Gute Besserung!}
+
+\end{document}
